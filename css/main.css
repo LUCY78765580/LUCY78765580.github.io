@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #ffd9ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3127,4 +3127,8 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("/images/background1.jpeg");
+  background-attachment: fixed;
 }
