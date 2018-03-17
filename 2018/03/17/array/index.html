@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode,数据结构,C,array," />
+  <meta name="keywords" content="LeetCode,数据结构,C,array,总结," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
-<meta name="keywords" content="LeetCode,数据结构,C,array">
+<meta name="description" content="数据结构汇总之 array 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="keywords" content="LeetCode,数据结构,C,array,总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3Sum">
-<meta property="og:url" content="http://lucy78765580.github.io/2018/03/17/3Sum/index.html">
+<meta property="og:title" content="array">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/17/array/index.html">
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:description" content="数据结构汇总之 array 篇 原文见 仓库 good good study, day day leetcode">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-17T13:06:07.114Z">
+<meta property="og:updated_time" content="2018-03-17T17:46:17.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3Sum">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="twitter:title" content="array">
+<meta name="twitter:description" content="数据结构汇总之 array 篇 原文见 仓库 good good study, day day leetcode">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/17/3Sum/"/>
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/17/array/"/>
 
 
 
 
 
-  <title>3Sum | WakingUp's Blog</title>
+  <title>array | WakingUp's Blog</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/17/3Sum/">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/17/array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wakingup">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">3Sum</h1>
+          <h1 class="post-title" itemprop="name headline">array</h1>
         
 
         <div class="post-meta">
@@ -335,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T01:32:44+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T23:55:04+08:00">
                 2018-03-17
               </time>
             
@@ -376,8 +376,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/17/3Sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/17/3Sum/" itemprop="commentCount"></span>
+                <a href="/2018/03/17/array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/17/array/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -410,7 +410,108 @@
       
 
       
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return an array of arrays of size *returnSize.</span></span><br><span class="line"><span class="comment"> * Note: The returned array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//三数之和</span></span><br><span class="line"><span class="comment">//类似的：3Sum Cloest/4Sum/等等</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//按位操作符 &lt;&lt;</span></span><br><span class="line"><span class="comment">//a&lt;&lt;b 表示 将a转为二进制，然后左移b位（在后面添加b个0），实际上是a乘上2的b次方</span></span><br><span class="line"><span class="comment">//参考博客 http://blog.csdn.net/yinhaijing_ss/article/details/78452377</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left&gt;=right) <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i=left;</span><br><span class="line">    <span class="keyword">int</span> j=right;</span><br><span class="line">    <span class="keyword">int</span> key=nums[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i&lt;j) &#123;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;j&amp;&amp;nums[j]&gt;key) j--;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            nums[i++]=nums[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i&lt;j&amp;&amp;nums[i]&lt;key) i++;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            nums[j--]=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    nums[i]=key;</span><br><span class="line">    Quick_Sort(nums,left,i<span class="number">-1</span>);</span><br><span class="line">    Quick_Sort(nums,i+<span class="number">1</span>,right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span>** <span class="title">threeSum</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span>* returnSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (numsSize==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> total=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int</span>** res=(<span class="keyword">int</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>*)*(total));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n=<span class="number">0</span>;n&lt;total;n++) &#123;</span><br><span class="line">        res[n]=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Quick_Sort(nums,<span class="number">0</span>,numsSize<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="keyword">int</span> size=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//for循环，分为三种情况</span></span><br><span class="line">    <span class="comment">//sum==0 / sum&gt;0 / sum&lt;0</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;numsSize<span class="number">-2</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) &#123; <span class="comment">//对于nums[i],跳过相同的部分</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        j=i+<span class="number">1</span>;</span><br><span class="line">        k=numsSize<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j&lt;k) &#123;</span><br><span class="line">            sum=nums[i]+nums[j]+nums[k];  <span class="comment">//注意这个sum放置的位置，一定要放在while循环里面</span></span><br><span class="line">            <span class="keyword">if</span> (sum==<span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//检查是否重复</span></span><br><span class="line">                <span class="keyword">if</span> (size&gt;<span class="number">0</span>&amp;&amp;res[size<span class="number">-1</span>][<span class="number">0</span>]==nums[i]&amp;&amp;res[size<span class="number">-1</span>][<span class="number">1</span>]==nums[j]&amp;&amp;res[size<span class="number">-1</span>][<span class="number">2</span>]==nums[k]) &#123;</span><br><span class="line">                    j++;</span><br><span class="line">                    k--;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//检查内存并重新分配</span></span><br><span class="line">                <span class="comment">//total&lt;&lt;=1表示变为total*2的一次方（就是变为翻倍）</span></span><br><span class="line">                <span class="keyword">if</span> (size==total) &#123;</span><br><span class="line">                    total&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">                    res=(<span class="keyword">int</span>**)<span class="built_in">realloc</span>(res,<span class="keyword">sizeof</span>(<span class="keyword">int</span>*)*total);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> t=size;t&lt;total;t++) &#123;</span><br><span class="line">                        res[t]=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">3</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                res[size][<span class="number">0</span>]=nums[i];</span><br><span class="line">                res[size][<span class="number">1</span>]=nums[j];</span><br><span class="line">                res[size][<span class="number">2</span>]=nums[k];</span><br><span class="line">                size++;</span><br><span class="line"></span><br><span class="line">                j++;</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (sum&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    *returnSize=size;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>array</strong> 篇</p>
+<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
+<p>good good study, day day leetcode</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<p>数组这边的题目实在是太多了,具体归纳如下。</p>
+<p>最常见是<strong>二分查找</strong>和巧用<strong>指针</strong>，碰到了一些经典的问题比如接雨水、买股票、杨辉三角等，还有</p>
+<p>多维数组的应用中有一类用到回溯的,难也比较经典。刷leetcode在discuss板块pick up了一些奇淫巧技<br><br></p>
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/053_Maximum%20Subarray.md" target="_blank" rel="noopener">053 Maximum Subarray</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/023_Merge%20%20K%20Sorted%20Lists.md" target="_blank" rel="noopener">023  Merge k Sorted Lists</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/033_Search%20in%20Rotated%20Sorted%20Array.md" target="_blank" rel="noopener">033 Search in Rotated Sorted Array</a></li>
+<li><a href="">081 Search in Rotated Sorted Array II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/034_Search%20for%20a%20Range.md" target="_blank" rel="noopener">034 Search for a Range</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/153_Find%20Minimum%20in%20Rotated%20Sorted%20Array.md" target="_blank" rel="noopener">153 Find Minimum in Rotated Sorted Array</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/154_Find%20Minimum%20in%20Roated%20Sorted%20Array-2.md" target="_blank" rel="noopener">154 Find Minimum in Rotated Sorted Array II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/162_Find%20Peak%20Element.md" target="_blank" rel="noopener">162 Find Peak Element</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/167_Two%20Sum-2(Input%20Array%20is%20Sorted" target="_blank" rel="noopener">167 Two Sum II - Input array is sorted</a>.md)</li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/169_Majority%20Element.md" target="_blank" rel="noopener">169 Majority Element</a><br><br></li>
+</ul>
+<h3 id="用到并查集"><a href="#用到并查集" class="headerlink" title="用到并查集"></a>用到并查集</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/001_Two%20Sum.md" target="_blank" rel="noopener">001 Two Sum</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/128_Longest%20Consecutive%20Sequence.md" target="_blank" rel="noopener">128 Longest Consecutive Sequence</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/167_Two%20Sum-2(Input%20Array%20is%20Sorted" target="_blank" rel="noopener">167 Two Sum II - Input array is sorted</a>.md)</li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/169_Majority%20Element.md" target="_blank" rel="noopener">169 Majority Element</a><br><br></li>
+</ul>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/053_Maximum%20Subarray.md" target="_blank" rel="noopener">053 Maximum Subarray</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/062_Unique%20Paths.md" target="_blank" rel="noopener">062 Unique Paths</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/152_Maximum%20Product%20Subarray.md" target="_blank" rel="noopener">152 Maximum Product Subarray</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/674_Longest%20Continuous%20Increasing%20Subsequece.md" target="_blank" rel="noopener">674  Longest Continuous Increasing Subsequence</a><br><br></li>
+</ul>
+<h3 id="回溯-递归"><a href="#回溯-递归" class="headerlink" title="回溯/递归"></a>回溯/递归</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/039_Combination%20Sum.md" target="_blank" rel="noopener">039  Combination Sum</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/040_Combination%20Sum-2.md" target="_blank" rel="noopener">040  Combination Sum II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/090_Subsets.md" target="_blank" rel="noopener">090  Subsets II</a><br><br></li>
+</ul>
+<h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/045_Jump%20Game-2.md" target="_blank" rel="noopener">045  Jump Game II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/055_Jump%20Game.md" target="_blank" rel="noopener">055  Jump Game</a><br><br></li>
+</ul>
+<h3 id="快慢指针-双指针"><a href="#快慢指针-双指针" class="headerlink" title="快慢指针/双指针"></a>快慢指针/双指针</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/011_Container%20With%20Most%20Water.md" target="_blank" rel="noopener">011  Container With Most Water</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/042_Trapping%20Rain%20Water.md" target="_blank" rel="noopener">042  Trapping Rain Water</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/075_Sort%20Colors.md" target="_blank" rel="noopener">075  Sort Colors</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/167_Two%20Sum-2(Input%20Array%20is%20Sorted" target="_blank" rel="noopener">167 Two Sum II - Input array is sorted</a>.md)</li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/287_Find%20the%20Duplicate%20Number.md" target="_blank" rel="noopener">287 Find the Duplicate Number</a><br><br></li>
+</ul>
+<h3 id="涉及排序"><a href="#涉及排序" class="headerlink" title="涉及排序"></a>涉及排序</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/075_Sort%20Colors.md" target="_blank" rel="noopener">075 Sort Colors</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/015_3%20Sum.md" target="_blank" rel="noopener">015 3Sum</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/023_Merge%20%20K%20Sorted%20Lists.md" target="_blank" rel="noopener">023  Merge k Sorted Lists</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/169_Majority%20Element.md" target="_blank" rel="noopener">169 Majority Element</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/215_Kth%20Largest%20Element%20in%20an%20Array.md" target="_blank" rel="noopener">215 Kth Largest Element in an Array</a></li>
+</ul>
+<p><br></p>
+<h3 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h3><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/015_3%20Sum.md" target="_blank" rel="noopener">015  3Sum</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/016_3%20Sum%20Closest.md" target="_blank" rel="noopener">016  3Sum Closest</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/018_4%20Sum.md" target="_blank" rel="noopener">018  4Sum</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/054_Spiral%20Matrix.md" target="_blank" rel="noopener">054  Spiral Matrix</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/059_Spiral%20Matrix-2.md" target="_blank" rel="noopener">052  Spiral Matrix II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/073_Set%20Matrix%20Zeroes.md" target="_blank" rel="noopener">073  Set Matrix Zeroes</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/074_Search%20a%202D%20Matrix.md" target="_blank" rel="noopener">074  Search a 2D Matrix</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/118_Pascal&#39;s%20Triangle.md" target="_blank" rel="noopener">118  Pascal’s Triangle</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/119_Pascal&#39;s%20Triangle-2.md" target="_blank" rel="noopener">119  Pascal’s Triangle II</a><br><br></li>
+</ul>
+<h3 id="奇淫巧技"><a href="#奇淫巧技" class="headerlink" title="奇淫巧技"></a>奇淫巧技</h3><p>1、Counting Sort</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/041_First%20Missing%20Positive.md" target="_blank" rel="noopener">041 First Missing Positive</a></li>
+</ul>
+<p>2、Moore算法</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/169_Majority%20Element.md" target="_blank" rel="noopener">169 Majority Element</a></li>
+</ul>
+<p>3、Pigeonhole Principle （鸽巢原理）</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/287_Find%20the%20Duplicate%20Number.md" target="_blank" rel="noopener">287 Find the Duplicate Number</a></li>
+</ul>
+<p>4、Sliding window模型</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/643_Maximum%20Average%20Subarray.md" target="_blank" rel="noopener">643 Maximum Average Subarray I</a><br><br><br><br></li>
+</ul>
+<h3 id="其它-很多都是查找"><a href="#其它-很多都是查找" class="headerlink" title="其它(很多都是查找)"></a>其它(很多都是查找)</h3><p>买卖股票问题</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/121_Best%20Time%20to%20Buy%20and%20Sell%20Stock.md" target="_blank" rel="noopener">121  Best Time to Buy and Sell Stock</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/122_Best%20Time%20to%20Buy%20and%20Sell%20Stock-2.md" target="_blank" rel="noopener">122  Best Time to Buy and Sell Stock II</a></li>
+</ul>
+<p>其它</p>
+<ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/026_Remove%20Duplicates%20from%20Sorted%20Array.md" target="_blank" rel="noopener">026 Remove Duplicates from Sorted Array</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/080_Remove%20Duplicates%20from%20Sorted%20Array-2.md" target="_blank" rel="noopener">080 Remove Duplicates from Sorted Array II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/027_Remove%20Element.md" target="_blank" rel="noopener">027 Remove Element</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/035_Search%20Insert%20Position.md" target="_blank" rel="noopener">035 Search Insert Position</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/066_Plus%20One.md" target="_blank" rel="noopener">066 Plus One</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/283_Move%20Zeroes.md" target="_blank" rel="noopener">283  Move Zeroes</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/189_Rotate%20Array.md" target="_blank" rel="noopener">189 Rotate Array</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/array/088_Merge%20Sorted%20Array.md" target="_blank" rel="noopener">088 Merge Sorted Array</a></li>
+</ul>
+<p><br></p>
+
       
     </div>
     
@@ -427,6 +528,8 @@
           <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
         
           <a href="/tags/array/" rel="tag"><i class="fa fa-tag"></i> array</a>
+        
+          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
         
       </div>
     
@@ -455,7 +558,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://lucy78765580.github.io/2018/03/17/3Sum/" title="3Sum">http://lucy78765580.github.io/2018/03/17/3Sum/</a>
+    <a href="http://lucy78765580.github.io/2018/03/17/array/" title="array">http://lucy78765580.github.io/2018/03/17/array/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -487,8 +590,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/17/4Sum/" rel="prev" title="4Sum">
-                4Sum <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/18/linked-list/" rel="prev" title="linked list">
+                linked list <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -564,7 +676,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +698,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -650,6 +762,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找"><span class="nav-number">1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用到并查集"><span class="nav-number">2.</span> <span class="nav-text">用到并查集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">3.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯-递归"><span class="nav-number">4.</span> <span class="nav-text">回溯/递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪心"><span class="nav-number">5.</span> <span class="nav-text">贪心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快慢指针-双指针"><span class="nav-number">6.</span> <span class="nav-text">快慢指针/双指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#涉及排序"><span class="nav-number">7.</span> <span class="nav-text">涉及排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多维数组"><span class="nav-number">8.</span> <span class="nav-text">多维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇淫巧技"><span class="nav-number">9.</span> <span class="nav-text">奇淫巧技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它-很多都是查找"><span class="nav-number">10.</span> <span class="nav-text">其它(很多都是查找)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

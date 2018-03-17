@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode,数据结构,C,总结,linked list," />
 
 
 
@@ -88,16 +88,22 @@
 
 
 
-<meta name="description" content="哎呀又是新的一天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WakingUp&#39;s Blog">
-<meta property="og:url" content="http://lucy78765580.github.io/index.html">
+<meta name="description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="keywords" content="LeetCode,数据结构,C,总结,linked list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linked list">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/18/linked-list/index.html">
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
-<meta property="og:description" content="哎呀又是新的一天">
+<meta property="og:description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list005.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list006.jpg">
+<meta property="og:updated_time" content="2018-03-17T17:43:29.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WakingUp&#39;s Blog">
-<meta name="twitter:description" content="哎呀又是新的一天">
+<meta name="twitter:title" content="linked list">
+<meta name="twitter:description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg">
 
 
 
@@ -127,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://lucy78765580.github.io/"/>
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/18/linked-list/"/>
 
 
 
 
 
-  <title>WakingUp's Blog</title>
+  <title>linked list | WakingUp's Blog</title>
   
 
 
@@ -152,8 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,975 +295,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/sort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/sort/" itemprop="url">sort</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:18:00+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/sort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/sort/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>sort</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/sort/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/graph/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/graph/" itemprop="url">graph</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:10:49+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/graph/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/graph/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>graph</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/graph/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/binary-search-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/binary-search-tree/" itemprop="url">binary search tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:05:59+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/binary-search-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/binary-search-tree/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>binary search tree</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/binary-search-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/binary-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/binary-tree/" itemprop="url">binary tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:03:09+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/binary-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/binary-tree/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>binary tree</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/binary-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/queue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/queue/" itemprop="url">queue</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T00:49:27+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/queue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/queue/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>queue</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/queue/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/stack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/stack/" itemprop="url">stack</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T00:31:45+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/stack/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/stack/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>stack</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/stack/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
 
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -1288,9 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/linked-list/" itemprop="url">linked list</a></h1>
+          <h1 class="post-title" itemprop="name headline">linked list</h1>
         
 
         <div class="post-meta">
@@ -1354,169 +391,13 @@
           
 
           
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>linked list</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/linked-list/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/17/array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/17/array/" itemprop="url">array</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T23:55:04+08:00">
-                2018-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/17/array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/17/array/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
 
           
 
@@ -1533,19 +414,77 @@
       
 
       
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>array</strong> 篇</p>
+        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>linked list</strong> 篇</p>
 <p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
 <p>good good study, day day leetcode</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/17/array/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<p><br></p>
+<p>以下是关于链表的总结。</p>
+<p>原文可参考我github仓库上的文章 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/summary-LinkedList.md" target="_blank" rel="noopener">summary-LinkedList</a><br><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/summery-LinkedList-2.md" target="_blank" rel="noopener">summery-LinkedList-2</a></p>
+<h3 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h3><p>链表相对于顺序表，不需要移动数据元素，只需要修改“链”，所以在某些场合要显得更灵活</p>
+<h5 id="0、结构初始化"><a href="#0、结构初始化" class="headerlink" title="0、结构初始化"></a>0、结构初始化</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    ElementType val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="1、建立-空链表"><a href="#1、建立-空链表" class="headerlink" title="1、建立(空链表)"></a>1、建立(空链表)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">CreateEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p</span>;</span></span><br><span class="line">    p=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">    p-&gt;next=NUll;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="2、求表长"><a href="#2、求表长" class="headerlink" title="2、求表长"></a>2、求表长</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Length</span><span class="params">(struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (p) &#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="3、查找"><a href="#3、查找" class="headerlink" title="3、查找"></a>3、查找</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按照值查找</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Find</span><span class="params">(ElementType x,struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p&amp;&amp;p-&gt;val!=x)</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按照序号查找</span></span><br><span class="line"><span class="comment">//查找第k个元素,k从1开始</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">FindKth</span><span class="params">(<span class="keyword">int</span> k,struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p!=<span class="literal">NULL</span>&amp;&amp;i&lt;k) &#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i==k) <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="4、插入（在第i-1节点后面插入）"><a href="#4、插入（在第i-1节点后面插入）" class="headerlink" title="4、插入（在第i-1节点后面插入）"></a>4、插入（在第i-1节点后面插入）</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list005.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入位置分两种情况：在表头/不在表头</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1）先构造一个新节点s</span></span><br><span class="line"><span class="comment">2）找到链表第i-1个节点q</span></span><br><span class="line"><span class="comment">3）x-&gt;next=p-&gt;next;p-&gt;next=s;(不可颠倒)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Insert</span><span class="params">(struct ListNode* p,<span class="keyword">int</span> i,ElementType x)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">q</span>,<span class="title">s</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i==<span class="number">1</span>) &#123;</span><br><span class="line">        s=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">        s-&gt;val=x;</span><br><span class="line">        s-&gt;next=p;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q=FindKth(i<span class="number">-1</span>,p);</span><br><span class="line">    <span class="keyword">if</span> (q==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        s=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">        s-&gt;val=x;</span><br><span class="line">        s-&gt;next=q-&gt;next;</span><br><span class="line">        q-&gt;next=s;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="5、删除（删除链表第i个节点）"><a href="#5、删除（删除链表第i个节点）" class="headerlink" title="5、删除（删除链表第i个节点）"></a>5、删除（删除链表第i个节点）</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list006.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同理删除位置分两种：在表头/非表头</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1)首先找到第i-1个节点q</span></span><br><span class="line"><span class="comment">2)指针s指向待删除节点 s=q-&gt;next;</span></span><br><span class="line"><span class="comment">3)修改指针删除s节点   q-&gt;next=s-&gt;next;</span></span><br><span class="line"><span class="comment">4）释放s节点   free(s);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Delete</span><span class="params">(struct ListNode* p,<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">q</span>,<span class="title">s</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (p==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (i==<span class="number">1</span>) &#123;</span><br><span class="line">        s=p;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q=FindKth(i<span class="number">-1</span>,p);</span><br><span class="line">    <span class="keyword">if</span> (q==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (q-&gt;next==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        s=q-&gt;next;</span><br><span class="line">        q-&gt;next=s-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+<h3 id="二、题型归纳"><a href="#二、题型归纳" class="headerlink" title="二、题型归纳"></a>二、题型归纳</h3><h5 id="1、链表反转-翻转"><a href="#1、链表反转-翻转" class="headerlink" title="1、链表反转/翻转"></a>1、链表反转/翻转</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/206_Reverse%20Linked%20List.md" target="_blank" rel="noopener">206 Reverse Linked List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/092_Reverse%20Linked%20List-2.md" target="_blank" rel="noopener">092 Reverse Linked List II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/061_Rotate%20List.md" target="_blank" rel="noopener">061 Rotate List</a></li>
+</ul>
+<h5 id="2、链表划分-重排"><a href="#2、链表划分-重排" class="headerlink" title="2、链表划分/重排"></a>2、链表划分/重排</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/086_Partition%20List.md" target="_blank" rel="noopener">086 Partition List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/143_Reorder%20List.md" target="_blank" rel="noopener">143 Reorder List</a></li>
+</ul>
+<h5 id="3、链表合并"><a href="#3、链表合并" class="headerlink" title="3、链表合并"></a>3、链表合并</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/021_Merge%20Two%20Sorted%20Lists.md" target="_blank" rel="noopener">021 Merge Two Sorted Lists</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/023_Merge%20K%20Sorted%20Lists.md" target="_blank" rel="noopener">023 Merge K Sorted Lists</a></li>
+</ul>
+<h5 id="4、链表相交"><a href="#4、链表相交" class="headerlink" title="4、链表相交"></a>4、链表相交</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/160_Intersection%20of%20Two%20Linked%20List.md" target="_blank" rel="noopener">160 Intersection of Two Linked Lists</a></li>
+</ul>
+<h4 id="5、环形链表"><a href="#5、环形链表" class="headerlink" title="5、环形链表"></a>5、环形链表</h4><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/141_Linked%20List%20Cycle.md" target="_blank" rel="noopener">141 Linked List Cycle</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/llinked-list/142_Linked%20List%20Cycle-2.md" target="_blank" rel="noopener">142 Linked List Cycle II</a></li>
+</ul>
+<h5 id="6、奇偶链表"><a href="#6、奇偶链表" class="headerlink" title="6、奇偶链表"></a>6、奇偶链表</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/328_Odd%20Even%20Linked%20List.md" target="_blank" rel="noopener">328 Odd Even Linked List</a></li>
+</ul>
+<h5 id="7、回文链表"><a href="#7、回文链表" class="headerlink" title="7、回文链表"></a>7、回文链表</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/234_Palindrome%20Linked%20List.md" target="_blank" rel="noopener">160 Intersection of Two Linked Lists</a></li>
+</ul>
+<h5 id="8、链表去重"><a href="#8、链表去重" class="headerlink" title="8、链表去重"></a>8、链表去重</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/083_Remove%20Duplicates%20from%20Sorted%20List-2.md" target="_blank" rel="noopener">083 Remove Duplicates from Sorted List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/082_Remove%20Duplicates%20from%20Sorted%20List.md" target="_blank" rel="noopener">082 Remove Duplicates from Sorted List II</a></li>
+</ul>
+<h5 id="9、链表深度拷贝"><a href="#9、链表深度拷贝" class="headerlink" title="9、链表深度拷贝"></a>9、链表深度拷贝</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/Clinked-list/138_Copy%20List%20with%20Random%20Pointer.md" target="_blank" rel="noopener">138 Copy List with Random Pointer</a></li>
+</ul>
+<h5 id="10、链表相加"><a href="#10、链表相加" class="headerlink" title="10、链表相加"></a>10、链表相加</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/002_Add%20Two%20Numbers.md" target="_blank" rel="noopener">002 Add Two Numbers</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/445_Add%20Two%20Numbers-2.md" target="_blank" rel="noopener">445 Add Two Numbers II</a><br><br><br><br></li>
+</ul>
+<h3 id="三、技巧总结"><a href="#三、技巧总结" class="headerlink" title="三、技巧总结"></a>三、技巧总结</h3><p>1、虚拟表头</p>
+<p>2、快慢指针</p>
+<p>3、巧用数学规律</p>
+<p>4、基础操作</p>
+<p><br></p>
+
       
     </div>
     
@@ -1553,23 +492,86 @@
     
 
     
+      <div class="post-tags">
+        
+          <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+        
+          <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+        
+          <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+        
+          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
+        
+          <a href="/tags/linked-list/" rel="tag"><i class="fa fa-tag"></i> linked list</a>
+        
+      </div>
+    
 
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
     
 
     
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/18/linked-list/" title="linked list">http://lucy78765580.github.io/2018/03/18/linked-list/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/array/" rel="next" title="array">
+                <i class="fa fa-chevron-left"></i> array
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/18/stack/" rel="prev" title="stack">
+                stack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1579,14 +581,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1594,6 +593,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -1614,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1720,6 +735,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本操作"><span class="nav-number">1.</span> <span class="nav-text">一、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0、结构初始化"><span class="nav-number">1.0.1.</span> <span class="nav-text">0、结构初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、建立-空链表"><span class="nav-number">1.0.2.</span> <span class="nav-text">1、建立(空链表)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、求表长"><span class="nav-number">1.0.3.</span> <span class="nav-text">2、求表长</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、查找"><span class="nav-number">1.0.4.</span> <span class="nav-text">3、查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、插入（在第i-1节点后面插入）"><span class="nav-number">1.0.5.</span> <span class="nav-text">4、插入（在第i-1节点后面插入）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、删除（删除链表第i个节点）"><span class="nav-number">1.0.6.</span> <span class="nav-text">5、删除（删除链表第i个节点）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题型归纳"><span class="nav-number">2.</span> <span class="nav-text">二、题型归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、链表反转-翻转"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、链表反转/翻转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、链表划分-重排"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、链表划分/重排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、链表合并"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、链表合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、链表相交"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、链表相交</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、环形链表"><span class="nav-number">2.1.</span> <span class="nav-text">5、环形链表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6、奇偶链表"><span class="nav-number">2.1.1.</span> <span class="nav-text">6、奇偶链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、回文链表"><span class="nav-number">2.1.2.</span> <span class="nav-text">7、回文链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、链表去重"><span class="nav-number">2.1.3.</span> <span class="nav-text">8、链表去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、链表深度拷贝"><span class="nav-number">2.1.4.</span> <span class="nav-text">9、链表深度拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10、链表相加"><span class="nav-number">2.1.5.</span> <span class="nav-text">10、链表相加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、技巧总结"><span class="nav-number">3.</span> <span class="nav-text">三、技巧总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1894,6 +925,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

@@ -314,7 +314,7 @@ blockquote cite::before {
   padding: 0 5px;
 }
 dt {
-  font-weight: 600;
+  font-weight: 700;
 }
 dd {
   margin: 0;
@@ -1456,7 +1456,7 @@ pre .javascript .function {
 .posts-expand .post-title {
   text-align: center;
   word-break: break-word;
-  font-weight: 400;
+  font-weight: 500;
 }
 .posts-expand .post-title-link {
   display: inline-block;
@@ -1754,7 +1754,7 @@ pre .javascript .function {
   margin: 0;
   text-align: center;
   color: #222;
-  font-weight: 500;
+  font-weight: 600;
 }
 .site-description {
   margin-top: 0;
@@ -1783,7 +1783,7 @@ pre .javascript .function {
   display: block;
   text-align: center;
   color: inherit;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
 }
 .site-state-item-name {
@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6c34ff;
+  background: #da3467;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1838,7 +1838,7 @@ pre .javascript .function {
 .links-of-blogroll-title {
   margin-top: 20px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .links-of-blogroll-list {
   margin: 0;
