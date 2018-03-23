@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
 <meta property="og:description" content="这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以帮助我们方便快捷地在linux上进行编程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T17:30:41.799Z">
+<meta property="og:updated_time" content="2018-03-23T17:43:15.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim常用命令汇总">
 <meta name="twitter:description" content="这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以帮助我们方便快捷地在linux上进行编程">
@@ -488,14 +488,222 @@
 </tbody>
 </table>
 <p><br></p>
-<h3 id="保存与退出"><a href="#保存与退出" class="headerlink" title="保存与退出"></a>保存与退出</h3><p>下面的操作都比较重要，也常用到，含有!的皆有强制之意.<br>| 操作 | 含义 |<br>| :-: | - |<br>| :w（:w +filename) | 保存文件内容，但不退出vim，将内存缓冲区的数据，写入到启动vim时指定文件中。加fliename 表示保存到相应文件（后面皆是如此）|<br>| <strong>:w!</strong>（:w +filename) | 强制写（覆盖）原有文件，<strong>特别对于源文件访问权限不允许时</strong>（例如原有文件为只读文件）。仅当用户为文件的user，root不受限制。|<br>| <strong>:wq</strong> | 与:w有相同之处,<strong>保存文件内容后</strong>，退出vim |<br>|:wq!（:w +filename)     | 强制保存文件内容后，退出vim |<br>| <strong>ZZ</strong> | 功能同:wq，只需进入正常模式（Esc）<strong>后按两个Z（大写）</strong>，<strong>无需:</strong>也无需Enter |<br>| <strong>:q</strong>    | <strong>未做任何编辑处理而退出vim</strong>，可使用此命令。如果已经做过编辑，vim不允许用户使用q命令退出并抛出警告：No write since last change (:quit!overrides) |<br>| <strong>:q!</strong> | <strong>强制退出</strong>编辑器，<strong>放弃编辑处理的结果</strong>。适用于确实不需要保存文件的时候 |<br>| :f filename | 改变编辑的文件名，这时候再保存相当于另存为 |<br>| :save as filename | 另存为 |<br><br></p>
+<h3 id="保存与退出"><a href="#保存与退出" class="headerlink" title="保存与退出"></a>保存与退出</h3><p>下面的操作都比较重要，也常用到，含有!的皆有强制之意.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:w（:w +filename)</td>
+<td>保存文件内容，但不退出vim，将内存缓冲区的数据，写入到启动vim时指定文件中。加fliename 表示保存到相应文件（后面皆是如此）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:w!</strong>（:w +filename)</td>
+<td>强制写（覆盖）原有文件，<strong>特别对于源文件访问权限不允许时</strong>（例如原有文件为只读文件）。仅当用户为文件的user，root不受限制。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:wq</strong></td>
+<td>与:w有相同之处,<strong>保存文件内容后</strong>，退出vim</td>
+</tr>
+<tr>
+<td style="text-align:center">:wq!（:w +filename)</td>
+<td>强制保存文件内容后，退出vim</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>ZZ</strong></td>
+<td>功能同:wq，只需进入正常模式（Esc）<strong>后按两个Z（大写）</strong>，<strong>无需:</strong>也无需Enter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:q</strong></td>
+<td><strong>未做任何编辑处理而退出vim</strong>，可使用此命令。如果已经做过编辑，vim不允许用户使用q命令退出并抛出警告：No write since last change (:quit!overrides)</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:q!</strong></td>
+<td><strong>强制退出</strong>编辑器，<strong>放弃编辑处理的结果</strong>。适用于确实不需要保存文件的时候</td>
+</tr>
+<tr>
+<td style="text-align:center">:f filename</td>
+<td>改变编辑的文件名，这时候再保存相当于另存为</td>
+</tr>
+<tr>
+<td style="text-align:center">:save as filename</td>
+<td>另存为</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><p>在insert模式下</p>
 <ul>
 <li>按<strong>空格</strong>键，右移</li>
 <li>按<strong>退格</strong>键，左移</li>
 </ul>
-<p>vim中分段默认Enter隔开一行,<strong>正常模式</strong>下，hljk分别代表“左右下上”（注意是下上，不是上下）<br>| 命令 | 含义 |<br>| :-: | - |<br>| <strong>h</strong> | 左移 |<br>| <strong>l</strong> | 右移 |<br>| <strong>j</strong>    | <strong>下移</strong> |<br>| <strong>k</strong>    | <strong>上移</strong> |<br>| <strong>0</strong>    | 移到行首 |<br>| <strong>$</strong>    | 移到行尾 |<br>| <strong>gg</strong> | 移到<strong>文件开头</strong> |<br>| <strong>G</strong>    | 移到<strong>文件末尾</strong> |<br>| <strong>nG</strong> | 移到第n行 |<br>| n% | 移到文件n%的位置 |<br>| <strong>H</strong> | 移到当前<strong>屏幕最顶</strong>上一行 |<br>| <strong>L</strong>    | 移到当前<strong>屏幕最底</strong>下一行 |<br>| <strong>M</strong> | 移到当前<strong>屏幕最中间</strong>一行 |<br>|（    | 移到上句 |<br>| ）| 移到下句 |<br>|｛ | 移到上段 |<br>| ｝| 移到下段 |<br>| fa | 移到<strong>本行下个a</strong> |<br>| Fa | 移到<strong>本行上个a</strong> |<br>| e（E）| 移到下个单词（包括标点），光标停留在单词的末尾（若为大写忽略标点）|<br>| b（B）| 移到上个单词（包括标点），光标停留在单词首字母 （若为大写忽略标点）|<br>| Ctrl+f（forward）| 下翻一屏 |<br>| Ctrl+b（backward）| 上翻一屏 |<br>| Ctrl+d（down）| 下翻半屏 |<br>| Ctrl+ u（up）| 上翻半屏 |</p>
-<p>对于光标，当然还少不了标记。<br>标记等可以快速移动，通过Ctrl+o（后退）、Ctrl+i（前进），达到类似浏览器的功能<br>| 命令 | 含义 |<br>| :-: | - |<br>| <strong>m{a-z}</strong> | <strong>局部标记</strong>，标记光标所在位置，用于当前文件 |<br>| <strong>m{A-Z}</strong> | <strong>全局标记</strong>，标记光标所在位置。退出vim后重启，标记依然有效 |<br>| <strong>:marks</strong> | 显示所有标记 |<br>| <strong>:marks a b</strong> | 删除标记a,b |<br>| :marks a-c | 删除标记a,b,c |<br>| :marks a c-f | 删除标记a,c,d,e,f |<br>| <strong>:delmarks</strong>    | 删除缓冲区所有标记 |<br>| :help mark-motion | 查看更多关于mark的知识 |<br>| Ctrl+o | 后退回到上一个标记 |<br>| Ctrl+i | 前进前往下一个标记 |<br><br></p>
+<p>vim中分段默认Enter隔开一行,<strong>正常模式</strong>下，hljk分别代表“左右下上”（注意是下上，不是上下）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>h</strong></td>
+<td>左移</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>l</strong></td>
+<td>右移</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>j</strong></td>
+<td><strong>下移</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>k</strong></td>
+<td><strong>上移</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>0</strong></td>
+<td>移到行首</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>$</strong></td>
+<td>移到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>gg</strong></td>
+<td>移到<strong>文件开头</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>G</strong></td>
+<td>移到<strong>文件末尾</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>nG</strong></td>
+<td>移到第n行</td>
+</tr>
+<tr>
+<td style="text-align:center">n%</td>
+<td>移到文件n%的位置</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>H</strong></td>
+<td>移到当前<strong>屏幕最顶</strong>上一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>L</strong></td>
+<td>移到当前<strong>屏幕最底</strong>下一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>M</strong></td>
+<td>移到当前<strong>屏幕最中间</strong>一行</td>
+</tr>
+<tr>
+<td style="text-align:center">（</td>
+<td>移到上句</td>
+</tr>
+<tr>
+<td style="text-align:center">）</td>
+<td>移到下句</td>
+</tr>
+<tr>
+<td style="text-align:center">｛</td>
+<td>移到上段</td>
+</tr>
+<tr>
+<td style="text-align:center">｝</td>
+<td>移到下段</td>
+</tr>
+<tr>
+<td style="text-align:center">fa</td>
+<td>移到<strong>本行下个a</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Fa</td>
+<td>移到<strong>本行上个a</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">e（E）</td>
+<td>移到下个单词（包括标点），光标停留在单词的末尾（若为大写忽略标点）</td>
+</tr>
+<tr>
+<td style="text-align:center">b（B）</td>
+<td>移到上个单词（包括标点），光标停留在单词首字母 （若为大写忽略标点）</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+f（forward）</td>
+<td>下翻一屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+b（backward）</td>
+<td>上翻一屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+d（down）</td>
+<td>下翻半屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+ u（up）</td>
+<td>上翻半屏</td>
+</tr>
+</tbody>
+</table>
+<p>对于光标，当然还少不了标记。<br>标记等可以快速移动，通过Ctrl+o（后退）、Ctrl+i（前进），达到类似浏览器的功能</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>m{a-z}</strong></td>
+<td><strong>局部标记</strong>，标记光标所在位置，用于当前文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>m{A-Z}</strong></td>
+<td><strong>全局标记</strong>，标记光标所在位置。退出vim后重启，标记依然有效</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:marks</strong></td>
+<td>显示所有标记</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:marks a b</strong></td>
+<td>删除标记a,b</td>
+</tr>
+<tr>
+<td style="text-align:center">:marks a-c</td>
+<td>删除标记a,b,c</td>
+</tr>
+<tr>
+<td style="text-align:center">:marks a c-f</td>
+<td>删除标记a,c,d,e,f</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:delmarks</strong></td>
+<td>删除缓冲区所有标记</td>
+</tr>
+<tr>
+<td style="text-align:center">:help mark-motion</td>
+<td>查看更多关于mark的知识</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+o</td>
+<td>后退回到上一个标记</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+i</td>
+<td>前进前往下一个标记</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <h3 id="复制命令"><a href="#复制命令" class="headerlink" title="复制命令"></a>复制命令</h3><table>
 <thead>
 <tr>
@@ -536,8 +744,110 @@
 <li>P（大写）    在光标<strong>之前</strong>粘贴<br><br></li>
 </ul>
 <h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><p>对于ia来说，如果是小写ia，则是在<strong>当前位置</strong>的前面/后面插入，对于IA来说，则是在<strong>当前行</strong>的行首/行尾插入；</p>
-<p>对于oO来说，分别是在当前行行后/行前插入一行，注意<strong>O是行后，o是行前</strong><br>| 命令 | 含义 |<br>| :-: | - |<br>| <strong>i</strong>    | 在当前位置的前面，插入 |<br>| <strong>a</strong>    | 在当前位置的后面，插入 |<br>| <strong>I</strong>    | 在当前行的行首，插入 |<br>| <strong>A</strong>    | 在当前行的行尾，插入 |<br>| <strong>o</strong>    | 当前行<strong>行后</strong>，插入一行 |<br>| <strong>O</strong>    | 当前行<strong>行前</strong>，插入一行 |<br><br></p>
-<h3 id="删除（剪切）命令"><a href="#删除（剪切）命令" class="headerlink" title="删除（剪切）命令"></a>删除（剪切）命令</h3><p>（与上面复制，同理，多了个x而已）<br>| 命令 | 含义 |<br>| :-: | - |<br>| <strong>d</strong>    | 删除visual模式下，选中的所有内容（先切换到visual模式）|<br>| <strong>dd</strong> | 删除当前整行 |<br>| <strong>dgg</strong> | 删除光标以前所有行 |<br>| <strong>dG</strong> | 删除光标以后所有行 |<br>| d$（或者D）| 删除光标字符到行尾 |<br>| d0 | 删除光标字符到行首 |<br>| dx | 删除当前字符 |<br>| d3x（同时按）| 删除光标向后3个字符 |<br>| d[n]h | 删除光标左边  一个或多个字符 |<br>| d[n]l    | 删除光标右边  一个或多个字符 |<br>| <strong>10dd</strong> | 删除10行（包括本行）|<br>| <strong>:1,10d</strong> | 删除1-10行 |<br>| <strong>:10,$d</strong> | 删除第10行及之后的所有行 |<br>| <strong>:1,$d</strong>    | 删除所有行（即全部内容）|<br><br></p>
+<p>对于oO来说，分别是在当前行行后/行前插入一行，注意<strong>O是行后，o是行前</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>i</strong></td>
+<td style="text-align:center">在当前位置的前面，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>a</strong></td>
+<td style="text-align:center">在当前位置的后面，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>I</strong></td>
+<td style="text-align:center">在当前行的行首，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:center">在当前行的行尾，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>o</strong></td>
+<td style="text-align:center">当前行<strong>行后</strong>，插入一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>O</strong></td>
+<td style="text-align:center">当前行<strong>行前</strong>，插入一行</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="删除（剪切）命令"><a href="#删除（剪切）命令" class="headerlink" title="删除（剪切）命令"></a>删除（剪切）命令</h3><p>（与上面复制，同理，多了个x而已）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>d</strong></td>
+<td>删除visual模式下，选中的所有内容（先切换到visual模式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dd</strong></td>
+<td>删除当前整行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dgg</strong></td>
+<td>删除光标以前所有行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dG</strong></td>
+<td>删除光标以后所有行</td>
+</tr>
+<tr>
+<td style="text-align:center">d$（或者D）</td>
+<td>删除光标字符到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">d0</td>
+<td>删除光标字符到行首</td>
+</tr>
+<tr>
+<td style="text-align:center">dx</td>
+<td>删除当前字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d3x（同时按）</td>
+<td>删除光标向后3个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d[n]h</td>
+<td>删除光标左边  一个或多个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d[n]l</td>
+<td>删除光标右边  一个或多个字符</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>10dd</strong></td>
+<td>删除10行（包括本行）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:1,10d</strong></td>
+<td>删除1-10行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:10,$d</strong></td>
+<td>删除第10行及之后的所有行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:1,$d</strong></td>
+<td>删除所有行（即全部内容）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <h3 id="撤销与恢复"><a href="#撤销与恢复" class="headerlink" title="撤销与恢复"></a>撤销与恢复</h3><p>在正常模式下</p>
 <table>
 <thead>
@@ -762,56 +1072,7 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h3 id="编辑特殊文件"><a href="#编辑特殊文件" class="headerlink" title="编辑特殊文件"></a>编辑特殊文件</h3><p>1）文件加密，终端中输入：</p>
-<ul>
-<li>vim -x filename ，打开一个加密文件，vim会自动弹出，设置密码</li>
-<li>:X    为当前文件设置密码</li>
-<li>:set key= 为当前文件解除密码</li>
-</ul>
-<p>2）文件格式<br>一般有三种：unix,dos,mac<br>区别（主要是回车键的编码）:dos是回车+换行，unix只有换行符，mac只有回车符</p>
-<ul>
-<li>:set ff(fileformat)    显示当前文件格式</li>
-<li>:e ++ff=dos/mac/unix filename    让vim以dos/mac/unix形式打开 filename 这个文件</li>
-<li>:w ++ff=dos/mac/unix filename    让vim以dos/mac/unix形式 存储filename这个文件<br>在vimrc中添加set fileformats=unix,dos,mac，让vim自动识别文件格式。</li>
-</ul>
-<p>3）文件编码</p>
-<ul>
-<li>:set fenc（或者fileencoding）    查看当前文件的编码</li>
-<li>:e ++enc=utf-8 filename    让vim用utf-8的编码 打开文件 filename</li>
-<li>:w ++enc=gbk filename    让vim用gbk的编码 保存问价 filename<br><br></li>
-</ul>
-<h3 id="排版命令"><a href="#排版命令" class="headerlink" title="排版命令"></a>排版命令</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>&lt;&lt;</strong></td>
-<td>向左缩进</td>
-</tr>
-<tr>
-<td><strong>&gt;&gt;</strong></td>
-<td>向右缩进</td>
-</tr>
-<tr>
-<td>:ce(nter)</td>
-<td>本行文字居中</td>
-</tr>
-<tr>
-<td>:le(ft)</td>
-<td>本行文字左对齐</td>
-</tr>
-<tr>
-<td>:ri(ght)</td>
-<td>本行文字右对齐</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
+<p><br><br><br></p>
 <p>参考博客1：<a href="http://blog.csdn.net/scaleqiao/article/details/45153379" target="_blank" rel="noopener">http://blog.csdn.net/scaleqiao/article/details/45153379</a></p>
 <p>参考博客2：<a href="http://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html" target="_blank" rel="noopener">http://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html</a></p>
 
@@ -1067,7 +1328,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的几种模式"><span class="nav-number">1.</span> <span class="nav-text">vim的几种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动vim"><span class="nav-number">2.</span> <span class="nav-text">启动vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存与退出"><span class="nav-number">3.</span> <span class="nav-text">保存与退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光标移动"><span class="nav-number">4.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制命令"><span class="nav-number">5.</span> <span class="nav-text">复制命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粘贴命令"><span class="nav-number">6.</span> <span class="nav-text">粘贴命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入命令"><span class="nav-number">7.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除（剪切）命令"><span class="nav-number">8.</span> <span class="nav-text">删除（剪切）命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销与恢复"><span class="nav-number">9.</span> <span class="nav-text">撤销与恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找命令"><span class="nav-number">10.</span> <span class="nav-text">查找命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口命令"><span class="nav-number">11.</span> <span class="nav-text">窗口命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多窗口中的文件命令"><span class="nav-number">11.0.1.</span> <span class="nav-text">多窗口中的文件命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口位置"><span class="nav-number">11.0.2.</span> <span class="nav-text">调整窗口位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口大小"><span class="nav-number">11.0.3.</span> <span class="nav-text">调整窗口大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小窗口的关闭"><span class="nav-number">11.0.4.</span> <span class="nav-text">小窗口的关闭</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑特殊文件"><span class="nav-number">12.</span> <span class="nav-text">编辑特殊文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排版命令"><span class="nav-number">13.</span> <span class="nav-text">排版命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的几种模式"><span class="nav-number">1.</span> <span class="nav-text">vim的几种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动vim"><span class="nav-number">2.</span> <span class="nav-text">启动vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存与退出"><span class="nav-number">3.</span> <span class="nav-text">保存与退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光标移动"><span class="nav-number">4.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制命令"><span class="nav-number">5.</span> <span class="nav-text">复制命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粘贴命令"><span class="nav-number">6.</span> <span class="nav-text">粘贴命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入命令"><span class="nav-number">7.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除（剪切）命令"><span class="nav-number">8.</span> <span class="nav-text">删除（剪切）命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销与恢复"><span class="nav-number">9.</span> <span class="nav-text">撤销与恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找命令"><span class="nav-number">10.</span> <span class="nav-text">查找命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口命令"><span class="nav-number">11.</span> <span class="nav-text">窗口命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多窗口中的文件命令"><span class="nav-number">11.0.1.</span> <span class="nav-text">多窗口中的文件命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口位置"><span class="nav-number">11.0.2.</span> <span class="nav-text">调整窗口位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口大小"><span class="nav-number">11.0.3.</span> <span class="nav-text">调整窗口大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小窗口的关闭"><span class="nav-number">11.0.4.</span> <span class="nav-text">小窗口的关闭</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
