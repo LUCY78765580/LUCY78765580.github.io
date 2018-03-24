@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lucy78765580.github.io/"/>
-  <updated>2018-03-23T17:43:15.801Z</updated>
+  <updated>2018-03-24T08:43:58.890Z</updated>
   <id>http://lucy78765580.github.io/</id>
   
   <author>
@@ -15,6 +15,91 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux基础之文件与目录管理</title>
+    <link href="http://lucy78765580.github.io/2018/03/24/Linux%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/"/>
+    <id>http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/</id>
+    <published>2018-03-24T08:43:58.000Z</published>
+    <updated>2018-03-24T08:43:58.890Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>数据结构汇总之 <strong> </strong> 篇</p><p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p><p>good good study, day day leetcode</p></blockquote><a id="more"></a><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;数据结构汇总之 &lt;strong&gt; &lt;/strong&gt; 篇&lt;/p&gt;
+&lt;p&gt;原文见 &lt;a href=&quot;https://github.com/LUCY78765580/Day-Day-Leetcode&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;仓库&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;good good study, day day leetcode&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="http://lucy78765580.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="LeetCode" scheme="http://lucy78765580.github.io/tags/LeetCode/"/>
+    
+      <category term="数据结构" scheme="http://lucy78765580.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="C" scheme="http://lucy78765580.github.io/tags/C/"/>
+    
+      <category term="总结" scheme="http://lucy78765580.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux基础(2) — 文件权限和目录配置</title>
+    <link href="http://lucy78765580.github.io/2018/03/24/Linux%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E5%92%8C%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/"/>
+    <id>http://lucy78765580.github.io/2018/03/24/Linux基础之文件权限和目录配置/</id>
+    <published>2018-03-24T06:38:48.000Z</published>
+    <updated>2018-03-24T08:40:09.206Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>这一篇比较重要的是理解用户/用户组</p><p>以及学会修改文件属性和权限</p><p>不得不说linux的东西有点多呀</p></blockquote><a id="more"></a><h3 id="用户与用户组"><a href="#用户与用户组" class="headerlink" title="用户与用户组"></a>用户与用户组</h3><p>Linux是一个多<strong>用户、多任务</strong>的系统，这样设置主要是可以考虑到每一个人的隐私和每个人喜好的工作环境，通过设置用户和用户组，大大方便了团队开发。</p><blockquote><p><strong>用户</strong>概念(User): 由于王家三人各自拥有自己的房间，所以王二毛虽然可以进入王三毛的房间，但是王二毛不可以翻王三毛的抽屉，因为抽屉里面可能有三毛自己私人的东西，例如情书、日记等。</p></blockquote><blockquote><p><strong>用户组</strong>概念(Group)：由于共同拥有客厅，三兄弟可以 在客厅打开电视机、看报纸、喝茶等，只要是客厅里的东西，都可以使用，因为大家都是一家人嘛</p></blockquote><blockquote><p><strong>其它人</strong>(Others)：有一个人叫张小诸，他是张家的人和王家是没有一点关系的。这时除非王家有人认识张小猪，开门让其进入王家，否则张小猪永远没有办法进入王家，更不用说进入到王三毛的房间了</p></blockquote><blockquote><p><strong>万能的天神</strong>(root)：天神具有无限的神力，可以到达任何他想去的地方。</p></blockquote><p>以上摘自《鸟哥Linux的私房菜》，我觉得比喻得很恰当。</p><p>那个“王家”就是所谓的<strong>用户组</strong>，三兄弟可以看做<strong>3个用户</strong>。这3个用户当然在同一个组里面，但是各自的用户可以通过<strong>设置权限</strong>，保留一部分“私人空间”，而共享的部分大家都可以使用。张小猪不属于张家这个用户组，所以只能是“<strong>Others</strong>”。至于“天神”，即为Linux中<strong>root</strong>，具有系统最高使用权限。<br><br></p><h3 id="文件权限定义"><a href="#文件权限定义" class="headerlink" title="文件权限定义"></a>文件权限定义</h3><p>如下图所示</p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1001.jpg" alt=""></p><h5 id="第一列代表文件类型与权限"><a href="#第一列代表文件类型与权限" class="headerlink" title="第一列代表文件类型与权限"></a>第一列代表文件类型与权限</h5><p>  第一个字符表示为“目录/文件/链接文件”等</p><ul><li>[d]表示此为目录</li><li>[-]表示是文件</li><li>[l]表示是连接文件（linkfile）</li><li>[b]表示设备文件里的可供存储的接口设备</li><li><p>[c]表示设备文件里的串行接口设备（键盘/鼠标等）</p><p>接着每三个为一组，均为“rwx”的组合，[r]代表可读，[w]代表可写，[x]代表可执行</p></li><li>第一组是 <strong>文件所有者</strong>的权限</li><li>第二组是 所在的同一个<strong>用户组</strong>的权限</li><li>第三组是 其它<strong>非本用户组</strong>的权限</li></ul><h5 id="第二列"><a href="#第二列" class="headerlink" title="第二列"></a>第二列</h5><p>  表示有多少文件名连接到此节点（i-node）</p><h5 id="第三列"><a href="#第三列" class="headerlink" title="第三列"></a>第三列</h5><p>  文件所属的<strong>用户组</strong></p><h5 id="第四列"><a href="#第四列" class="headerlink" title="第四列"></a>第四列</h5><p>  文件（或目录）的<strong>所有账户者</strong></p><h5 id="第五列"><a href="#第五列" class="headerlink" title="第五列"></a>第五列</h5><p>  文件大小</p><h5 id="第六列"><a href="#第六列" class="headerlink" title="第六列"></a>第六列</h5><p>  文件创建时间</p><h5 id="第七列"><a href="#第七列" class="headerlink" title="第七列"></a>第七列</h5><p>  代表文件名<br><br></p><h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><p>主要用到三个命令：chgrp/chown/chmod</p><h5 id="chgrp-改变文件所属用户组"><a href="#chgrp-改变文件所属用户组" class="headerlink" title="chgrp 改变文件所属用户组"></a>chgrp 改变文件所属用户组</h5><p>格式：chgrp [-R]  【用户组】 dirname/filename</p><p>其中-R，表示recursive，进行递归的持续更新，即<strong>连同子目录下的所有文件、目录</strong>。同时要注意，仅仅当所改的用户组组名已经在/etc/group文件内存在才行。</p><p>如下图所示，不过在本机中，只有root权限下才有更改用户组的权限，所以要先切换到root权限<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chgrp001.jpg" alt=""></p><h5 id="chown-改变文件所有者"><a href="#chown-改变文件所有者" class="headerlink" title="chown 改变文件所有者"></a>chown 改变文件所有者</h5><p>同理，仅仅当所改的用户已经在系统中存在才行<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chown001.jpg" alt=""></p><h5 id="chmod-改变文件权限"><a href="#chmod-改变文件权限" class="headerlink" title="chmod 改变文件权限"></a>chmod 改变文件权限</h5><p>权限的设置有两种：一种是符号，一种是数字</p><ul><li><strong>数字</strong>：r(4),w(2),x(1),由此可将三组各自累加。比如[-rwxrwx—],owner=rwx=4+2+1=7,group=rwx=4+2+1=7,others=—=0+0+0=0.文件的<strong>数字权限就是770</strong></li><li><strong>符号</strong>：u,g,o,a分别代表owner/group/others/all；+,-,=分别代表加入/减去/设置为；可以与r,w,x进行组合，进而修改权限。比如 chmod u=rwx,go+x filename</li></ul><p>如图所示</p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chmod002.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chmod003.jpg" alt=""><br><br></p><h3 id="Linux目录配置（FHS）"><a href="#Linux目录配置（FHS）" class="headerlink" title="Linux目录配置（FHS）"></a>Linux目录配置（FHS）</h3><p>总的来说，linux的目录配置是按照FHS标准来的。不过这里搞得有点晕了，内容太多，</p><p>本着<strong>抓大放小</strong>的原则，暂且先略过。有关目录树，网上找到一张图如下。</p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-FHS001.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;这一篇比较重要的是理解用户/用户组&lt;/p&gt;
+&lt;p&gt;以及学会修改文件属性和权限&lt;/p&gt;
+&lt;p&gt;不得不说linux的东西有点多呀&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lucy78765580.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://lucy78765580.github.io/tags/Linux/"/>
+    
+      <category term="运维" scheme="http://lucy78765580.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux基础（1）— 初见Linux</title>
+    <link href="http://lucy78765580.github.io/2018/03/24/Linux%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%88%9D%E8%A7%81Linux/"/>
+    <id>http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/</id>
+    <published>2018-03-24T03:48:04.000Z</published>
+    <updated>2018-03-24T07:40:04.146Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>这一篇讲初见linux的几个命令</p><p>主要是开关机和man page</p><p>整理知识体系还是挺重要的</p></blockquote><a id="more"></a><p>linux的下载安装就暂且略过，网上的教程已经有很多了。</p><p>整个章节可以概括如下，嘿嘿<strong>思维导图</strong>真是个好东西！</p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1001.jpg" alt=""><br>&lt;br</p><h3 id="几个基础命令"><a href="#几个基础命令" class="headerlink" title="几个基础命令"></a>几个基础命令</h3><h5 id="cal-显示日历"><a href="#cal-显示日历" class="headerlink" title="cal 显示日历"></a>cal 显示日历</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-001.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-002.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-003.jpg" alt=""></p><h5 id="date-显示日期"><a href="#date-显示日期" class="headerlink" title="date 显示日期"></a>date 显示日期</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-date-001.jpg" alt=""></p><h5 id="bc-显示计算器"><a href="#bc-显示计算器" class="headerlink" title="bc 显示计算器"></a>bc 显示计算器</h5><p>进入计算器用bc,<strong>退出计算器用quit</strong><br>bc计算器一般默认小数点后0位小数，做除法时，可以设置<strong>scale=x</strong>,x为小数点后保留多少位小数<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-bc-001.jpg" alt=""></p><p><br></p><h3 id="几个重要热键"><a href="#几个重要热键" class="headerlink" title="几个重要热键"></a>几个重要热键</h3><h5 id="【Tab】-命令补全"><a href="#【Tab】-命令补全" class="headerlink" title="【Tab】 命令补全"></a>【Tab】 命令补全</h5><h5 id="【Ctrl】-C-让当前程序停掉"><a href="#【Ctrl】-C-让当前程序停掉" class="headerlink" title="【Ctrl】+C 让当前程序停掉"></a>【Ctrl】+C 让当前程序停掉</h5><h5 id="【Ctrl】-d-键盘输入结束，用于取代exit"><a href="#【Ctrl】-d-键盘输入结束，用于取代exit" class="headerlink" title="【Ctrl】+d 键盘输入结束，用于取代exit"></a>【Ctrl】+d 键盘输入结束，用于取代exit</h5><h3 id="man-page"><a href="#man-page" class="headerlink" title="man page"></a>man page</h3><h5 id="man-命令"><a href="#man-命令" class="headerlink" title="man+命令"></a>man+命令</h5><p>利用man+命令 可以查询各个linux命令的具体功能，总体来说是非常强大的</p><p>比如 <strong>man+bc</strong><br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-001.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-002.jpg" alt=""></p><p>又比如 <strong>man+cal</strong></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-003.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-004.jpg" alt=""></p><h5 id="man-page-界面中的按键"><a href="#man-page-界面中的按键" class="headerlink" title="man page 界面中的按键"></a>man page 界面中的按键</h5><table><thead><tr><th style="text-align:center">命令</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center">空格键</td><td>向下翻一页</td></tr><tr><td style="text-align:center"><strong>【Page Down】</strong></td><td>向下翻一页</td></tr><tr><td style="text-align:center"><strong>【Page Up】</strong></td><td>向上翻一页</td></tr><tr><td style="text-align:center">【Home】</td><td>去到第一页</td></tr><tr><td style="text-align:center">【End】</td><td>去到最后一页</td></tr><tr><td style="text-align:center"><strong>/string</strong></td><td>向下查询string字符串</td></tr><tr><td style="text-align:center"><strong>?string</strong></td><td>向上查询string字符串</td></tr><tr><td style="text-align:center">n,N</td><td>利用/或者?来查询字符串的时候，可以用n进行正向查询，N进行反向查询</td></tr><tr><td style="text-align:center"><strong>q</strong></td><td>结束这次的man page</td></tr></tbody></table><h5 id="man-f-man"><a href="#man-f-man" class="headerlink" title="man -f man"></a>man -f man</h5><p>利用 <strong>man -f man</strong>命令可以查询所有与man有关的man page,</p><p>如下展示有1、7两个man page,可以分别用 <strong>man 1 man</strong>,<strong>man 7 man</strong>命令打开</p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man001.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man002.jpg" alt=""></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man003.jpg" alt=""></p><h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><h5 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h5><p>Synchronize的缩写，意思是同步，用于<strong>关机或者重新启动</strong>前，</p><p><strong>特别注意将内存中尚未被更新的数据，写入硬盘</strong></p><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-sync001.jpg" alt=""></p><h5 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h5><p>格式：shutdown  【-t 秒】【-hrknfFc】 时间【警告信息】<br>注意这里的时间，是一定要加入的参数,比如-t 后面接秒数，表示“过几秒关机之意”</p><table><thead><tr><th style="text-align:center">参数</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center"><strong>shutdown -h</strong></td><td>系统服务停掉后，立即<strong>关机</strong>（常用）</td></tr><tr><td style="text-align:center"><strong>shutdown -r</strong></td><td>系统服务停掉后，关机并<strong>重启</strong>（常用）</td></tr><tr><td style="text-align:center"><strong>shutdown -c</strong></td><td><strong>取消已经在进行的shutdown指令内容</strong></td></tr><tr><td style="text-align:center">shutdown -k</td><td><strong>不是真的关机</strong>，只是将警告发出去</td></tr><tr><td style="text-align:center">shutdown -n</td><td>不经过init程序，直接以shutdown功能关机</td></tr><tr><td style="text-align:center">shutdown -f</td><td>系统关机并开机后，强制略过fsck的磁盘检查</td></tr><tr><td style="text-align:center">shutdown -F</td><td>系统重新启动后，强制进行fsck的磁盘检查</td></tr></tbody></table><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-shutdown001.jpg" alt=""></p><p>这个例子就表示，这台机器将在10分钟后关机，上下两种写法效果都是一样的</p><table><thead><tr><th style="text-align:center">命令举例</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center">shutdown -h now</td><td>立刻关机，now相当于时间为0的状态</td></tr><tr><td style="text-align:center">shutdown -r now</td><td>立刻重启</td></tr><tr><td style="text-align:center">shutdown -h 20:25</td><td>系统在今天的20:35会关机，<strong>如果是20:35之后</strong>才执行命令，则是<strong>隔天</strong>（明天）20:35才关机</td></tr><tr><td style="text-align:center">shutdown -h +10</td><td>十分钟之后系统自动关机</td></tr><tr><td style="text-align:center">shutdown -r +30 ‘The system will reboot’</td><td>30分钟后系统重启，并<strong>显示后面的信息给所有在线用户</strong></td></tr><tr><td style="text-align:center">shutdown -k now ‘The system will reboot’</td><td>吓唬人的，仅仅是发出警告，实际上并不会重启</td></tr></tbody></table><h5 id="reboot-halt-poweroff"><a href="#reboot-halt-poweroff" class="headerlink" title="reboot/halt/poweroff"></a>reboot/halt/poweroff</h5><p>这些命令和shutdown都有相似之处，具体就先不赘述，可以通过man命令查询使用</p><h5 id="init"><a href="#init" class="headerlink" title="init"></a>init</h5><table><thead><tr><th style="text-align:center">命令</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center"><strong>init 0</strong></td><td>关机</td></tr><tr><td style="text-align:center"><strong>init 6</strong></td><td>重启</td></tr><tr><td style="text-align:center">init 3</td><td>纯命令行模式</td></tr><tr><td style="text-align:center">init 5</td><td>含有图形界面模式</td></tr></tbody></table><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;这一篇讲初见linux的几个命令&lt;/p&gt;
+&lt;p&gt;主要是开关机和man page&lt;/p&gt;
+&lt;p&gt;整理知识体系还是挺重要的&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lucy78765580.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://lucy78765580.github.io/tags/Linux/"/>
+    
+      <category term="运维" scheme="http://lucy78765580.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim常用命令汇总</title>
@@ -200,9 +285,9 @@
     
       <category term="C" scheme="http://lucy78765580.github.io/tags/C/"/>
     
-      <category term="binary tree" scheme="http://lucy78765580.github.io/tags/binary-tree/"/>
-    
       <category term="总结" scheme="http://lucy78765580.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="binary tree" scheme="http://lucy78765580.github.io/tags/binary-tree/"/>
     
   </entry>
   

@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux基础之文件与目录管理]]></title>
+    <url>%2F2018%2F03%2F24%2FLinux%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[数据结构汇总之 篇 原文见 仓库 good good study, day day leetcode]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数据结构</tag>
+        <tag>C</tag>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux基础(2) — 文件权限和目录配置]]></title>
+    <url>%2F2018%2F03%2F24%2FLinux%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E5%92%8C%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[这一篇比较重要的是理解用户/用户组 以及学会修改文件属性和权限 不得不说linux的东西有点多呀 用户与用户组Linux是一个多用户、多任务的系统，这样设置主要是可以考虑到每一个人的隐私和每个人喜好的工作环境，通过设置用户和用户组，大大方便了团队开发。 用户概念(User): 由于王家三人各自拥有自己的房间，所以王二毛虽然可以进入王三毛的房间，但是王二毛不可以翻王三毛的抽屉，因为抽屉里面可能有三毛自己私人的东西，例如情书、日记等。 用户组概念(Group)：由于共同拥有客厅，三兄弟可以 在客厅打开电视机、看报纸、喝茶等，只要是客厅里的东西，都可以使用，因为大家都是一家人嘛 其它人(Others)：有一个人叫张小诸，他是张家的人和王家是没有一点关系的。这时除非王家有人认识张小猪，开门让其进入王家，否则张小猪永远没有办法进入王家，更不用说进入到王三毛的房间了 万能的天神(root)：天神具有无限的神力，可以到达任何他想去的地方。 以上摘自《鸟哥Linux的私房菜》，我觉得比喻得很恰当。 那个“王家”就是所谓的用户组，三兄弟可以看做3个用户。这3个用户当然在同一个组里面，但是各自的用户可以通过设置权限，保留一部分“私人空间”，而共享的部分大家都可以使用。张小猪不属于张家这个用户组，所以只能是“Others”。至于“天神”，即为Linux中root，具有系统最高使用权限。 文件权限定义如下图所示 第一列代表文件类型与权限 第一个字符表示为“目录/文件/链接文件”等 [d]表示此为目录 [-]表示是文件 [l]表示是连接文件（linkfile） [b]表示设备文件里的可供存储的接口设备 [c]表示设备文件里的串行接口设备（键盘/鼠标等） 接着每三个为一组，均为“rwx”的组合，[r]代表可读，[w]代表可写，[x]代表可执行 第一组是 文件所有者的权限 第二组是 所在的同一个用户组的权限 第三组是 其它非本用户组的权限 第二列 表示有多少文件名连接到此节点（i-node） 第三列 文件所属的用户组 第四列 文件（或目录）的所有账户者 第五列 文件大小 第六列 文件创建时间 第七列 代表文件名 修改文件权限主要用到三个命令：chgrp/chown/chmod chgrp 改变文件所属用户组格式：chgrp [-R] 【用户组】 dirname/filename 其中-R，表示recursive，进行递归的持续更新，即连同子目录下的所有文件、目录。同时要注意，仅仅当所改的用户组组名已经在/etc/group文件内存在才行。 如下图所示，不过在本机中，只有root权限下才有更改用户组的权限，所以要先切换到root权限 chown 改变文件所有者同理，仅仅当所改的用户已经在系统中存在才行 chmod 改变文件权限权限的设置有两种：一种是符号，一种是数字 数字：r(4),w(2),x(1),由此可将三组各自累加。比如[-rwxrwx—],owner=rwx=4+2+1=7,group=rwx=4+2+1=7,others=—=0+0+0=0.文件的数字权限就是770 符号：u,g,o,a分别代表owner/group/others/all；+,-,=分别代表加入/减去/设置为；可以与r,w,x进行组合，进而修改权限。比如 chmod u=rwx,go+x filename 如图所示 Linux目录配置（FHS）总的来说，linux的目录配置是按照FHS标准来的。不过这里搞得有点晕了，内容太多， 本着抓大放小的原则，暂且先略过。有关目录树，网上找到一张图如下。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux基础（1）— 初见Linux]]></title>
+    <url>%2F2018%2F03%2F24%2FLinux%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%88%9D%E8%A7%81Linux%2F</url>
+    <content type="text"><![CDATA[这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的 linux的下载安装就暂且略过，网上的教程已经有很多了。 整个章节可以概括如下，嘿嘿思维导图真是个好东西！ &lt;br 几个基础命令cal 显示日历 date 显示日期 bc 显示计算器进入计算器用bc,退出计算器用quitbc计算器一般默认小数点后0位小数，做除法时，可以设置scale=x,x为小数点后保留多少位小数 几个重要热键【Tab】 命令补全【Ctrl】+C 让当前程序停掉【Ctrl】+d 键盘输入结束，用于取代exitman pageman+命令利用man+命令 可以查询各个linux命令的具体功能，总体来说是非常强大的 比如 man+bc 又比如 man+cal man page 界面中的按键 命令 含义 空格键 向下翻一页 【Page Down】 向下翻一页 【Page Up】 向上翻一页 【Home】 去到第一页 【End】 去到最后一页 /string 向下查询string字符串 ?string 向上查询string字符串 n,N 利用/或者?来查询字符串的时候，可以用n进行正向查询，N进行反向查询 q 结束这次的man page man -f man利用 man -f man命令可以查询所有与man有关的man page, 如下展示有1、7两个man page,可以分别用 man 1 man,man 7 man命令打开 开关机syncSynchronize的缩写，意思是同步，用于关机或者重新启动前， 特别注意将内存中尚未被更新的数据，写入硬盘 shutdown格式：shutdown 【-t 秒】【-hrknfFc】 时间【警告信息】注意这里的时间，是一定要加入的参数,比如-t 后面接秒数，表示“过几秒关机之意” 参数 含义 shutdown -h 系统服务停掉后，立即关机（常用） shutdown -r 系统服务停掉后，关机并重启（常用） shutdown -c 取消已经在进行的shutdown指令内容 shutdown -k 不是真的关机，只是将警告发出去 shutdown -n 不经过init程序，直接以shutdown功能关机 shutdown -f 系统关机并开机后，强制略过fsck的磁盘检查 shutdown -F 系统重新启动后，强制进行fsck的磁盘检查 这个例子就表示，这台机器将在10分钟后关机，上下两种写法效果都是一样的 命令举例 含义 shutdown -h now 立刻关机，now相当于时间为0的状态 shutdown -r now 立刻重启 shutdown -h 20:25 系统在今天的20:35会关机，如果是20:35之后才执行命令，则是隔天（明天）20:35才关机 shutdown -h +10 十分钟之后系统自动关机 shutdown -r +30 ‘The system will reboot’ 30分钟后系统重启，并显示后面的信息给所有在线用户 shutdown -k now ‘The system will reboot’ 吓唬人的，仅仅是发出警告，实际上并不会重启 reboot/halt/poweroff这些命令和shutdown都有相似之处，具体就先不赘述，可以通过man命令查询使用 init 命令 含义 init 0 关机 init 6 重启 init 3 纯命令行模式 init 5 含有图形界面模式]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vim常用命令汇总]]></title>
     <url>%2F2018%2F03%2F23%2FVim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB%2F</url>
     <content type="text"><![CDATA[这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以帮助我们方便快捷地在linux上进行编程 命令历史以：和/开头的都有历史记录，可以首先键入：或/后按上下键来选择历史命令 vim的几种模式 模式 进入操作 左下角显示 正常 可按Esc（或接着: ）进入命令行 文件名或为空 插入 正常模式下，按 i,o,a（或者大写）进入 – INSERT – 可视 正常模式下，按v可以进入 – VISUAL – 视行 正常模式下，整行整行选中，然后按 Ctrl+v可以进入 – VISUAL BLOCK – 替换 正常模式下（按Esc），按R进入，按Esc退出 – REPLACE – 启动vim 命令 含义 vim 直接启动vim vim file 启动vim并创建名为filename的文件 vim file1 file2 file3 启动vim并同时打开多个文件 vim -r file 恢复上次异常退出的文件 vim -R file 只以只读的方式打开文件，但是可以强制保存 vim -M file 只以只读的方式打开文件，但是不可强制保存（完全只读，不能做任何的修改，也不能保存甚至强制保存） 保存与退出下面的操作都比较重要，也常用到，含有!的皆有强制之意. 命令 含义 :w（:w +filename) 保存文件内容，但不退出vim，将内存缓冲区的数据，写入到启动vim时指定文件中。加fliename 表示保存到相应文件（后面皆是如此） :w!（:w +filename) 强制写（覆盖）原有文件，特别对于源文件访问权限不允许时（例如原有文件为只读文件）。仅当用户为文件的user，root不受限制。 :wq 与:w有相同之处,保存文件内容后，退出vim :wq!（:w +filename) 强制保存文件内容后，退出vim ZZ 功能同:wq，只需进入正常模式（Esc）后按两个Z（大写），无需:也无需Enter :q 未做任何编辑处理而退出vim，可使用此命令。如果已经做过编辑，vim不允许用户使用q命令退出并抛出警告：No write since last change (:quit!overrides) :q! 强制退出编辑器，放弃编辑处理的结果。适用于确实不需要保存文件的时候 :f filename 改变编辑的文件名，这时候再保存相当于另存为 :save as filename 另存为 光标移动在insert模式下 按空格键，右移 按退格键，左移 vim中分段默认Enter隔开一行,正常模式下，hljk分别代表“左右下上”（注意是下上，不是上下） 命令 含义 h 左移 l 右移 j 下移 k 上移 0 移到行首 $ 移到行尾 gg 移到文件开头 G 移到文件末尾 nG 移到第n行 n% 移到文件n%的位置 H 移到当前屏幕最顶上一行 L 移到当前屏幕最底下一行 M 移到当前屏幕最中间一行 （ 移到上句 ） 移到下句 ｛ 移到上段 ｝ 移到下段 fa 移到本行下个a Fa 移到本行上个a e（E） 移到下个单词（包括标点），光标停留在单词的末尾（若为大写忽略标点） b（B） 移到上个单词（包括标点），光标停留在单词首字母 （若为大写忽略标点） Ctrl+f（forward） 下翻一屏 Ctrl+b（backward） 上翻一屏 Ctrl+d（down） 下翻半屏 Ctrl+ u（up） 上翻半屏 对于光标，当然还少不了标记。标记等可以快速移动，通过Ctrl+o（后退）、Ctrl+i（前进），达到类似浏览器的功能 命令 含义 m{a-z} 局部标记，标记光标所在位置，用于当前文件 m{A-Z} 全局标记，标记光标所在位置。退出vim后重启，标记依然有效 :marks 显示所有标记 :marks a b 删除标记a,b :marks a-c 删除标记a,b,c :marks a c-f 删除标记a,c,d,e,f :delmarks 删除缓冲区所有标记 :help mark-motion 查看更多关于mark的知识 Ctrl+o 后退回到上一个标记 Ctrl+i 前进前往下一个标记 复制命令 命令 含义 y 在visual模式下复制选中的所有内容（先切换到visual模式） yy（或者Y） 复制当前整行 ygg 复制光标以前所有行 yG 复制光标以后所有行 y$ 复制光标字符到行尾 y0 复制光标字符到行首 粘贴命令 p（小写） 在光标之后粘贴 P（大写） 在光标之前粘贴 插入命令对于ia来说，如果是小写ia，则是在当前位置的前面/后面插入，对于IA来说，则是在当前行的行首/行尾插入； 对于oO来说，分别是在当前行行后/行前插入一行，注意O是行后，o是行前 命令 含义 i 在当前位置的前面，插入 a 在当前位置的后面，插入 I 在当前行的行首，插入 A 在当前行的行尾，插入 o 当前行行后，插入一行 O 当前行行前，插入一行 删除（剪切）命令（与上面复制，同理，多了个x而已） 命令 含义 d 删除visual模式下，选中的所有内容（先切换到visual模式） dd 删除当前整行 dgg 删除光标以前所有行 dG 删除光标以后所有行 d$（或者D） 删除光标字符到行尾 d0 删除光标字符到行首 dx 删除当前字符 d3x（同时按） 删除光标向后3个字符 d[n]h 删除光标左边 一个或多个字符 d[n]l 删除光标右边 一个或多个字符 10dd 删除10行（包括本行） :1,10d 删除1-10行 :10,$d 删除第10行及之后的所有行 :1,$d 删除所有行（即全部内容） 撤销与恢复在正常模式下 命令 含义 u(或者undo) 撤销 :undo 5 撤销5个改变 :undolist 你的撤销历史 U 撤销当前行中的改动 Ctrl+r 恢复 :earlier 3s/3m/3h 回退 :later 5s/5m/5h 前进 查找命令 命令 含义 /text: 在光标后面 文本中查找 old ?text: 在光标前面 文本中查找 old n: 向前查找下一个（已经查找到第一个） N: 向后查找下一个（已经查找到第一个） set ignorecase 忽略大小写的查找 set noignorecase 不忽略大小写查找 set hlsearch 高亮搜索结果，所有结果都显示高亮 set nohlsearch 关闭高亮搜索 nohlsearch 关闭当前高亮显示，再次搜索或者按n（或N）时，再次显示高亮 /pattern/+number: 光标停在pattern行后面第number行上 /pattern/-number: 光标停在pattern行前面第number行上 窗口命令在 vim中输入如下命令： 多窗口中的文件命令 命令 含义 :e file（e和open一样，可替代） 关闭当前编辑的文件（需先保存），打开新文件（如果文件修改未保存，vim会发出警告） :e! file 强制关闭当前编辑文件（放弃保存），打开新文件 :e# 回到刚才编辑的文件（文件切换，需先保存当前文件），实用 :e!# 强制回到刚才编辑的文件（放弃保存） :split file(new file) 新窗口中打开文件（窗口是横向的） :vsplit file(new file) 新窗口中打开文件（窗口是纵向的） :bn 切换到下一个文件（其实是缓冲区） :bp 切换到上一个文件（其实是缓冲区） 调整窗口位置 命令 含义 Ctrl+w p 切换到前一个窗口 Ctrl+w h(l,j,k) （一般Ctrl+w j(k)多一些）切换到左（右，下，上）窗口 Ctrl+w H(L,J,K) 将当前窗口 移动到最左（右，下，上）面 Ctrl+w r 旋转窗口的位置 Ctrl+w T 将当前窗口移动到新的标签页上 调整窗口大小 命令 含义 :browse e 打开一个文件浏览器，让你选择要编辑的文件 :Sex 水平分割一个窗口，浏览文件系统 :Vex 垂直分割一个窗口，浏览文件系统 小窗口的关闭 命令 含义 ZZ（常用） 保存并退出 :q 如果是最后一个窗口，将退出vim :close 关闭窗口，最后一个窗口不能用此命令，防止意外退出vim :only 只保留当前窗口，关闭其它窗口 :wall 对所有修改过的窗口进行保存 :qall 关闭所有窗口并退出 参考博客1：http://blog.csdn.net/scaleqiao/article/details/45153379 参考博客2：http://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html]]></content>
@@ -82,8 +120,8 @@
         <tag>LeetCode</tag>
         <tag>数据结构</tag>
         <tag>C</tag>
-        <tag>binary tree</tag>
         <tag>总结</tag>
+        <tag>binary tree</tag>
       </tags>
   </entry>
   <entry>

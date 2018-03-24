@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,运维," />
 
 
 
@@ -88,16 +88,34 @@
 
 
 
-<meta name="description" content="哎呀又是新的一天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WakingUp&#39;s Blog">
-<meta property="og:url" content="http://lucy78765580.github.io/index.html">
+<meta name="description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
+<meta name="keywords" content="Linux,运维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础（1）— 初见Linux">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/index.html">
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
-<meta property="og:description" content="哎呀又是新的一天">
+<meta property="og:description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-date-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-bc-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-sync001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-shutdown001.jpg">
+<meta property="og:updated_time" content="2018-03-24T07:40:04.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WakingUp&#39;s Blog">
-<meta name="twitter:description" content="哎呀又是新的一天">
+<meta name="twitter:title" content="Linux基础（1）— 初见Linux">
+<meta name="twitter:description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1001.jpg">
 
 
 
@@ -127,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://lucy78765580.github.io/"/>
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/"/>
 
 
 
 
 
-  <title>WakingUp's Blog</title>
+  <title>Linux基础（1）— 初见Linux | WakingUp's Blog</title>
   
 
 
@@ -152,8 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,331 +307,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/24/Linux基础之文件与目录管理/" itemprop="url">Linux基础之文件与目录管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T16:43:58+08:00">
-                2018-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/24/Linux基础之文件与目录管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/24/Linux基础之文件与目录管理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong> </strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/24/Linux基础之文件与目录管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件权限和目录配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/24/Linux基础之文件权限和目录配置/" itemprop="url">Linux基础(2) — 文件权限和目录配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T14:38:48+08:00">
-                2018-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/24/Linux基础之文件权限和目录配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/24/Linux基础之文件权限和目录配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>这一篇比较重要的是理解用户/用户组</p>
-<p>以及学会修改文件属性和权限</p>
-<p>不得不说linux的东西有点多呀</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/24/Linux基础之文件权限和目录配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -644,9 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/24/Linux基础之初见Linux/" itemprop="url">Linux基础（1）— 初见Linux</a></h1>
+          <h1 class="post-title" itemprop="name headline">Linux基础（1）— 初见Linux</h1>
         
 
         <div class="post-meta">
@@ -710,6 +403,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -728,19 +426,184 @@
       
 
       
-        
-          <blockquote class="blockquote-center"><p>这一篇讲初见linux的几个命令</p>
+        <blockquote class="blockquote-center"><p>这一篇讲初见linux的几个命令</p>
 <p>主要是开关机和man page</p>
 <p>整理知识体系还是挺重要的</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/24/Linux基础之初见Linux/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<p>linux的下载安装就暂且略过，网上的教程已经有很多了。</p>
+<p>整个章节可以概括如下，嘿嘿<strong>思维导图</strong>真是个好东西！</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1001.jpg" alt=""><br>&lt;br</p>
+<h3 id="几个基础命令"><a href="#几个基础命令" class="headerlink" title="几个基础命令"></a>几个基础命令</h3><h5 id="cal-显示日历"><a href="#cal-显示日历" class="headerlink" title="cal 显示日历"></a>cal 显示日历</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-003.jpg" alt=""></p>
+<h5 id="date-显示日期"><a href="#date-显示日期" class="headerlink" title="date 显示日期"></a>date 显示日期</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-date-001.jpg" alt=""></p>
+<h5 id="bc-显示计算器"><a href="#bc-显示计算器" class="headerlink" title="bc 显示计算器"></a>bc 显示计算器</h5><p>进入计算器用bc,<strong>退出计算器用quit</strong><br>bc计算器一般默认小数点后0位小数，做除法时，可以设置<strong>scale=x</strong>,x为小数点后保留多少位小数<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-bc-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="几个重要热键"><a href="#几个重要热键" class="headerlink" title="几个重要热键"></a>几个重要热键</h3><h5 id="【Tab】-命令补全"><a href="#【Tab】-命令补全" class="headerlink" title="【Tab】 命令补全"></a>【Tab】 命令补全</h5><h5 id="【Ctrl】-C-让当前程序停掉"><a href="#【Ctrl】-C-让当前程序停掉" class="headerlink" title="【Ctrl】+C 让当前程序停掉"></a>【Ctrl】+C 让当前程序停掉</h5><h5 id="【Ctrl】-d-键盘输入结束，用于取代exit"><a href="#【Ctrl】-d-键盘输入结束，用于取代exit" class="headerlink" title="【Ctrl】+d 键盘输入结束，用于取代exit"></a>【Ctrl】+d 键盘输入结束，用于取代exit</h5><h3 id="man-page"><a href="#man-page" class="headerlink" title="man page"></a>man page</h3><h5 id="man-命令"><a href="#man-命令" class="headerlink" title="man+命令"></a>man+命令</h5><p>利用man+命令 可以查询各个linux命令的具体功能，总体来说是非常强大的</p>
+<p>比如 <strong>man+bc</strong><br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-002.jpg" alt=""></p>
+<p>又比如 <strong>man+cal</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-004.jpg" alt=""></p>
+<h5 id="man-page-界面中的按键"><a href="#man-page-界面中的按键" class="headerlink" title="man page 界面中的按键"></a>man page 界面中的按键</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空格键</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Down】</strong></td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Up】</strong></td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center">【Home】</td>
+<td>去到第一页</td>
+</tr>
+<tr>
+<td style="text-align:center">【End】</td>
+<td>去到最后一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>/string</strong></td>
+<td>向下查询string字符串</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>?string</strong></td>
+<td>向上查询string字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">n,N</td>
+<td>利用/或者?来查询字符串的时候，可以用n进行正向查询，N进行反向查询</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>q</strong></td>
+<td>结束这次的man page</td>
+</tr>
+</tbody>
+</table>
+<h5 id="man-f-man"><a href="#man-f-man" class="headerlink" title="man -f man"></a>man -f man</h5><p>利用 <strong>man -f man</strong>命令可以查询所有与man有关的man page,</p>
+<p>如下展示有1、7两个man page,可以分别用 <strong>man 1 man</strong>,<strong>man 7 man</strong>命令打开</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man003.jpg" alt=""></p>
+<h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><h5 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h5><p>Synchronize的缩写，意思是同步，用于<strong>关机或者重新启动</strong>前，</p>
+<p><strong>特别注意将内存中尚未被更新的数据，写入硬盘</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-sync001.jpg" alt=""></p>
+<h5 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h5><p>格式：shutdown  【-t 秒】【-hrknfFc】 时间【警告信息】<br>注意这里的时间，是一定要加入的参数,比如-t 后面接秒数，表示“过几秒关机之意”</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>shutdown -h</strong></td>
+<td>系统服务停掉后，立即<strong>关机</strong>（常用）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>shutdown -r</strong></td>
+<td>系统服务停掉后，关机并<strong>重启</strong>（常用）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>shutdown -c</strong></td>
+<td><strong>取消已经在进行的shutdown指令内容</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -k</td>
+<td><strong>不是真的关机</strong>，只是将警告发出去</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -n</td>
+<td>不经过init程序，直接以shutdown功能关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -f</td>
+<td>系统关机并开机后，强制略过fsck的磁盘检查</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -F</td>
+<td>系统重新启动后，强制进行fsck的磁盘检查</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-shutdown001.jpg" alt=""></p>
+<p>这个例子就表示，这台机器将在10分钟后关机，上下两种写法效果都是一样的</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">shutdown -h now</td>
+<td>立刻关机，now相当于时间为0的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -r now</td>
+<td>立刻重启</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -h 20:25</td>
+<td>系统在今天的20:35会关机，<strong>如果是20:35之后</strong>才执行命令，则是<strong>隔天</strong>（明天）20:35才关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -h +10</td>
+<td>十分钟之后系统自动关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -r +30 ‘The system will reboot’</td>
+<td>30分钟后系统重启，并<strong>显示后面的信息给所有在线用户</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -k now ‘The system will reboot’</td>
+<td>吓唬人的，仅仅是发出警告，实际上并不会重启</td>
+</tr>
+</tbody>
+</table>
+<h5 id="reboot-halt-poweroff"><a href="#reboot-halt-poweroff" class="headerlink" title="reboot/halt/poweroff"></a>reboot/halt/poweroff</h5><p>这些命令和shutdown都有相似之处，具体就先不赘述，可以通过man命令查询使用</p>
+<h5 id="init"><a href="#init" class="headerlink" title="init"></a>init</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>init 0</strong></td>
+<td>关机</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>init 6</strong></td>
+<td>重启</td>
+</tr>
+<tr>
+<td style="text-align:center">init 3</td>
+<td>纯命令行模式</td>
+</tr>
+<tr>
+<td style="text-align:center">init 5</td>
+<td>含有图形界面模式</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+
       
     </div>
     
@@ -748,184 +611,80 @@
     
 
     
+      <div class="post-tags">
+        
+          <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+        
+          <a href="/tags/运维/" rel="tag"><i class="fa fa-tag"></i> 运维</a>
+        
+      </div>
+    
 
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
     
 
     
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/" title="Linux基础（1）— 初见Linux">http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/23/Vim常用命令汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/23/Vim常用命令汇总/" itemprop="url">Vim常用命令汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T22:24:27+08:00">
-                2018-03-23
-              </time>
+              <a href="/2018/03/23/Vim常用命令汇总/" rel="next" title="Vim常用命令汇总">
+                <i class="fa fa-chevron-left"></i> Vim常用命令汇总
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2018/03/24/Linux基础之文件权限和目录配置/" rel="prev" title="Linux基础(2) — 文件权限和目录配置">
+                Linux基础(2) — 文件权限和目录配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/23/Vim常用命令汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/23/Vim常用命令汇总/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote class="blockquote-center"><p>这一篇讲常见的vim命令</p>
-<p>几乎所有linux系统都会配置vim编辑器</p>
-<p>掌握vim可以帮助我们方便快捷地在linux上进行编程</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/23/Vim常用命令汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -935,665 +694,25 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/19/数据结构与哲学家/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/19/数据结构与哲学家/" itemprop="url">数据结构与哲学家</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-19T12:52:35+08:00">
-                2018-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/数据结构与哲学家/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/19/数据结构与哲学家/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>胡诌</strong> 篇</p>
-<p>一个故事讲完数据结构</p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/19/数据结构与哲学家/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/sort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/sort/" itemprop="url">sort</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:18:00+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/sort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/sort/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>sort</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/sort/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
   
 
-  
-  
-  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/graph/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/graph/" itemprop="url">graph</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:10:49+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/graph/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/graph/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>graph</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/graph/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/binary-search-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wakingup">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WakingUp's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/binary-search-tree/" itemprop="url">binary search tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:05:59+08:00">
-                2018-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/binary-search-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/binary-search-tree/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>binary search tree</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/binary-search-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
 
         </div>
         
@@ -1614,8 +733,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1724,6 +852,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#几个基础命令"><span class="nav-number">1.</span> <span class="nav-text">几个基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cal-显示日历"><span class="nav-number">1.0.1.</span> <span class="nav-text">cal 显示日历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#date-显示日期"><span class="nav-number">1.0.2.</span> <span class="nav-text">date 显示日期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bc-显示计算器"><span class="nav-number">1.0.3.</span> <span class="nav-text">bc 显示计算器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个重要热键"><span class="nav-number">2.</span> <span class="nav-text">几个重要热键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#【Tab】-命令补全"><span class="nav-number">2.0.1.</span> <span class="nav-text">【Tab】 命令补全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#【Ctrl】-C-让当前程序停掉"><span class="nav-number">2.0.2.</span> <span class="nav-text">【Ctrl】+C 让当前程序停掉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#【Ctrl】-d-键盘输入结束，用于取代exit"><span class="nav-number">2.0.3.</span> <span class="nav-text">【Ctrl】+d 键盘输入结束，用于取代exit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#man-page"><span class="nav-number">3.</span> <span class="nav-text">man page</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#man-命令"><span class="nav-number">3.0.1.</span> <span class="nav-text">man+命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#man-page-界面中的按键"><span class="nav-number">3.0.2.</span> <span class="nav-text">man page 界面中的按键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#man-f-man"><span class="nav-number">3.0.3.</span> <span class="nav-text">man -f man</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开关机"><span class="nav-number">4.</span> <span class="nav-text">开关机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sync"><span class="nav-number">4.0.1.</span> <span class="nav-text">sync</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shutdown"><span class="nav-number">4.0.2.</span> <span class="nav-text">shutdown</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reboot-halt-poweroff"><span class="nav-number">4.0.3.</span> <span class="nav-text">reboot/halt/poweroff</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#init"><span class="nav-number">4.0.4.</span> <span class="nav-text">init</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1898,6 +1042,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
