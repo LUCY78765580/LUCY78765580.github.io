@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode,数据结构,C,总结," />
+  <meta name="keywords" content="Linux,工具," />
 
 
 
@@ -88,18 +88,38 @@
 
 
 
-<meta name="description" content="数据结构汇总之   篇 原文见 仓库 good good study, day day leetcode">
-<meta name="keywords" content="LeetCode,数据结构,C,总结">
+<meta name="description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
+<meta name="keywords" content="Linux,工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux基础之文件与目录管理">
+<meta property="og:title" content="Linux基础(3) - 文件与目录管理">
 <meta property="og:url" content="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/index.html">
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
-<meta property="og:description" content="数据结构汇总之   篇 原文见 仓库 good good study, day day leetcode">
+<meta property="og:description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T08:43:58.890Z">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cd-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rmdir-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rm-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-003.jpg">
+<meta property="og:updated_time" content="2018-03-24T19:38:53.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux基础之文件与目录管理">
-<meta name="twitter:description" content="数据结构汇总之   篇 原文见 仓库 good good study, day day leetcode">
+<meta name="twitter:title" content="Linux基础(3) - 文件与目录管理">
+<meta name="twitter:description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cd-001.jpg">
 
 
 
@@ -135,7 +155,7 @@
 
 
 
-  <title>Linux基础之文件与目录管理 | WakingUp's Blog</title>
+  <title>Linux基础(3) - 文件与目录管理 | WakingUp's Blog</title>
   
 
 
@@ -323,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux基础之文件与目录管理</h1>
+          <h1 class="post-title" itemprop="name headline">Linux基础(3) - 文件与目录管理</h1>
         
 
         <div class="post-meta">
@@ -358,8 +378,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -410,12 +430,142 @@
       
 
       
-        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong> </strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
+        <blockquote class="blockquote-center"><p>Linux中文件和目录管理</p>
+<p>文件这一块需要掌握常用命令非常多</p>
+<p>也是Linux基础中非常关键的一环</p>
 </blockquote>
 <a id="more"></a>
-<p><br></p>
+<h3 id="1、cd-切换目录"><a href="#1、cd-切换目录" class="headerlink" title="1、cd 切换目录"></a>1、cd 切换目录</h3><p>cd 是change directory的缩写，表示切换工作目录</p>
+<p>格式：<strong>cd【相对路径/绝对路径】</strong></p>
+<p><strong>绝对路径</strong>： 一定<strong>从根目录开始</strong>的路径，比如/usr/share/doc 这个目录</p>
+<p><strong>相对路径</strong>：不是由根目录写起的，指的是<strong>相对当前工作目录的路径</strong>，比如由 /usr/share/doc 到/usr/share/man 下面时，可以写成“cd../man”</p>
+<p>一般来讲，写绝对路径正确度要高些。下面是一些相对路径的表示方式,表示<strong>比较特殊的目录</strong></p>
+<p>| 命令 | 含义 |<br>| ：-： | - |<br>| . | 代表此层目录 |<br>| .. | 代表上一层目录 |<br>| - | 代表前一个目录 |<br>| ~ | 代表当前<strong>用户身份</strong>所在的文件夹 |<br>| ~acount | 代表acount这个用户所在的文件夹（acount是账户名称） |</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cd</td>
+<td>回到自己的主文件夹</td>
+</tr>
+<tr>
+<td style="text-align:center">cd~</td>
+<td>回到自己的主文件夹</td>
+</tr>
+<tr>
+<td style="text-align:center">cd-</td>
+<td>回到目前的上一层目录</td>
+</tr>
+<tr>
+<td style="text-align:center">cd /var/spool/mail</td>
+<td>绝对路径的写法，指定要去的完整路径的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">cd ../mqueue</td>
+<td>相对路径的写法，由前面的/var/spool/mail去到/var/spool/mqueue</td>
+</tr>
+</tbody>
+</table>
+<p>具体实现如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cd-001.jpg" alt=""><br><br></p>
+<h3 id="2、pwd-显示当前目录"><a href="#2、pwd-显示当前目录" class="headerlink" title="2、pwd 显示当前目录"></a>2、pwd 显示当前目录</h3><p>pwd是print working directory的缩写，<strong>显示目前所在目录</strong></p>
+<p>格式：<strong>pwd [-P]</strong></p>
+<p>具体实现如图所示,-P参数可以帮助我们获得正确的目录名称，而<strong>不是连接文件的路径</strong>。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-002.jpg" alt=""><br><br></p>
+<h3 id="3、mkdir-新建新目录"><a href="#3、mkdir-新建新目录" class="headerlink" title="3、mkdir 新建新目录"></a>3、mkdir 新建新目录</h3><p>mkdir是 make directory 的缩写</p>
+<p>格式：<strong>mkdir [-mp] 【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li>-m: 可以直接在<strong>创建时配置文件权限</strong>，无需看默认权限</li>
+<li>-p: 可以<strong>递归创建</strong>所需目录（默认情况下目录是一层一层创建）</li>
+</ul>
+<p>具体实现如图所示，可以看到，没有给予-m参数时，<strong>默认新建目录权限为 rwx rwx r-x(775)</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-003.jpg" alt=""><br><br></p>
+<h3 id="4、rmdir-删除目录"><a href="#4、rmdir-删除目录" class="headerlink" title="4、rmdir 删除目录"></a>4、rmdir 删除目录</h3><p>格式： <strong>rmdir [-p]] 【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-p</strong>: 连同上一层的空目录也一起删除</li>
+</ul>
+<p>具体实现如下图所示，一般来说用单独的rmdir命令删除，仅仅能一层一层的删除，并且被删除目录里面必定<strong>不能含有其它的目录或文件</strong>（除非用rm -r finename）</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rmdir-001.jpg" alt=""></p>
+<h3 id="5、ls-查看文件与目录"><a href="#5、ls-查看文件与目录" class="headerlink" title="5、ls 查看文件与目录"></a>5、ls 查看文件与目录</h3><p>格式：<strong>ls [-aAdfFhilnrRSt]【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-a</strong>: 列出全部文件，连同<strong>隐藏文件</strong>(开头为 . 的文件) ，一起列出来（常用）</li>
+<li><strong>-l</strong>: 列出长串数据，包括<strong>文件属性、文件权限等数据</strong>(常用)</li>
+<li><strong>-d</strong>: 仅仅列出<strong>目录本身</strong>，而<strong>不是</strong>列出目录的文件数据(常用)</li>
+<li>其它太多了，暂且略过</li>
+</ul>
+<p>具体例子如图下所示,ls -l ~ 表示将<strong>主文件夹下的所有文件</strong>全部列出来</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-002.jpg" alt=""><br><br></p>
+<h3 id="6、touch创建新文件-或修改文件时间）"><a href="#6、touch创建新文件-或修改文件时间）" class="headerlink" title="6、touch创建新文件(或修改文件时间）"></a>6、touch创建新文件(或修改文件时间）</h3><p>每个文件在linux下面都会记录很多时间参数，其中有三个主要变动时间</p>
+<ul>
+<li><strong>mtime</strong>(modification time): 当文件内容数据更改时，会更新这个时间。内容数据指的是文件的内容，而<strong>不包括文件的属性或权限</strong></li>
+<li><strong>ctime</strong>(status time): 当文件的状态改变时，会更新这个时间。例如文件的<strong>属性或权限发生改变</strong>时，会更新这个时间。</li>
+<li><strong>atime</strong>(access time): 当文件内容被<strong>取用</strong>时，会更新这个时间。例如我们使用cat查看/etc/man.config，就会更新文件的atime</li>
+</ul>
+<p>举例如图下所示，可以看出，默认情况下，ls显示的是文件的mtime(也就是该文件内容上次被修改的时间)</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-001.jpg" alt=""></p>
+<p>格式：<strong>touch [-acdmt] 【文件】</strong><br>参数：</p>
+<ul>
+<li><strong>-a</strong>: 仅修改访问时间(即atime)</li>
+<li><strong>-m</strong>: 仅修改文件mtime</li>
+<li><strong>-c</strong>: 仅修改文件的时间，若文件不存在，则<strong>不创建新文件夹</strong></li>
+<li><strong>-d</strong>: 后面可以接欲修改的时间，而不用目前的时间，也可以使用–date=”日期或时间”</li>
+<li><strong>-t</strong>：后面可以接欲修改的时间，而不用目前的时间，格式为[YYMMDDhhmm]</li>
+</ul>
+<p>​默认情况下，如果touch后面接有文件(文件已经存在)，则该文件的三个时间(atime,ctime,mtime)<strong>都会更新为目前时间</strong>；若文件不存在，会主动<strong>创建一个新的空文件</strong>，文件大小为0. 如下图所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-002.jpg" alt=""><br><br></p>
+<h3 id="7、cp复制文件-目录"><a href="#7、cp复制文件-目录" class="headerlink" title="7、cp复制文件/目录"></a>7、cp复制文件/目录</h3><p>cp为copy的缩写，cp除了单纯复制外，还可以创建连接文件(或者快捷方式)</p>
+<p>格式：<br><strong>cp [-adfilprsu] 源文件(source) 目标文件(destination)</strong></p>
+<p><strong>cp [options] source1 source2 source3 …directory</strong></p>
+<p>参数：</p>
+<ul>
+<li>-a 相当于 -pdr ，将文件<strong>所有特性</strong>一起复制过来,属性和权限不改变(常用)</li>
+<li>-p  连同文件的<strong>属性</strong>一起复制过去，而并非使用默认属性（<strong>备份常用</strong>）</li>
+<li>-r <strong>递归</strong>连续复制，用于<strong>目录</strong>的复制行为</li>
+<li>-l 进行<strong>硬连接</strong>的连接文件创建（hard link），而非复制文件本身</li>
+<li>-s 复制成为软连接（或符号链接）文件（symbolic link），即“<strong>快捷方式</strong>”文件</li>
+<li>-d 若源文件为连接文件（link file），则<strong>复制连接文件属性</strong>而非文件本身</li>
+<li>其它略</li>
+</ul>
+<p>注意不同身份者，执行cp命令会有不同的结果产生；同时如果想复制别人的数据，必需对该文件有read权限才行。</p>
+<p>一些密码文件(例如/etc/shadow及一些配置文件等)，不能用cp直接复制，必须加上-a或-p才能完整复制文件权限的参数</p>
+<p>cp没有加任何参数时，<strong>复制的是源文件，而非连接文件属性</strong>，除非使用-d进行复制，得连接文件属性。具体如下图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-004.jpg" alt=""><br><br></p>
+<h3 id="8、rm删除文件"><a href="#8、rm删除文件" class="headerlink" title="8、rm删除文件"></a>8、rm删除文件</h3><p>格式：<strong>rm  [-fir]  【文件/目录】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-f</strong>: force的意思，忽略不存在的文件，不会出现警告信息</li>
+<li><strong>-i</strong>: 互动模式，会在删除前<strong>询问</strong>是否进行操作</li>
+<li><strong>-r</strong>: 递归删除(常<strong>用于整个目录删除</strong>），因为系统删除时不会提示，所以<strong>危险</strong>！！！</li>
+</ul>
+<p>具体例子如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rm-001.jpg" alt=""><br><br></p>
+<h3 id="9、mv移动文件-或重命名"><a href="#9、mv移动文件-或重命名" class="headerlink" title="9、mv移动文件(或重命名)"></a>9、mv移动文件(或重命名)</h3><p>格式1:<strong>mv [-fiu] source destination</strong></p>
+<p>格式2:<strong>mv [options] source1 source2 source3 … directory</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-f</strong>: force强制之意，目标文件已经存在，<strong>不会询问</strong>直接覆盖</li>
+<li><strong>-i</strong>: 交互模式，若目标文件已经存在，<strong>会询问</strong>是否覆盖</li>
+<li><strong>-u</strong>: 更新模式，若原文件有新内容，才会进行更新</li>
+</ul>
+<p>注意用mv进行重命名，<strong>每次只能对一个文件</strong>；而用rename，每次可以对多个文件命名。如果同时移动多个文件或目录，那么命令的最后一个肯定是<strong>目录</strong>。具体如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-003.jpg" alt=""><br><br></p>
 
       
     </div>
@@ -426,13 +576,9 @@
     
       <div class="post-tags">
         
-          <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+          <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
         
-          <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-        
-          <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
-        
-          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
+          <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
         
       </div>
     
@@ -461,7 +607,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/" title="Linux基础之文件与目录管理">http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/</a>
+    <a href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/" title="Linux基础(3) - 文件与目录管理">http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -546,8 +692,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -588,7 +743,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -656,6 +811,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、cd-切换目录"><span class="nav-number">1.</span> <span class="nav-text">1、cd 切换目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、pwd-显示当前目录"><span class="nav-number">2.</span> <span class="nav-text">2、pwd 显示当前目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、mkdir-新建新目录"><span class="nav-number">3.</span> <span class="nav-text">3、mkdir 新建新目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、rmdir-删除目录"><span class="nav-number">4.</span> <span class="nav-text">4、rmdir 删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、ls-查看文件与目录"><span class="nav-number">5.</span> <span class="nav-text">5、ls 查看文件与目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、touch创建新文件-或修改文件时间）"><span class="nav-number">6.</span> <span class="nav-text">6、touch创建新文件(或修改文件时间）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、cp复制文件-目录"><span class="nav-number">7.</span> <span class="nav-text">7、cp复制文件/目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、rm删除文件"><span class="nav-number">8.</span> <span class="nav-text">8、rm删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、mv移动文件-或重命名"><span class="nav-number">9.</span> <span class="nav-text">9、mv移动文件(或重命名)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
