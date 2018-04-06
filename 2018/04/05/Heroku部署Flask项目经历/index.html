@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Heroku,Flask,部署,运维," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WakingUp's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="记录heroku部署flask项目的踩坑经历，比较详细。 花了好多天，折腾了很久终于成功，还好没有半路放弃。 博客项目地址,部分功能改善中,欢迎star/fork/issue">
+<meta name="keywords" content="Heroku,Flask,部署,运维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Heroku部署Flask项目经历">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/04/05/Heroku部署Flask项目经历/index.html">
+<meta property="og:site_name" content="WakingUp&#39;s Blog">
+<meta property="og:description" content="记录heroku部署flask项目的踩坑经历，比较详细。 花了好多天，折腾了很久终于成功，还好没有半路放弃。 博客项目地址,部分功能改善中,欢迎star/fork/issue">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-06T14:38:51.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Heroku部署Flask项目经历">
+<meta name="twitter:description" content="记录heroku部署flask项目的踩坑经历，比较详细。 花了好多天，折腾了很久终于成功，还好没有半路放弃。 博客项目地址,部分功能改善中,欢迎star/fork/issue">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/04/05/Heroku部署Flask项目经历/"/>
+
+
+
+
+
+  <title>Heroku部署Flask项目经历 | WakingUp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WakingUp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry, stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/04/05/Heroku部署Flask项目经历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wakingup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WakingUp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Heroku部署Flask项目经历</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-05T21:25:54+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/05/Heroku部署Flask项目经历/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/05/Heroku部署Flask项目经历/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>记录heroku部署flask项目的踩坑经历，比较详细。</p>
+<p>花了好多天，折腾了很久终于成功，还好没有半路放弃。</p>
+<p><a href="https://github.com/LUCY78765580/myblog" target="_blank" rel="noopener">博客项目地址</a>,部分功能改善中,欢迎star/fork/issue</p>
+</blockquote>
+<a id="more"></a>
+<p>3天时间，不下15次了，各种坑都踩一下，啊啊啊终于部署成功了。。大体分4个部分：</p>
+<ul>
+<li>heroku部署过程</li>
+<li>部署踩坑及解决</li>
+<li>资料及博客参考</li>
+<li>思考与总结</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="一、heroku部署具体过程"><a href="#一、heroku部署具体过程" class="headerlink" title="一、heroku部署具体过程"></a>一、heroku部署具体过程</h3><h4 id="0-heroku注册"><a href="#0-heroku注册" class="headerlink" title="0.heroku注册"></a>0.heroku注册</h4><ul>
+<li>首先到<a href="https://heroku.com/" target="_blank" rel="noopener">heroku</a>进行注册，需要点击 <strong>最下面的图片</strong> 验证你不是机器人，正常情况下图片不显示。所以需要 <strong>fanqiang</strong>，代理或者vpn都可以，这里不赘述。</li>
+<li>邮箱最好用 <strong>gmail</strong>，或者国外的，国内的qq/163等貌似是不支持的</li>
+<li>注册时如果总提交不了，很大可能 <strong>密码强度不够</strong>，你需要把密码改得“刁钻”些</li>
+</ul>
+<p><br></p>
+<h4 id="1-下载heroku-CLI"><a href="#1-下载heroku-CLI" class="headerlink" title="1.下载heroku CLI"></a>1.下载heroku CLI</h4><p>其实就是Heroku Toolbelt,方便我们用 <strong>命令行来管理</strong> 在heroku上的程序，具体安装见 <a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank" rel="noopener">这里</a></p>
+<p><br></p>
+<h4 id="2-创建git项目"><a href="#2-创建git项目" class="headerlink" title="2.创建git项目"></a>2.创建git项目</h4><p>进入myblog项目，激活 <strong>虚拟环境</strong></p>
+<pre><code>lucy@ubuntu:~$cd project myblog
+lucy@ubuntu:~$source venv/bin/activate
+(venv)lucy@ubuntu:~$
+</code></pre><p>初始化 <strong>git项目</strong> ,并commit到git仓库</p>
+<pre><code>(venv)lucy@ubuntu:~$ git init
+(venv)lucy@ubuntu:~$ git add .
+(venv)lucy@ubuntu:~$ git commit -m&quot;v1.0&quot;
+</code></pre><p><br></p>
+<h4 id="3-flask-app相关文件"><a href="#3-flask-app相关文件" class="headerlink" title="3.flask_app相关文件"></a>3.flask_app相关文件</h4><p>3.1 首先是 <strong>requirements.txt</strong></p>
+<p>这里包含了所有依赖包。记得最后pip install psycopg2,并把 psycopg2 加入文件中。</p>
+<pre><code>/* requirements.txt */
+alembic==0.9.9
+bleach==2.1.3
+blinker==1.4
+click==6.7
+dominate==2.3.1
+Flask==0.12.2
+Flask-Admin==1.5.1
+Flask-Bootstrap==3.3.7.1
+Flask-Login==0.4.1
+Flask-Mail==0.9.1
+Flask-Migrate==2.1.1
+Flask-Moment==0.6.0
+Flask-Script==2.0.6
+Flask-SimpleMDE==0.3.0
+Flask-SQLAlchemy==2.3.2
+Flask-SSLify==0.1.5
+Flask-WTF==0.14.2
+gunicorn==19.7.1
+html5lib==1.0.1
+itsdangerous==0.24
+Jinja2==2.10
+Mako==1.0.7
+Markdown==2.6.11
+MarkupSafe==1.0
+psycopg2==2.7.4
+psycopg2-binary==2.7.4
+python-dateutil==2.7.2
+python-editor==1.0.3
+six==1.11.0
+SQLAlchemy==1.2.6
+visitor==0.1.3
+webencodings==0.5.1
+Werkzeug==0.14.1
+WTForms==2.1
+</code></pre><p>3.2 其次是 <strong>Procfile</strong> 文件</p>
+<p>里面保存了通过gunicorn这个web服务器运行的程序。:号后面的是具体程序app，前面是程序所在文件manage.py</p>
+<pre><code>/* Procfile */
+web: gunicorn manage:app
+</code></pre><p>3.3 紧接着 <strong>runtime.txt</strong> 文件</p>
+<p>这个文件指明你在heroku的app上，所用的Python版本。<br>其实heroku默认只支持 <strong>Python-3.6.4</strong> 和 <strong>Python-2.7.14</strong> 两个版本,你也可以添加 runtime.txt，在里面指定具体的Python版本。当然heroku还是会“任性地”就近原则，给你安装上面两个版本之一233…具体可见文档 <a href="https://devcenter.heroku.com/articles/python-support" target="_blank" rel="noopener">Heroku Python Support</a> 和文档 <a href="https://devcenter.heroku.com/articles/python-runtimes" target="_blank" rel="noopener">Specifying a Python Runtime</a></p>
+<pre><code>/* runtime.txt */
+    /* 比如我这里写的2.7.13版本，最后heroku 还是装的2.7.14 */
+python-2.7.13
+</code></pre><p>3.4 最后就是 <strong>.gitignore</strong> 文件</p>
+<p>把不想要被git追踪的文件放入，例如日志文件、生产环境文件等。特别要注意的，是装有环境变量的<strong>.env</strong>文件</p>
+<pre><code>/* .gitignore */
+venv/
+log/
+*.sqlite
+*.log
+*.swp
+*.pyc
+*.cpf
+.env
+</code></pre><p><br></p>
+<h4 id="4、heroku创建app"><a href="#4、heroku创建app" class="headerlink" title="4、heroku创建app"></a>4、heroku创建app</h4><p>4.1 首先 <strong>登陆</strong> heroku,输入电子邮件、密码</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku login
+
+Enter your Heroku credentials:
+Email: xxxxxx@gmail.com
+Password: **********
+Logged in as xxxxxx@gmail.com
+</code></pre><p>4.2 然后<strong>创建项目</strong>，这里取名 wakingup</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku create wakingup
+
+Creating ⬢ wakingup... done
+https://wakingup.herokuapp.com/ | https://git.heroku.com/wakingup.git
+</code></pre><p>4.3 接着配置<strong>postgresql数据库</strong></p>
+<p>这里操作和书上已经不一样了，需要注意。</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku addons:create heroku-postgresql:hobby-dev
+Creating heroku-postgresql:hobby-dev on ⬢ wakingup... free
+Database has been created and is available
+! This database is empty. If upgrading, you can transfer
+! data from another database with pg:copy
+Created postgresql-silhouetted-58473 as DATABASE_URL
+(venv) lucy@ubuntu:~/projects/myblog$ heroku pg:promote postgresql-silhouetted-58473
+Ensuring an alternate alias for existing DATABASE_URL... !
+▸   postgresql-silhouetted-58473 is already promoted on ⬢ wakingup
+</code></pre><p>4.4 配置相关的 <strong>环境变量</strong></p>
+<p>通过heroku config,可查看heroku_app上的所有环境变量。由下面我们可以知道，DATABASE_URL，即为Heroku平台中postgresql<strong>数据库的路径地址</strong>，因此要检查config.py，确保数据库设置为DATABASE_URL</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku config
+
+=== wakingup Config Vars
+DATABASE_URL: xxxxx...（这里一长串隐去）
+</code></pre><p>设置相应环境变量，特别注意，不要忘了<strong>SSL_DISABLE</strong>设为1</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku config:set FLASK_CONFIG=heroku
+(venv) lucy@ubuntu:~/projects/myblog$ heroku config:set SSL_DISABLE=1
+(venv) lucy@ubuntu:~/projects/myblog$ heroku config:set FLASK_ADMIN_NAME=&apos;weiyanying&apos;
+(venv) lucy@ubuntu:~/projects/myblog$ heroku config:set FLASK_ADMIN_EMAIL=&apos;xxxxxx&apos;(这一串隐去)
+(venv) lucy@ubuntu:~/projects/myblog$ heroku config:set FLASK_ADMIN_PASSWORD=&apos;xxxxxx&apos;(嘿嘿不给你看)
+</code></pre><p>最后还特别注意的，不要忘记，将环境变量 <strong>导入或者写入.env</strong> 文件中！！！</p>
+<pre><code>    /* .env */
+FLASK_CONFIG=heroku
+DATABASE_URL=xxxxxx...
+FLASK_ADMIN_NAME=weiyanying
+FLASK_ADMIN_EMAIL=xxxxxx...
+FLASK_ADMIN_PASSWORD=xxxxxx...
+SSL_DISABLE=1
+</code></pre><p><br></p>
+<h4 id="5、heroku部署"><a href="#5、heroku部署" class="headerlink" title="5、heroku部署"></a>5、heroku部署</h4><p>5.1 修改 <strong>manage.py</strong> 文件，进行本地数据初始化测试</p>
+<p>我的博客和狗书作者不太一样，需要初始化一个user_admin。在经历了无数次deploy失败后，终于摸索出了具体的“路径”</p>
+<pre><code>/* manage.py */
+#!/usr/bin/env python
+import os
+from app import create_app, db
+from app.models import User,Say,Post,Link,Tag,Comment
+from flask_script import Manager, Shell
+from flask_migrate import Migrate, MigrateCommand,init,migrate,upgrade
+app=create_app(os.getenv(&apos;FLASK_CONFIG&apos;) or &apos;default&apos;)
+migrate=Migrate(app,db)
+manager=Manager(app)
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(app=app,db=db,User=User,Say=Say,Post=Post,Link=Link,Tag=Tag,Comment=Comment)
+
+@app.cli.command()
+def profile(length, profile_dir):
+    &quot;&quot;&quot;Start the application under the code profiler.&quot;&quot;&quot;
+    from werkzeug.contrib.profiler import ProfilerMiddleware
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app，restrictions[length],profile_dir=profile_dir)
+    app.run()
+
+@app.cli.command()
+def deploy():
+    &quot;&quot;&quot;Run deployment tasks.&quot;&quot;&quot;
+    db.create_all()
+    admin_name=os.environ.get(&apos;FLASK_ADMIN_NAME&apos;)
+    admin_email=os.environ.get(&apos;FLASK_ADMIN_EMAIL&apos;)
+    admin_password=os.environ.get(&apos;FLASK_ADMIN_PASSWORD&apos;)
+    user_admin=User(name=admin_name,email=admin_email,
+        password=admin_password)
+    db.session.add(user_admin)
+    db.session.commit()
+
+manager.add_command(&apos;shell&apos;, Shell(make_context=make_shell_context))
+manager.add_command(&apos;db&apos;,MigrateCommand)
+if __name__==&apos;__main__&apos;:
+manager.run()
+</code></pre><p>将之前所有的sqlite删除，所有的migrations删除。然后进行 <strong>初始化</strong>，以及创建<strong>迁移仓库</strong>，测试无误进入下一步</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ python manage.py init_data
+(venv) lucy@ubuntu:~/projects/myblog$ python manage.py db init
+(venv) lucy@ubuntu:~/projects/myblog$ python manage.py db migrate
+</code></pre><p>5.2 部署前将<strong>改动提交到git</strong></p>
+<p>哎呀千头万绪、千辛万苦、千山万水终于到了最后一关，你想哎呀终于好多了。。但素！，这时候一定要警惕的！！部署前一定要记得 <strong>把改动提交到git！！！</strong> 否则233..你懂的</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ git status
+.....(这里就是改动的内容了)
+
+(venv) lucy@ubuntu:~/projects/myblog$ git add -A
+(venv) lucy@ubuntu:~/projects/myblog$ git commit -m&quot;v2.0&quot;
+</code></pre><p>5.3 提交到 <strong>远程仓库</strong>，后面就全部是heroku上的操作了</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ git push heroku master
+Counting objects: 7413, done.
+Compressing objects: 100% (5645/5645), done.
+Writing objects: 100% (7413/7413), 45.31 MiB | 162.00 KiB/s, done.
+Total 7413 (delta 1256), reused 7406 (delta 1251)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Python app detected
+remote: !     The latest version of Python 2 is python-2.7.14 (you are using python-2.7.13, which is unsupported).
+remote: !     We recommend upgrading by specifying the latest version (python-2.7.14).
+remote:       Learn More: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----&gt; Installing python-2.7.13
+remote: -----&gt; Installing pip
+remote: -----&gt; Installing requirements with pip
+remote:       Collecting alembic==0.9.9 (from -r     /tmp/build_30a685958675476f56e4e6b42894b53e/requirements.txt (line 1))
+remote:         Downloading alembic-0.9.9.tar.gz (1.0MB)
+remote:       Collecting bleach==2.1.3 (from -r /tmp/build_30a685958675476f56e4e6b42894b53e/requirements.txt (line 2))
+......(这里还有一堆)
+remote:       Successfully installed Flask-0.12.2 Flask-Admin-1.5.1 Flask-Bootstrap-3.3.7.1 Flask-Login-0.4.1 Flask-Mail-0.9.1 Flask-Migrate-2.1.1 Flask-Moment-0.6.0 Flask-SQLAlchemy-2.3.2 Flask-SSLify-0.1.5 Flask-Script-2.0.6 Flask-SimpleMDE-0.3.0 Flask-WTF-0.14.2 Jinja2-2.10 Mako-1.0.7 Markdown-2.6.11 MarkupSafe-1.0 SQLAlchemy-1.2.6 WTForms-2.1 Werkzeug-0.14.1 alembic-0.9.9 bleach-2.1.3 blinker-1.4 click-6.7 dominate-2.3.1 gunicorn-19.7.1 html5lib-1.0.1 itsdangerous-0.24 psycopg2-2.7.4 psycopg2-binary-2.7.4 python-dateutil-2.7.2 python-editor-1.0.3 six-1.11.0 visitor-0.1.3 webencodings-0.5.1
+remote:
+remote: -----&gt; Discovering process types
+remote:       Procfile declares types -&gt; web
+remote:
+remote: -----&gt; Compressing...
+remote:       Done: 39.3M
+remote: -----&gt; Launching...
+remote:       Released v9
+remote:       https://wakingup.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To git@heroku.com:wakingup.git
+* [new branch]     master -&gt; master
+</code></pre><p>到了远程仓库以后，执行下面的操作。查看<strong>logs</strong>没有出差错，打开 <a href="https://wakingup.herokuapp.com/" target="_blank" rel="noopener">https://wakingup.herokuapp.com/</a> 或者heroku open命令打开浏览器，看到与本地一模一样的画面，Done! <strong>成功！</strong>然后重启就行了。这时候就开心的不行了。。</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku run python manage.py init_data
+(venv) lucy@ubuntu:~/projects/myblog$ heroku logs --tail
+(venv) lucy@ubuntu:~/projects/myblog$ heroku restart
+</code></pre><p>5.4 还可<strong>git push到github</strong>仓库</p>
+<p>heroku 还可以实现与 <strong>github的同步</strong>,这里就不多说了可阅读heroku的官方文档。在github上也建一个myblog仓库，然后git push到上面</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ git push origin master
+</code></pre><p><br></p>
+<h4 id="6-记录heroku常用其他命令"><a href="#6-记录heroku常用其他命令" class="headerlink" title="6.记录heroku常用其他命令"></a>6.记录heroku常用其他命令</h4><p>6.1 <strong>销毁</strong> heroku项目</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku destroy &lt;项目名称&gt;
+</code></pre><p>6.2 查看heroku<strong>数据库</strong>情况</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku pg:info
+</code></pre><p>6.3 hero <strong>命令行</strong>，比如下面的<br>当然首先要确保你的manage.py里面配置好shell这些参数</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ heroku run python manage.py shell
+</code></pre><p>等等，还有很多，具体可见 <a href="https://devcenter.heroku.com/articles/heroku-cli-commands" target="_blank" rel="noopener">官方文档</a></p>
+<p><br><br><br></p>
+<hr>
+<h3 id="二、部署踩坑及解决"><a href="#二、部署踩坑及解决" class="headerlink" title="二、部署踩坑及解决"></a>二、部署踩坑及解决</h3><p><br></p>
+<h4 id="1、解决python2-7编码问题"><a href="#1、解决python2-7编码问题" class="headerlink" title="1、解决python2.7编码问题"></a>1、解决python2.7编码问题</h4><p>这个项目是几个月之前的了，当时用的python2.7，本来想部署到阿里云，但是一直部署不上去，然后搁置。最近拿出来 <strong>重构</strong>，前前后后改了很多，就python版本沿用之前的2.7。</p>
+<p><strong>flask_admin</strong> 做的后台，偶尔会打不开，时好时坏，后面才想到可能是 <strong>编码</strong> 问题。<br>网上搜索（真的是良莠不齐233..），最后找到一个方案，好歹解决了。</p>
+<p>venv路径下找到python2.7,然后找到 <strong>site.py</strong> 文件，加上 以下几句，顺利解决</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ cd venv/lib/python2.7
+(venv) lucy@ubuntu:~/projects/myblog/venv/lib/python2.7$ ls site.py* -al
+
+- rw-rw-r-- 1 lucy lucy 27587 4月   4 18:09 site.py
+-rw-rw-r-- 1 lucy lucy 24918 4月   2 09:54 site.pyc
+
+(venv) lucy@ubuntu:~/projects/myblog/venv/lib/python2.7$ vim site.py
+/* 在前面加上 */
+import sys
+reload(sys)
+sys.setdefaultencoding(&apos;utf-8&apos;)
+</code></pre><p>上面说的头头是道，很有道理。但是如果将app部署到了heroku上，还如何修改site.py？？（emmm <strong>是不是感觉被骗了一样</strong>…）</p>
+<p>前前后后周折很久，能否通过命令行或者别的方式，加一个site.py上去（当然事实证明是，<strong>天方夜谭</strong> 233…）只好胡乱试了，后面想通了一丢丢。在每一个 <strong>含中文的py文件</strong> 头部，加上下面这几句</p>
+<pre><code>#-*- coding:utf-8 -*-
+</code></pre><p>嘿嘿非常神奇的，老毛病再没犯过，撒花~</p>
+<p><br></p>
+<h4 id="2、数据库迁移问题"><a href="#2、数据库迁移问题" class="headerlink" title="2、数据库迁移问题"></a>2、数据库迁移问题</h4><p>heroku部署数据库这块很多坑，不多说都是泪，上面已经讲得很详细了。参考 <a href="https://blog.csdn.net/kkevinyang/article/details/52183768" target="_blank" rel="noopener">博客</a>，总结得挺好。no such table问题，也可看看<a href="https://www.cnblogs.com/qq952693358/p/6648352.html" target="_blank" rel="noopener">这一篇</a>。然后每一次向数据库提交数据，都要记得db.commit()</p>
+<p><br></p>
+<h4 id="3、git-push部署与requirements-txt"><a href="#3、git-push部署与requirements-txt" class="headerlink" title="3、git push部署与requirements.txt"></a>3、git push部署与requirements.txt</h4><p>有时候git push heroku master 提交不了，出现git push heroku master: Heroku push rejected 这类型的情况，有一种可能是：你的 <strong>requirements.txt混进了奇怪的包</strong>，或者不能被远程的heroku_app pip下载的包,需要排除，所以每次git push 前最好查看一下requriements.txt</p>
+<pre><code>/* 有几回莫名其妙混进这个包 */
+pkg resources=0.0.0
+</code></pre><p><br></p>
+<h4 id="4、git-push部署与http-postBuffer"><a href="#4、git-push部署与http-postBuffer" class="headerlink" title="4、git push部署与http.postBuffer"></a>4、git push部署与http.postBuffer</h4><p>之前不明所以，把migrations文件归入gitignore文件中，后面了解了放出来重新git push部署，结果如下。这下我明白了原来 <strong>git 上传是有大小限制的</strong>,具体参考 <a href="https://www.cnblogs.com/gongchixin/articles/7509219.html" target="_blank" rel="noopener">博客</a></p>
+<pre><code>/* 文件太大会出现http.postBuffer相关error */
+error: unable to rewind rpc post data - try increasing http.postBuffer
+error: RPC failed; curl 56 Recv failure: Connection reset by peer
+fatal: The remote end hung up unexpectedly
+fatal: The remote end hung up unexpectedly
+Everything up-to-date
+Completed with errors, see above
+
+/* 解决方法，就是增加http.postBuffer */
+(venv) lucy@ubuntu:~/projects/myblog$ git config --global http.postBuffer 524288000
+
+/* 上面这个太大了233，超出了范围，换成小一点的通过 */
+(venv) lucy@ubuntu:~/projects/myblog$ git config --global http.postBuffer 48000000
+</code></pre><p><br></p>
+<h4 id="5、github和heroku-git无法登陆"><a href="#5、github和heroku-git无法登陆" class="headerlink" title="5、github和heroku git无法登陆"></a>5、github和heroku git无法登陆</h4><p>这估计是最吓人的bug了。。昨天下午正忙着，好不容易有一点头绪，结果没法提交到远端。诡异的是，heroku 的git和github都是如此。一脸懵逼，后面heroku login也连不上了</p>
+<pre><code>/* heroku 显示443错误 */
+▸ EAI_AGAIN: getaddrinfo EAI_AGAIN api.heroku.com:443
+/* github 显示can not connect to server */
+</code></pre><p>因为之前有做过一点爬虫，所以第一反应可能之前操作太频繁？？被<strong>heroku以为是robort然后封ip</strong>了，怕怕。但用浏览器又可正常访问heroku和github，排除这个可能</p>
+<p>网上有一种说法是，如果 <strong>挂代理可能会占用443端口</strong>，导致无法进行访问。这回开始了解了一些443端口的知识，此时正挂着shadow，赶紧卸掉，但是仍是一点用也没有</p>
+<p>继续穿回小马甲搜索，google提示用 <strong>ssh替换https方式</strong> 操作git。蒙头去试，果真如此</p>
+<p><br></p>
+<p>1）首先说 github这边</p>
+<p>添加ssh简单略过，https模式换成ssh模式，可直接在.git目录下config中修改</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog/.git$ vim config
+[remote &quot;origin&quot;]
+    url = git@github.com:LUCY78765580/myblog.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+</code></pre><p>然后又遇到问题了，借鉴 <a href="https://blog.csdn.net/mbuger/article/details/70226712" target="_blank" rel="noopener">博客</a>,解决掉一部分</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ ssh git@github.com
+ssh: connect to host github.com port 22: Connection refused
+
+/* 进入.ssh目录，添加config文件 */
+/* 注意要用sudo vim &lt;文件名&gt;，否则可能退不出来 */
+/* User这里是电子邮件 */
+(venv) lucy@ubuntu:~/projects/myblog$ cd ~/.ssh
+
+(venv) lucy@ubuntu:~/.ssh$ touch config
+(venv) lucy@ubuntu:~/.ssh$ sudo vim config
+/* config */
+Host github.com
+User xxxxxx@qq.com
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+</code></pre><p>然后你以为这就万事大吉了嘛？不可能的，<strong>heroku的bug从不认输</strong> （镇定脸..）</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog$ ssh git@github.com
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+</code></pre><p>结果还是stackoverflow 帮了大忙，参考 <a href="https://stackoverflow.com/questions/9393409/ssh-could-not-resolve-hostname-github-com-name-or-service-not-known-fatal-th/9393431" target="_blank" rel="noopener">这个答案</a></p>
+<ul>
+<li>第一种 <strong>用ping得到ip</strong>，将ip地址填入/etc/hosts文件中</li>
+<li>第二种 sudo vim /etc/resolv.conf，填入<strong>nameserver 8.8.8.8</strong> 和<strong>nameserver 8.8.4.4</strong></li>
+<li>最后出现 “Hi LUCY78765580! You’ve successfully authenticated, but GitHub does not provide shell access”代表 <strong>连接成功</strong>，可以进行git push操作了</li>
+<li>可能会出现类似的，Warning: Permanently added ‘github.com,192.30.252.130’ (<strong>RSA</strong>) to the list of known hosts.Permission denied (publickey)，这里建议不管成功与否，保险起见，还是将上述的ip填入/etc/hosts</li>
+</ul>
+<p><br></p>
+<p>2）然后 heroku这边</p>
+<p>同理的，通过ssh <a href="mailto:git@heroku.com" target="_blank" rel="noopener">git@heroku.com</a> 得到相应的 <strong>hosts</strong>，填入/etc/下的hosts文件.当然还是遇到问题：Permission denied (publickey)。原来是忘记配 <strong>ssh-key</strong> ，参考stackoverflow上的 <a href="https://stackoverflow.com/questions/17626944/heroku-permission-denied-publickey-fatal-could-not-read-from-remote-reposito" target="_blank" rel="noopener">discuss</a>,也可查看 <a href="https://devcenter.heroku.com/articles/keys" target="_blank" rel="noopener">heroku官方文档</a></p>
+<pre><code>/* 因为上面github已经生成一个了，只需一步 */
+(venv) lucy@ubuntu:~/projects/myblog$ heroku keys:add
+</code></pre><p><br></p>
+<h4 id="6、heroku-部署后Bootstrap样式失效"><a href="#6、heroku-部署后Bootstrap样式失效" class="headerlink" title="6、heroku 部署后Bootstrap样式失效"></a>6、heroku 部署后Bootstrap样式失效</h4><p>这个问题在网上也有人遇到过，但是没有很明确的答案。大概2种解法：</p>
+<ul>
+<li>stackoverflow上说的，可以用<strong>//maxcdn</strong>，详见 <a href="https://stackoverflow.com/questions/33351423/bootstrap-styles-missing-after-deploy-to-heroku" target="_blank" rel="noopener">这里</a></li>
+<li>不要用cdn，<strong>本地引用</strong>的方式就可以了，详见<a href="https://teamtreehouse.com/community/missing-css-on-heroku-deployment" target="_blank" rel="noopener">这里</a></li>
+</ul>
+<p>就着第2种思路去试了。首先去<a href="https://v3.bootcss.com/" target="_blank" rel="noopener">Bootstrap中文网</a> 和 <a href="http://jquery.com/download/" target="_blank" rel="noopener">jQuery网站</a>获取下载地址，用wget<strong>下载</strong>到static目录下面，然后<strong>解压</strong>（可参考 <a href="https://www.cnblogs.com/wangluochong/p/7194037.html" target="_blank" rel="noopener"> 博客</a>）</p>
+<pre><code>(venv) lucy@ubuntu:~/projects/myblog/app/static$ wget &lt;Bootstrap-3.3.7地址&gt;
+(venv) lucy@ubuntu:~/projects/myblog/app/static$ wget &lt;jQuery-3.3.1地址&gt;
+(venv) lucy@ubuntu:~/projects/myblog/app/static$ tar –xvf &lt;Bootrap-3.3.7 的tar文件&gt;
+(venv) lucy@ubuntu:~/projects/myblog/app/static$ unzip–xvf &lt;jQuery-3.3.1 的zip文件&gt;
+</code></pre><p>在 base.html 中修改，link标签可以采取flask中的<strong>url_for</strong> 方式访问。解决。</p>
+<pre><code>&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    &lt;script src=&quot;../static/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ url_for('static',filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}&quot;&gt;
+    &lt;script src=&quot;../static/bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;{{ url_for('static',filename='favicon.ico') }}&quot; type=&quot;image/x-icon&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ url_for('static',filename='styles.css') }}&quot;&gt;
+&lt;/head&gt;
+</code></pre><p><br></p>
+<h4 id="7、部署后git-push更新的CSS样式失效"><a href="#7、部署后git-push更新的CSS样式失效" class="headerlink" title="7、部署后git push更新的CSS样式失效"></a>7、部署后git push更新的CSS样式失效</h4><p>这里意思是，已经部署成功的app重新修改样式，成功又一次git push heroku master到远端，但是 <strong>css样式没有发生改变</strong>，没有更新。</p>
+<p>今天早上也遇到这个问题，成功把俺吓住，以为哪哪又出问题了。后面灵光一闪，<strong>清空浏览器缓存</strong>，<strong>刷新</strong>，成功嘿嘿。。</p>
+<p>不要问我怎么发现的，因为俺聪明啊（233试了三个浏览器这个事实我会告诉你？（逃~</p>
+<pre><code>/* 顺带记一下，用火狐浏览器查看heroku博客，不用清空缓存也可正常显示；使用360和chrome，则需要在更新css后，清空浏览器，然后刷新才能正常显示。*/
+</code></pre><p><br></p>
+<h4 id="8、解决TextArea自适应宽度"><a href="#8、解决TextArea自适应宽度" class="headerlink" title="8、解决TextArea自适应宽度"></a>8、解决TextArea自适应宽度</h4><p>这个问题也很烦人，之前已经设计好的样式，比如发表说说的文本框 <strong>rows=8 ,cols=41</strong> 对齐得挺好，部署后不能看了。。强迫症患者简直不能忍（具体图就不放了）<br>网上找到 <a href="https://blog.csdn.net/domingoluis/article/details/6676331" target="_blank" rel="noopener">这个答案</a>，还是挺靠谱的。如下所示，添上style=”…一系列”，最终解决。</p>
+<pre><code>&lt;form class=&quot;NewForm&quot; method=&quot;POST&quot; action=&quot;&quot;&gt;
+    {{ form.hidden_tag() }}
+    &lt;div class=&quot;col-md-12&quot;&gt;{{ form.content(rows=8,cols=41,placeholder=form.content.label.text,style="width:100%;overflow:auto;word-break:break-all;") }}&lt;/div&gt;
+    &lt;div style=&quot;height:20px;clear:both;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-md-12&quot;&gt;{{ form.submit(class="btn btn-default") }}&lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p><br><br><br></p>
+<hr>
+<h3 id="三、资料及博客参考"><a href="#三、资料及博客参考" class="headerlink" title="三、资料及博客参考"></a>三、资料及博客参考</h3><p><br></p>
+<p>1、<a href="https://devcenter.heroku.com/" target="_blank" rel="noopener">heroku官方文档</a></p>
+<p>2、<a href="https://www.jianshu.com/p/7bc34e56fa39" target="_blank" rel="noopener">Heroku 使用教程</a></p>
+<p>3、<a href="https://blog.csdn.net/cancer94/article/details/54838871?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">部署Flask App到Heroku完整过程</a></p>
+<p>4、<a href="https://blog.csdn.net/happy_bigqiang/article/details/51180049" target="_blank" rel="noopener">heroku 部署flask应用</a></p>
+<p>5、<a href="http://cocode.cc/t/flasky-heroku/6589" target="_blank" rel="noopener">【flasky/heroku/部署】（欢迎大家挑刺和补充）可能是目前为止最详细的了</a></p>
+<p><br><br><br></p>
+<hr>
+<h3 id="四、总结与思考"><a href="#四、总结与思考" class="headerlink" title="四、总结与思考"></a>四、总结与思考</h3><p>总的内容大概就是上面这些了，真的是又长又chou的一篇文，嗯是挺细的。</p>
+<p>现在怀疑自己是<strong>“招bug”体质</strong> 一类，部署那么点东西，莫名其妙要踩无数坑？？。</p>
+<p>好几回都想要放弃了，但是总归坚持了下来，最终部署成功大大增强了信心嘿嘿。<br>这次的部署，也见识了很多以前忽略的东西，比如linux命令、git操作、使用搜索。<br>总归言之以下几点：</p>
+<ul>
+<li>看document/log/code 一定要非常 <strong>仔细</strong>，否则很多时候会忽略很重要的信息</li>
+<li>用 <strong>英文搜索</strong>(google/stackoverflow 一类) 效率要高很多</li>
+<li>日常 <strong>工具</strong> (linux/git/github/vim一类)熟练，可以大大提高生产效率，要加油的</li>
+<li>有些困难真的是 <strong>无法绕过去</strong>的，这时候要做的，就是坚持住、战胜它</li>
+</ul>
+<p>这篇文算比较“细致”or <strong>“唠叨”</strong>的一篇，主要记录踩坑的过程，以后不会犯相同的错误。<br>当然如果帮助到了需要的人，本宝宝也hin开心的。</p>
+<p>最后附上<a href="https://github.com/LUCY78765580/myblog" target="_blank" rel="noopener">博客项目github地址</a>，一些功能完善中,欢迎star/fork/提issue。（捂脸逃~</p>
+<p><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/Heroku/" rel="tag"><i class="fa fa-tag"></i> Heroku</a>
+        
+          <a href="/tags/Flask/" rel="tag"><i class="fa fa-tag"></i> Flask</a>
+        
+          <a href="/tags/部署/" rel="tag"><i class="fa fa-tag"></i> 部署</a>
+        
+          <a href="/tags/运维/" rel="tag"><i class="fa fa-tag"></i> 运维</a>
+        
+      </div>
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/04/05/Heroku部署Flask项目经历/" title="Heroku部署Flask项目经历">http://lucy78765580.github.io/2018/04/05/Heroku部署Flask项目经历/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/25/Linux基础之Vim编辑器/" rel="next" title="Linux基础(4) - Vim编辑器">
+                <i class="fa fa-chevron-left"></i> Linux基础(4) - Vim编辑器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Wakingup" />
+            
+              <p class="site-author-name" itemprop="name">Wakingup</p>
+              <p class="site-description motion-element" itemprop="description">哎呀又是新的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LUCY78765580" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wei-yan-ying-12/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://woodenrobot.me/" title="木制robot" target="_blank">木制robot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zhangslob.github.io/" title="崔斯特" target="_blank">崔斯特</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、heroku部署具体过程"><span class="nav-number">1.</span> <span class="nav-text">一、heroku部署具体过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-heroku注册"><span class="nav-number">1.1.</span> <span class="nav-text">0.heroku注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载heroku-CLI"><span class="nav-number">1.2.</span> <span class="nav-text">1.下载heroku CLI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建git项目"><span class="nav-number">1.3.</span> <span class="nav-text">2.创建git项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-flask-app相关文件"><span class="nav-number">1.4.</span> <span class="nav-text">3.flask_app相关文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、heroku创建app"><span class="nav-number">1.5.</span> <span class="nav-text">4、heroku创建app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、heroku部署"><span class="nav-number">1.6.</span> <span class="nav-text">5、heroku部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-记录heroku常用其他命令"><span class="nav-number">1.7.</span> <span class="nav-text">6.记录heroku常用其他命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、部署踩坑及解决"><span class="nav-number">2.</span> <span class="nav-text">二、部署踩坑及解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、解决python2-7编码问题"><span class="nav-number">2.1.</span> <span class="nav-text">1、解决python2.7编码问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、数据库迁移问题"><span class="nav-number">2.2.</span> <span class="nav-text">2、数据库迁移问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、git-push部署与requirements-txt"><span class="nav-number">2.3.</span> <span class="nav-text">3、git push部署与requirements.txt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、git-push部署与http-postBuffer"><span class="nav-number">2.4.</span> <span class="nav-text">4、git push部署与http.postBuffer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、github和heroku-git无法登陆"><span class="nav-number">2.5.</span> <span class="nav-text">5、github和heroku git无法登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、heroku-部署后Bootstrap样式失效"><span class="nav-number">2.6.</span> <span class="nav-text">6、heroku 部署后Bootstrap样式失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、部署后git-push更新的CSS样式失效"><span class="nav-number">2.7.</span> <span class="nav-text">7、部署后git push更新的CSS样式失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、解决TextArea自适应宽度"><span class="nav-number">2.8.</span> <span class="nav-text">8、解决TextArea自适应宽度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、资料及博客参考"><span class="nav-number">3.</span> <span class="nav-text">三、资料及博客参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、总结与思考"><span class="nav-number">4.</span> <span class="nav-text">四、总结与思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy;
+  
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-love"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wakingup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+    </a>
+    
+      v5.1.3
+    
+  </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-hourglass-half">&nbsp;本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">&nbsp;总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wc6BKBST1zj4HwIWULeqKMNh-gzGzoHsz',
+        appKey: 'MtI4XX2ifdphKHslPWCaVQzp',
+        placeholder: '写点什么吧ヾﾉ≧∀≦)o',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
