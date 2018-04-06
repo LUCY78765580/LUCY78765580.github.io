@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WakingUp's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础(3) - 文件与目录">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/index.html">
+<meta property="og:site_name" content="WakingUp&#39;s Blog">
+<meta property="og:description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cd-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rmdir-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rm-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-which-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-whereis-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-locate-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-005.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cat-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cat-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-more-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-od-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-od-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-umask-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-umask-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chattr-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-lsattr-001.jpg">
+<meta property="og:updated_time" content="2018-03-25T11:51:29.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux基础(3) - 文件与目录">
+<meta name="twitter:description" content="Linux中文件和目录管理 文件这一块需要掌握常用命令非常多 也是Linux基础中非常关键的一环">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1003.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/"/>
+
+
+
+
+
+  <title>Linux基础(3) - 文件与目录 | WakingUp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WakingUp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry, stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wakingup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WakingUp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux基础(3) - 文件与目录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T16:43:58+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/24/Linux基础之文件与目录管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/24/Linux基础之文件与目录管理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>Linux中文件和目录管理</p>
+<p>文件这一块需要掌握常用命令非常多</p>
+<p>也是Linux基础中非常关键的一环</p>
+</blockquote>
+<a id="more"></a>
+<p>这一块可以说是基础中重中之重了，具体的思维导图如下。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1003.jpg" alt=""><br><br></p>
+<h3 id="1、cd-切换目录"><a href="#1、cd-切换目录" class="headerlink" title="1、cd 切换目录"></a>1、cd 切换目录</h3><p>cd 是change directory的缩写，表示切换工作目录</p>
+<p>格式：<strong>cd【相对路径/绝对路径】</strong></p>
+<p><strong>绝对路径</strong>：一定<strong>从根目录开始</strong>的路径，比如/usr/share/doc 这个目录</p>
+<p><strong>相对路径</strong>：不是由根目录写起的，指的是<strong>相对当前工作目录的路径</strong>，比如由 /usr/share/doc 到/usr/share/man 下面时，可以写成“cd../man”</p>
+<p>一般来讲，写绝对路径正确度要高些。下面是一些相对路径的表示方式,表示<strong>比较特殊的目录</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td>代表此层目录</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td>代表<strong>上一层</strong>目录</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td>代表<strong>前一个</strong>目录</td>
+</tr>
+<tr>
+<td style="text-align:center">~</td>
+<td>代表当前<strong>用户身份</strong>所在的文件夹</td>
+</tr>
+<tr>
+<td style="text-align:center">~acount</td>
+<td>代表acount这个用户所在的文件夹（acount是账户名称）</td>
+</tr>
+</tbody>
+</table>
+<p>下面就是比较特殊的命令了，比较有意思的是<strong>cd -</strong> 和 <strong>cd ..</strong> 这两个。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cd</td>
+<td>回到自己的主文件夹</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>cd ~</strong></td>
+<td>回到自己的主文件夹</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>cd ..</strong></td>
+<td>去到上一层目录</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>cd -</strong></td>
+<td>回到这一步之前的目录（就是相当于回退一步）</td>
+</tr>
+<tr>
+<td style="text-align:center">cd /var/spool/mail</td>
+<td>绝对路径的写法，指定要去的完整路径的名称</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>cd ../mqueue</strong></td>
+<td>相对路径的写法，由前面的/var/spool/mail去到/var/spool/mqueue</td>
+</tr>
+</tbody>
+</table>
+<p>具体实现如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cd-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="2、pwd-显示当前目录"><a href="#2、pwd-显示当前目录" class="headerlink" title="2、pwd 显示当前目录"></a>2、pwd 显示当前目录</h3><p>pwd是print working directory的缩写，<strong>显示目前所在目录</strong></p>
+<p>格式：<strong>pwd [-P]</strong></p>
+<p>具体实现如图所示,-P参数可以帮助我们获得正确的目录名称，而<strong>不是连接文件的路径</strong>。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-pwd-002.jpg" alt=""></p>
+<p><br></p>
+<h3 id="3、mkdir-新建新目录"><a href="#3、mkdir-新建新目录" class="headerlink" title="3、mkdir 新建新目录"></a>3、mkdir 新建新目录</h3><p>mkdir是 make directory 的缩写</p>
+<p>格式：<strong>mkdir [-mp] 【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li>-m: 可以直接在<strong>创建时配置文件权限</strong>，无需看默认权限</li>
+<li>-p: 可以<strong>递归创建</strong>所需目录（默认情况下目录是一层一层创建）</li>
+</ul>
+<p>具体实现如图所示，可以看到，没有给予-m参数时，<strong>默认新建目录权限为 rwx rwx r-x(775)</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mkdir-003.jpg" alt=""></p>
+<p><br></p>
+<h3 id="4、rmdir-删除目录"><a href="#4、rmdir-删除目录" class="headerlink" title="4、rmdir 删除目录"></a>4、rmdir 删除目录</h3><p>格式： <strong>rmdir [-p] 【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-p</strong>: 连同上一层的空目录也一起删除</li>
+</ul>
+<p>具体实现如下图所示，一般来说用单独的rmdir命令删除，仅仅能一层一层的删除，并且被删除目录里面必定<strong>不能含有其它的目录或文件</strong>（除非用rm -r finename）</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rmdir-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="5、ls-查看文件与目录"><a href="#5、ls-查看文件与目录" class="headerlink" title="5、ls 查看文件与目录"></a>5、ls 查看文件与目录</h3><p>格式：<strong>ls [-aAdfFhilnrRSt]【目录名称】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-a</strong>: 列出全部文件，连同<strong>隐藏文件</strong>(开头为 . 的文件) ，一起列出来（常用）</li>
+<li><strong>-l</strong>: 列出长串数据，包括<strong>文件属性、文件权限等数据</strong>(常用)</li>
+<li><strong>-d</strong>: 仅仅列出<strong>目录本身</strong>，而<strong>不是</strong>列出目录的文件数据(常用)</li>
+<li>其它太多了，暂且略过</li>
+</ul>
+<p>具体例子如图下所示,ls -l ~ 表示将<strong>主文件夹下的所有文件</strong>全部列出来</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-ls-002.jpg" alt=""></p>
+<p><br></p>
+<h3 id="6、touch创建新文件-或修改文件时间）"><a href="#6、touch创建新文件-或修改文件时间）" class="headerlink" title="6、touch创建新文件(或修改文件时间）"></a>6、touch创建新文件(或修改文件时间）</h3><p>每个文件在linux下面都会记录很多时间参数，其中有三个主要变动时间</p>
+<ul>
+<li><strong>mtime</strong>(modification time): 当文件内容数据更改时，会更新这个时间。内容数据指的是文件的内容，而<strong>不包括文件的属性或权限</strong></li>
+<li><strong>ctime</strong>(status time): 当文件的状态改变时，会更新这个时间。例如文件的<strong>属性或权限发生改变</strong>时，会更新这个时间。</li>
+<li><strong>atime</strong>(access time): 当文件内容被<strong>取用</strong>时，会更新这个时间。例如我们使用cat查看/etc/man.config，就会更新文件的atime</li>
+</ul>
+<p>如图所示，可以看出，默认情况下，ls显示的是文件的mtime(也就是该文件内容上次被修改的时间)</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-001.jpg" alt=""></p>
+<p>格式：<strong>touch [-acdmt] 【文件】</strong><br>参数：</p>
+<ul>
+<li><strong>-a</strong>: 仅修改访问时间(即atime)</li>
+<li><strong>-m</strong>: 仅修改文件mtime</li>
+<li><strong>-c</strong>: 仅修改文件的时间，若文件不存在，则<strong>不创建新文件夹</strong></li>
+<li><strong>-d</strong>: 后面可以接欲修改的时间，而不用目前的时间，也可以使用–date=”日期或时间”</li>
+<li><strong>-t</strong>：后面可以接欲修改的时间，而不用目前的时间，格式为[YYMMDDhhmm]</li>
+</ul>
+<p>​默认情况下，如果touch后面接有文件(文件已经存在)，则该文件的三个时间(atime,ctime,mtime)<strong>都会更新为目前时间</strong>；若文件不存在，会主动<strong>创建一个新的空文件</strong>，文件大小为0. 如下图所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-touch-002.jpg" alt=""></p>
+<p><br></p>
+<h3 id="7、cp复制文件-目录"><a href="#7、cp复制文件-目录" class="headerlink" title="7、cp复制文件/目录"></a>7、cp复制文件/目录</h3><p>cp为copy的缩写，cp除了单纯复制外，还可以创建连接文件(或者快捷方式)</p>
+<p>格式：<br><strong>cp [-adfilprsu] 源文件(source) 目标文件(destination)</strong></p>
+<p><strong>cp [options] source1 source2 source3 …directory</strong></p>
+<p>参数：</p>
+<ul>
+<li>-a 相当于 -pdr ，将文件<strong>所有特性</strong>一起复制过来,属性和权限不改变(常用)</li>
+<li>-p  连同文件的<strong>属性</strong>一起复制过去，而并非使用默认属性（<strong>备份常用</strong>）</li>
+<li>-r <strong>递归</strong>连续复制，用于<strong>目录</strong>的复制行为</li>
+<li>-l 进行<strong>硬连接</strong>的连接文件创建（hard link），而非复制文件本身</li>
+<li>-s 复制成为软连接（或符号链接）文件（symbolic link），即“<strong>快捷方式</strong>”文件</li>
+<li>-d 若源文件为连接文件（link file），则<strong>复制连接文件属性</strong>而非文件本身</li>
+<li>其它略</li>
+</ul>
+<p>注意不同身份者，执行cp命令会有不同的结果产生；同时如果想复制别人的数据，必需对该文件有read权限才行。</p>
+<p>一些密码文件(例如/etc/shadow及一些配置文件等)，不能用cp直接复制，必须加上-a或-p才能完整复制文件权限的参数</p>
+<p>cp没有加任何参数时，<strong>复制的是源文件，而非连接文件属性</strong>，除非使用-d进行复制，得连接文件属性。具体如下图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cp-004.jpg" alt=""></p>
+<p><br></p>
+<h3 id="8、rm删除文件"><a href="#8、rm删除文件" class="headerlink" title="8、rm删除文件"></a>8、rm删除文件</h3><p>格式：<strong>rm  [-fir]  【文件/目录】</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-f</strong>: force的意思，忽略不存在的文件，不会出现警告信息</li>
+<li><strong>-i</strong>: 互动模式，会在删除前<strong>询问</strong>是否进行操作</li>
+<li><strong>-r</strong>: 递归删除(常<strong>用于整个目录删除</strong>），因为系统删除时不会提示，所以<strong>危险</strong>！！！</li>
+</ul>
+<p>具体例子如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-rm-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="9、mv移动文件-或重命名"><a href="#9、mv移动文件-或重命名" class="headerlink" title="9、mv移动文件(或重命名)"></a>9、mv移动文件(或重命名)</h3><p>格式1:<strong>mv [-fiu] source destination</strong></p>
+<p>格式2:<strong>mv [options] source1 source2 source3 … directory</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>-f</strong>: force强制之意，目标文件已经存在，<strong>不会询问</strong>直接覆盖</li>
+<li><strong>-i</strong>: 交互模式，若目标文件已经存在，<strong>会询问</strong>是否覆盖</li>
+<li><strong>-u</strong>: 更新模式，若原文件有新内容，才会进行更新</li>
+</ul>
+<p>注意用mv进行重命名，<strong>每次只能对一个文件</strong>；而用rename，每次可以对多个文件命名。如果同时移动多个文件或目录，那么命令的最后一个肯定是<strong>目录</strong>。具体如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-mv-003.jpg" alt=""></p>
+<p><br></p>
+<h3 id="10、which-查找PATH规范的“执行文件”"><a href="#10、which-查找PATH规范的“执行文件”" class="headerlink" title="10、which 查找PATH规范的“执行文件”"></a>10、which 查找PATH规范的“执行文件”</h3><p>格式: <strong>which [-a] 【命令】</strong></p>
+<p>这个命令是根据<strong>PATH这个环境变量所规定的路径</strong>，去寻找“执行文件”的文件名。一般仅仅显示<strong>第一个</strong>，加上-a参数，可以列出<strong>所有</strong>的同名执行文件。</p>
+<p>值的注意的是，常用命令cd是<strong>找不到</strong>的，因为cd是<strong>bash内置命令</strong>，而不是PATH内所规范的目录。具体如图下所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-which-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="11、whereis-查找指定文件"><a href="#11、whereis-查找指定文件" class="headerlink" title="11、whereis 查找指定文件"></a>11、whereis 查找指定文件</h3><p>格式：<strong>whereis [-mbsu] 【文件/目录名】</strong><br>参数：</p>
+<ul>
+<li><strong>-m</strong>:只查找在说明文件manual路径下的文件（即man page）</li>
+<li><strong>-b</strong>:只查找二进制格式文件</li>
+<li><strong>-s</strong>:只查找source源文件</li>
+<li><strong>-u</strong>:查找不在上述三项中的其他特殊文件</li>
+</ul>
+<p>具体例子如图所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-whereis-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="12、locate查找指定文件"><a href="#12、locate查找指定文件" class="headerlink" title="12、locate查找指定文件"></a>12、locate查找指定文件</h3><p>whereis和locate都使用<strong>数据库</strong>来查找数据，所以速度比较快（相对于find来说）。但是数据库是默认<strong>每天更新一次</strong>，所以用whereis和locate有可能找不到最新的文件，或者甚至有时能找得到已经删除的文件。当然也可以使用<strong>updatedb</strong>命令更新数据库。</p>
+<ul>
+<li><strong>updatedb</strong>:根据/etc/updatedb.conf设置，去查找硬盘内文件名更新/var/lib/mlocate内的数据库文件。</li>
+<li><strong>locate</strong>:根据/var/lib/mlocate内数据库记载，找出用户输入的关键字文件名</li>
+</ul>
+<p>格式：locate [-ir] 【关键字】<br>参数：</p>
+<ul>
+<li><strong>-i</strong>:忽略大小写差异</li>
+<li><strong>-r</strong>:后面可接正则表达式的显示方式</li>
+</ul>
+<p>具体如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-locate-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="13、find-查找指定文件"><a href="#13、find-查找指定文件" class="headerlink" title="13、find 查找指定文件"></a>13、find 查找指定文件</h3><p>格式：<strong>find [PATH] [option] [action]</strong></p>
+<p>参数：这里就非常多了</p>
+<p>1)、与<strong>时间有关</strong>的参数：<br>有-atime/-ctime/mtime,这里以mtime来举例</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-mtime n</td>
+<td>列出n天之前的”一天之内”被更改过的文件名（当天，n=0）</td>
+</tr>
+<tr>
+<td style="text-align:center">-mitme -n</td>
+<td>列出n天之内（包括n天本身）被更改过的文件名</td>
+</tr>
+<tr>
+<td style="text-align:center">-mtime +n</td>
+<td>列出在n天之前（不含n天本身）被更改过的文件名</td>
+</tr>
+<tr>
+<td style="text-align:center">-newer file</td>
+<td>file为一个已经存在的文件，列出<strong>比file还要新</strong>的文件名(<strong>用于比较文件的新旧关系</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p><img src="" alt=""></p>
+<p><br></p>
+<p>2)、与 <strong>用户/用户组</strong> 有关的参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-uid n</td>
+<td>n为用户账号ID(UID)，UID是记录在/etc/passwd 里面与账号名称对应的数字</td>
+</tr>
+<tr>
+<td style="text-align:center">-git n</td>
+<td>n为用户组账号ID(GID),GID是记录在/etc/group 中的数字</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-user name</strong></td>
+<td>name为<strong>账户名称</strong>，可以用于查找系统中<strong>某一用户的所有文件</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-group name</strong></td>
+<td>name为<strong>用户组名</strong>，可以用于查找系统中某一个用户组的所有文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-nouser</strong></td>
+<td>寻找文件的所有者不在 /etc/passwd 的人</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-nogroup</strong></td>
+<td>寻找文件的所有用户组不存在于 /etc/group中的文件</td>
+</tr>
+</tbody>
+</table>
+<p>当<strong>不小心删除某个账号（或用户）</strong>，但是该账号（或用户）已经在系统中创建了许多文件，这时候很可能发生“<strong>无主</strong>”文件存在，于是可以用后面的<strong>-nouser/-nogroup</strong>命令进行查找。<br><br></p>
+<p>3)、与<strong>文件权限及名称</strong>有关的参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>-name filename</strong></td>
+<td>查找文件名为filename的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-size [+-]SIZE</td>
+<td>查找比SIZE还要大or小的文件，SIZE单位有c和k，c表示byte,k表示1024bytes</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-type TYPE</strong></td>
+<td>查找TYPE类型文件，主要有：一般正规文件(f)、目录(d)、连接文件(l)、设备文件(b,c)、socket(s)及FIFO(p)等属性</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-perm mode</strong></td>
+<td>查找权限 <strong>恰好等于mode</strong> 的文件，例如-rwxr-xr-x的mode为4755</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>-perm -mode</strong></td>
+<td>查找权限 <strong>必须要包括mode</strong> 的文件，例如查找-rwxr–r–(-perm -0744)文件，那么-rwxr-xr-x(-perm -4755)也可以被查找出来，因为后者已经包括了0744的所有权限</td>
+</tr>
+<tr>
+<td style="text-align:center">-perm +mode</td>
+<td>查找权限 <strong>包含任一mode</strong> 的文件，例如查找-rwxr-xr-x(-perm +775)文件，那么-rw——- 也会被列出来，因为其包含 -rw… 属性</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>由上可以可以看出find命令包含很多参数，一般的文件查找可以通过whereis/locate很快查找。但是如果<strong>文件具有特殊属性</strong>，例如需要查找某一个用户的所有文件、需要找出具有具体权限的文件等等，find命令在这一方面大显神通。具体如图所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-004.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-find-005.jpg" alt=""></p>
+<p><br><br><br></p>
+<p>接下来是<strong>文件内容查阅</strong>，各种方式总结如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>cat/tac</strong></td>
+<td>由第一行开始显示文件内容；tac是cat的<strong>倒写</strong>，从最后一行开始显示</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>nl</strong></td>
+<td>显示时顺便<strong>输出行号</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">more/less</td>
+<td>一页一页地显示文件内容;less与more类似，但可以<strong>往前翻</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">head/tail</td>
+<td>只看头/结尾几行</td>
+</tr>
+<tr>
+<td style="text-align:center">od</td>
+<td>以<strong>二进制</strong>方式读取文件内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14、cat-tac-显示文件内容"><a href="#14、cat-tac-显示文件内容" class="headerlink" title="14、cat/tac 显示文件内容"></a>14、cat/tac 显示文件内容</h3><p>格式：<strong>cat [-nbAvET]</strong></p>
+<p>参数：</p>
+<ul>
+<li><strong>n</strong>:输出时顺带<strong>打印行号</strong>(包括空白行)</li>
+<li><strong>b</strong>:输出时顺带打印行号（<strong>不包括</strong>空白行）</li>
+<li><strong>A</strong>:可以列出一些特殊字符，相当于vET的<strong>整合</strong>参数</li>
+<li>v:列出一些看不见的特殊字符</li>
+<li>E:将结尾的断行字符$显示出来</li>
+<li>T:将[Tab]键以^I形式显示出来</li>
+</ul>
+<p>同时tac和cat正好反着来，由最后一行到第一行<strong>反向</strong>在屏幕上输出。具体如图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cat-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="15、nl-添加行号打印"><a href="#15、nl-添加行号打印" class="headerlink" title="15、nl 添加行号打印"></a>15、nl 添加行号打印</h3><p>其实我觉得这个功能和 cat -n file 很相似</p>
+<p>格式：<strong>nl [-bnw] 【文件】</strong><br>参数：</p>
+<ul>
+<li>-b:指定行号指定方式，有两种：<ul>
+<li>-b a:无论为<strong>空行</strong>，皆列出行号（类似cat -n）</li>
+<li>-b t:如果有空行，空的一行<strong>不输出</strong>行号（默认值）</li>
+</ul>
+</li>
+<li>-n:列出行号表示方法，有3种：<ul>
+<li>-n ln:行号在屏幕<strong>最左方</strong>显示</li>
+<li>-n rn:行号在自己字段的最右方显示，不加0</li>
+<li>-n rz:行号在自己字段的最右方显示，加0</li>
+</ul>
+</li>
+<li>-w:行号字段占用的<strong>位数</strong></li>
+</ul>
+<p>具体如下图所示</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cat-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="16、more-less-翻页查看"><a href="#16、more-less-翻页查看" class="headerlink" title="16、more/less 翻页查看"></a>16、more/less 翻页查看</h3><p>more和less可以一页一页翻动，查看文件内容。两者功能差不多，但less要比more<strong>灵活</strong>一些,less不仅可<strong>向下亦可向上</strong>查询，但是more仅能<strong>向下</strong>查询，这里仅仅介绍less。less的使用界面和<strong>man page</strong>非常类似，因为man命令实际上是<strong>调用less</strong>来显示文件的内容的。</p>
+<p>可以输入的命令有如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空格键</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Down】</strong></td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Up】</strong></td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>/string</strong></td>
+<td>向下查询string这个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>?string</strong></td>
+<td>向上查询string这个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">n,N</td>
+<td>利用/或者?来查询字符串的时候，可以用n进行正向查询，N进行反向查询</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>q</strong></td>
+<td>结束这一次less程序</td>
+</tr>
+</tbody>
+</table>
+<p>举例如图所示：<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-less-004.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-more-001.jpg" alt=""></p>
+<p><br></p>
+<h3 id="17、head-tail-进行数据选取"><a href="#17、head-tail-进行数据选取" class="headerlink" title="17、head/tail 进行数据选取"></a>17、head/tail 进行数据选取</h3><ul>
+<li>head 命令选取前面几行</li>
+<li>tail 命令选取后面几行</li>
+</ul>
+<p>格式：<strong>head/tail [-n number] 【文件】</strong></p>
+<p>n代表行数，比较特别的如果想选取<strong>10~20行</strong>间的数据，可以用<strong>管道命令</strong>，具体为 “<strong>head -n 20 filename | tail -n 10</strong>”。例子如图所示。</p>
+<p><img src="" alt=""></p>
+<p><br></p>
+<h3 id="18、od-查看二进制文件"><a href="#18、od-查看二进制文件" class="headerlink" title="18、od 查看二进制文件"></a>18、od 查看二进制文件</h3><p>由于执行文件多为二进制（binary file）文件，所以用一般的命令读取，通常会产生类似乱码情况<br>格式：<strong>od -t [TYPE]【文件】</strong></p>
+<p>-t: 后面可以接各种类型（TYPE）的输出，例如：</p>
+<ul>
+<li>a    使用默认字符输出</li>
+<li>c    使用ASCII字符输出</li>
+<li>d[size] 使用十进制（decimal）输出数据，每个整数占用size bytes</li>
+<li>f[size] 使用浮点数（floating）来输出数据，每个数占用size bytes</li>
+<li>o[size] 使用八进制（octal）来输出数据，每个数占用size bytes</li>
+<li>x[size] 使用十六进制（hexadecimal）来输出数据，每个数占用size bytes</li>
+</ul>
+<p>具体例子如图所示:1)、将文件用ASCII形式输出 2)、将文件以八进制列出存储值与ASCII的对照表(C代表对照之意)</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-od-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-od-002.jpg" alt=""></p>
+<p><br></p>
+<h3 id="19、umask-文件默认权限"><a href="#19、umask-文件默认权限" class="headerlink" title="19、umask 文件默认权限"></a>19、umask 文件默认权限</h3><p> umask指定当前用户在新建文件/目录时的<strong>权限默认</strong>值</p>
+<ul>
+<li>用户创建<strong>文件</strong>，一般默认<strong>没有x</strong>权限，最大666，为：-rw-rw-rw-</li>
+<li>用户创建<strong>目录</strong>，一般默认<strong>x权限开放</strong>，最大777，为：drwxrwxrwx</li>
+</ul>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-umask-001.jpg" alt=""></p>
+<p>注意：umask分数指的是 ”该默认值<strong>需要减掉</strong>的权限“,例如图2中，umask=0002,说明others<strong>被减去了w的权限</strong>，于是有如下</p>
+<ul>
+<li>新建文件：（-rw-rw-rw-）-（——–w-）==&gt; <strong>-rw-rw-r–</strong></li>
+<li>新建目录：（drwxrwxrwx）-（——–w-）==&gt; <strong>drwxrwxr-x</strong></li>
+</ul>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-umask-002.jpg" alt=""></p>
+<p>同理可以知道，如果设置umask=022,那么group和other分别被剥夺w权限，这时候只有用户自己有w权限，同组的和其它<strong>仅仅就剩r权限</strong>了，如果用于<strong>多人编辑</strong>的环境中，当然是不合适了</p>
+<p><br></p>
+<h3 id="20、chattr-lsattr-文件隐藏属性"><a href="#20、chattr-lsattr-文件隐藏属性" class="headerlink" title="20、chattr/lsattr 文件隐藏属性"></a>20、chattr/lsattr 文件隐藏属性</h3><p>文件除了那9个权限之外，还有隐藏属性，隐藏属性通常对<strong>系统安全</strong>等方面发挥较大作用</p>
+<ul>
+<li>chattr <strong>设置</strong>文件的隐藏属性</li>
+<li>lsattr <strong>显示</strong>文件隐藏属性</li>
+</ul>
+<p>1) 格式1：<strong>chattr [+-=][ASacdistu]【文件或目录名】</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td>增加某一个特殊参数，其它原本存在的参数不变</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td>删除某一个特殊参数，其它原本存在的参数不变</td>
+</tr>
+<tr>
+<td style="text-align:center">=</td>
+<td>仅有后面接的参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>a</strong></td>
+<td>设置a参数后，文件<strong>只能增加数据</strong>，<strong>不能删除也不能修改</strong>，仅有root才能设置这个属性</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>i</strong></td>
+<td>设置i参数后，文件<strong>无法删除、修改，设置连接也无法写入或添加</strong>数据。非常厉害!!对于安全系统有很大帮助，只有root能设置此属性</td>
+</tr>
+<tr>
+<td style="text-align:center">A</td>
+<td>设置A参数后，若有访问此文件（或目录），其访问时间<strong>(atime)将不会被修改</strong>。可以避免I/O较慢的机器过度访问磁盘，对速度较慢的计算机有帮助</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td>设置S参数后，进行任何文件的修改，改动将以”<strong>同步</strong>“方式写入磁盘中（一般是异步写入磁盘）</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td>设置c参数后，将自动将文件压缩，读取时自动解压。在存储时，将<strong>先进行压缩后存储</strong>，对打文件有利</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td>设置d参数后，当dump程序被执行时，可将文件（或目录）不被dump备份</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td>设置s参数后，若文件被删除，它将被完全从这个磁盘中删除</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td>与s相反，若文件被删除，数据内容还存在磁盘中，可以<strong>用来找回该文件</strong></td>
+</tr>
+</tbody>
+</table>
+<p>如图所示，一般用户无法进行参数的修改，所以首先要切换到root权限；同时加了i参数后，<strong>root权限下也无法删除文件</strong>，只有重新减去i参数才能顺利删除。<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-chattr-001.jpg" alt=""></p>
+<p>2) 格式2：<strong>lsattr [-adR] 【文件或目录】</strong></p>
+<ul>
+<li>-a 显示文件的隐藏属性</li>
+<li>-d 如果是目录，仅列出目录本身属性，而非目录内的文件名</li>
+<li>-R 连同子目录也一并列出来</li>
+</ul>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-lsattr-001.jpg" alt=""></p>
+<p><br><br>由上可以总结文件/目录的权限关系</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:center">命令</th>
+<th>目录所需权限</th>
+<th>文件所需权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户进入某目录</td>
+<td style="text-align:center">cd等</td>
+<td><strong>用户对目录至少要有x权限</strong>;若想在目录内成为“可工作目录”,执行ls查询文件名等，还需r权限</td>
+<td>/</td>
+</tr>
+<tr>
+<td>用户在某个目录中读取一个文件</td>
+<td style="text-align:center">cat,more,less等</td>
+<td>用户对目录至少要有x权限</td>
+<td><strong>用户对文件至少有r权限</strong></td>
+</tr>
+<tr>
+<td>用户可以修改一个文件</td>
+<td style="text-align:center">vim编辑器等</td>
+<td>用户对目录至少要有x权限</td>
+<td><strong>用户对文件至少有r,w权限</strong></td>
+</tr>
+<tr>
+<td>用户创建/复制/删除一个文件</td>
+<td style="text-align:center">/</td>
+<td>目录要有w,x等权限，<strong>重点在w</strong></td>
+<td>/</td>
+</tr>
+<tr>
+<td>用户进入目录并执行该目录下的某个命令</td>
+<td style="text-align:center">/</td>
+<td>用户对目录至少要有x权限</td>
+<td>用户对文件至少有x权限</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>终于写完了233…</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+        
+      </div>
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/" title="Linux基础(3) - 文件与目录">http://lucy78765580.github.io/2018/03/24/Linux基础之文件与目录管理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/24/Linux基础之用户与用户组/" rel="next" title="Linux基础(2) - 用户与用户组">
+                <i class="fa fa-chevron-left"></i> Linux基础(2) - 用户与用户组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/25/Linux基础之Vim编辑器/" rel="prev" title="Linux基础(4) - Vim编辑器">
+                Linux基础(4) - Vim编辑器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Wakingup" />
+            
+              <p class="site-author-name" itemprop="name">Wakingup</p>
+              <p class="site-description motion-element" itemprop="description">哎呀又是新的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LUCY78765580" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wei-yan-ying-12/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://woodenrobot.me/" title="木制robot" target="_blank">木制robot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zhangslob.github.io/" title="崔斯特" target="_blank">崔斯特</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、cd-切换目录"><span class="nav-number">1.</span> <span class="nav-text">1、cd 切换目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、pwd-显示当前目录"><span class="nav-number">2.</span> <span class="nav-text">2、pwd 显示当前目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、mkdir-新建新目录"><span class="nav-number">3.</span> <span class="nav-text">3、mkdir 新建新目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、rmdir-删除目录"><span class="nav-number">4.</span> <span class="nav-text">4、rmdir 删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、ls-查看文件与目录"><span class="nav-number">5.</span> <span class="nav-text">5、ls 查看文件与目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、touch创建新文件-或修改文件时间）"><span class="nav-number">6.</span> <span class="nav-text">6、touch创建新文件(或修改文件时间）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、cp复制文件-目录"><span class="nav-number">7.</span> <span class="nav-text">7、cp复制文件/目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、rm删除文件"><span class="nav-number">8.</span> <span class="nav-text">8、rm删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、mv移动文件-或重命名"><span class="nav-number">9.</span> <span class="nav-text">9、mv移动文件(或重命名)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、which-查找PATH规范的“执行文件”"><span class="nav-number">10.</span> <span class="nav-text">10、which 查找PATH规范的“执行文件”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、whereis-查找指定文件"><span class="nav-number">11.</span> <span class="nav-text">11、whereis 查找指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、locate查找指定文件"><span class="nav-number">12.</span> <span class="nav-text">12、locate查找指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、find-查找指定文件"><span class="nav-number">13.</span> <span class="nav-text">13、find 查找指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14、cat-tac-显示文件内容"><span class="nav-number">14.</span> <span class="nav-text">14、cat/tac 显示文件内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15、nl-添加行号打印"><span class="nav-number">15.</span> <span class="nav-text">15、nl 添加行号打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16、more-less-翻页查看"><span class="nav-number">16.</span> <span class="nav-text">16、more/less 翻页查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17、head-tail-进行数据选取"><span class="nav-number">17.</span> <span class="nav-text">17、head/tail 进行数据选取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18、od-查看二进制文件"><span class="nav-number">18.</span> <span class="nav-text">18、od 查看二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19、umask-文件默认权限"><span class="nav-number">19.</span> <span class="nav-text">19、umask 文件默认权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20、chattr-lsattr-文件隐藏属性"><span class="nav-number">20.</span> <span class="nav-text">20、chattr/lsattr 文件隐藏属性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy;
+  
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-love"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wakingup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+    </a>
+    
+      v5.1.3
+    
+  </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-hourglass-half">&nbsp;本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">&nbsp;总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wc6BKBST1zj4HwIWULeqKMNh-gzGzoHsz',
+        appKey: 'MtI4XX2ifdphKHslPWCaVQzp',
+        placeholder: '写点什么吧ヾﾉ≧∀≦)o',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

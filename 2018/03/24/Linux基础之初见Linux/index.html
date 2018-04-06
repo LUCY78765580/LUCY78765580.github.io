@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WakingUp's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础(1) - 初见Linux">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/index.html">
+<meta property="og:site_name" content="WakingUp&#39;s Blog">
+<meta property="og:description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1000.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-date-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-bc-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-sync-001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-shutdown-001.jpg">
+<meta property="og:updated_time" content="2018-03-25T09:44:39.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux基础(1) - 初见Linux">
+<meta name="twitter:description" content="这一篇讲初见linux的几个命令 主要是开关机和man page 整理知识体系还是挺重要的">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1000.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/"/>
+
+
+
+
+
+  <title>Linux基础(1) - 初见Linux | WakingUp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WakingUp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry, stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wakingup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WakingUp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux基础(1) - 初见Linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T11:48:04+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/24/Linux基础之初见Linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/24/Linux基础之初见Linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>这一篇讲初见linux的几个命令</p>
+<p>主要是开关机和man page</p>
+<p>整理知识体系还是挺重要的</p>
+</blockquote>
+<a id="more"></a>
+<p>linux的下载安装就暂且略过，网上的教程已经有很多了。</p>
+<p>整个章节可以概括如下，嘿嘿<strong>思维导图</strong>真是个好东西！</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux1000.jpg" alt=""><br><b></b></p>
+<h3 id="1、几个基础命令"><a href="#1、几个基础命令" class="headerlink" title="1、几个基础命令"></a>1、几个基础命令</h3><h5 id="cal-显示日历"><a href="#cal-显示日历" class="headerlink" title="cal 显示日历"></a>cal 显示日历</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-cal-003.jpg" alt=""></p>
+<h5 id="date-显示日期"><a href="#date-显示日期" class="headerlink" title="date 显示日期"></a>date 显示日期</h5><p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-date-001.jpg" alt=""></p>
+<h5 id="bc-显示计算器"><a href="#bc-显示计算器" class="headerlink" title="bc 显示计算器"></a>bc 显示计算器</h5><p>进入计算器用bc,<strong>退出计算器用quit</strong><br>bc计算器一般默认小数点后0位小数，做除法时，可以设置<strong>scale=x</strong>,x为小数点后保留多少位小数<br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-bc-001.jpg" alt=""><br><br></p>
+<h3 id="2、几个重要热键"><a href="#2、几个重要热键" class="headerlink" title="2、几个重要热键"></a>2、几个重要热键</h3><ul>
+<li>【Tab】 命令补全</li>
+<li>【Ctrl】+C 让当前程序停掉</li>
+<li>【Ctrl】+d 键盘输入结束，用于取代exit<br><br></li>
+</ul>
+<h3 id="3、man-page"><a href="#3、man-page" class="headerlink" title="3、man page"></a>3、man page</h3><h5 id="man-命令"><a href="#man-命令" class="headerlink" title="man+命令"></a>man+命令</h5><p>利用man+命令 可以查询各个linux命令的具体功能，总体来说是非常强大的</p>
+<p>比如 <strong>man+bc</strong><br><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-002.jpg" alt=""></p>
+<p>又比如 <strong>man+cal</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-003.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-004.jpg" alt=""></p>
+<h5 id="man-page-界面中的按键"><a href="#man-page-界面中的按键" class="headerlink" title="man page 界面中的按键"></a>man page 界面中的按键</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空格键</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Down】</strong></td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>【Page Up】</strong></td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center">【Home】</td>
+<td>去到第一页</td>
+</tr>
+<tr>
+<td style="text-align:center">【End】</td>
+<td>去到最后一页</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>/string</strong></td>
+<td>向下查询string字符串</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>?string</strong></td>
+<td>向上查询string字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">n,N</td>
+<td>利用/或者?来查询字符串的时候，可以用n进行正向查询，N进行反向查询</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>q</strong></td>
+<td>结束这次的man page</td>
+</tr>
+</tbody>
+</table>
+<h5 id="man-f-man"><a href="#man-f-man" class="headerlink" title="man -f man"></a>man -f man</h5><p>利用 <strong>man -f man</strong>命令可以查询所有与man有关的man page,</p>
+<p>如下展示有1、7两个man page,可以分别用 <strong>man 1 man</strong>,<strong>man 7 man</strong>命令打开</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man001.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man002.jpg" alt=""></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-man-f-man003.jpg" alt=""><br><br></p>
+<h3 id="4、开关机"><a href="#4、开关机" class="headerlink" title="4、开关机"></a>4、开关机</h3><h5 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h5><p>Synchronize的缩写，意思是同步，用于<strong>关机或者重新启动</strong>前，</p>
+<p><strong>特别注意将内存中尚未被更新的数据，写入硬盘</strong></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-sync-001.jpg" alt=""></p>
+<p><br></p>
+<h5 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h5><p>格式：shutdown  【-t 秒】【-hrknfFc】 时间【警告信息】<br>注意这里的时间，是一定要加入的参数,比如-t 后面接秒数，表示“过几秒关机之意”</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>shutdown -h</strong></td>
+<td>系统服务停掉后，立即<strong>关机</strong>（常用）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>shutdown -r</strong></td>
+<td>系统服务停掉后，关机并<strong>重启</strong>（常用）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>shutdown -c</strong></td>
+<td><strong>取消已经在进行的shutdown指令内容</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -k</td>
+<td><strong>不是真的关机</strong>，只是将警告发出去</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -n</td>
+<td>不经过init程序，直接以shutdown功能关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -f</td>
+<td>系统关机并开机后，强制略过fsck的磁盘检查</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -F</td>
+<td>系统重新启动后，强制进行fsck的磁盘检查</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linux-shutdown-001.jpg" alt=""></p>
+<p>这个例子就表示，这台机器将在10分钟后关机，上下两种写法效果都是一样的</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">shutdown -h now</td>
+<td>立刻关机，now相当于时间为0的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -r now</td>
+<td>立刻重启</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -h 20:25</td>
+<td>系统在今天的20:35会关机，<strong>如果是20:35之后</strong>才执行命令，则是<strong>隔天</strong>（明天）20:35才关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -h +10</td>
+<td>十分钟之后系统自动关机</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -r +30 ‘The system will reboot’</td>
+<td>30分钟后系统重启，并<strong>显示后面的信息给所有在线用户</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -k now ‘The system will reboot’</td>
+<td>吓唬人的，仅仅是发出警告，实际上并不会重启</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h5 id="reboot-halt-poweroff"><a href="#reboot-halt-poweroff" class="headerlink" title="reboot/halt/poweroff"></a>reboot/halt/poweroff</h5><p>这些命令和shutdown都有相似之处，具体就先不赘述，可以通过man命令查询使用<br><br></p>
+<h5 id="init"><a href="#init" class="headerlink" title="init"></a>init</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>init 0</strong></td>
+<td>关机</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>init 6</strong></td>
+<td>重启</td>
+</tr>
+<tr>
+<td style="text-align:center">init 3</td>
+<td>纯命令行模式</td>
+</tr>
+<tr>
+<td style="text-align:center">init 5</td>
+<td>含有图形界面模式</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+        
+      </div>
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/" title="Linux基础(1) - 初见Linux">http://lucy78765580.github.io/2018/03/24/Linux基础之初见Linux/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/数据结构与哲学家/" rel="next" title="数据结构与哲学家">
+                <i class="fa fa-chevron-left"></i> 数据结构与哲学家
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/24/Linux基础之用户与用户组/" rel="prev" title="Linux基础(2) - 用户与用户组">
+                Linux基础(2) - 用户与用户组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Wakingup" />
+            
+              <p class="site-author-name" itemprop="name">Wakingup</p>
+              <p class="site-description motion-element" itemprop="description">哎呀又是新的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LUCY78765580" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wei-yan-ying-12/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://woodenrobot.me/" title="木制robot" target="_blank">木制robot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zhangslob.github.io/" title="崔斯特" target="_blank">崔斯特</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、几个基础命令"><span class="nav-number">1.</span> <span class="nav-text">1、几个基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cal-显示日历"><span class="nav-number">1.0.1.</span> <span class="nav-text">cal 显示日历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#date-显示日期"><span class="nav-number">1.0.2.</span> <span class="nav-text">date 显示日期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bc-显示计算器"><span class="nav-number">1.0.3.</span> <span class="nav-text">bc 显示计算器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、几个重要热键"><span class="nav-number">2.</span> <span class="nav-text">2、几个重要热键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、man-page"><span class="nav-number">3.</span> <span class="nav-text">3、man page</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#man-命令"><span class="nav-number">3.0.1.</span> <span class="nav-text">man+命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#man-page-界面中的按键"><span class="nav-number">3.0.2.</span> <span class="nav-text">man page 界面中的按键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#man-f-man"><span class="nav-number">3.0.3.</span> <span class="nav-text">man -f man</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、开关机"><span class="nav-number">4.</span> <span class="nav-text">4、开关机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sync"><span class="nav-number">4.0.1.</span> <span class="nav-text">sync</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shutdown"><span class="nav-number">4.0.2.</span> <span class="nav-text">shutdown</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reboot-halt-poweroff"><span class="nav-number">4.0.3.</span> <span class="nav-text">reboot/halt/poweroff</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#init"><span class="nav-number">4.0.4.</span> <span class="nav-text">init</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy;
+  
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-love"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wakingup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+    </a>
+    
+      v5.1.3
+    
+  </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-hourglass-half">&nbsp;本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">&nbsp;总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wc6BKBST1zj4HwIWULeqKMNh-gzGzoHsz',
+        appKey: 'MtI4XX2ifdphKHslPWCaVQzp',
+        placeholder: '写点什么吧ヾﾉ≧∀≦)o',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

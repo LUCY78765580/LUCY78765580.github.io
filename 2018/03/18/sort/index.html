@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="LeetCode,数据结构,C,总结,sort," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WakingUp's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="数据结构汇总之 sort 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="keywords" content="LeetCode,数据结构,C,总结,sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sort">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/18/sort/index.html">
+<meta property="og:site_name" content="WakingUp&#39;s Blog">
+<meta property="og:description" content="数据结构汇总之 sort 篇 原文见 仓库 good good study, day day leetcode">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort001.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort002.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort003.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort005.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort006.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort007.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort008.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort013.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort009.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort010.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort011.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort012.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort014.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort015.jpg">
+<meta property="og:updated_time" content="2018-03-17T17:50:37.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sort">
+<meta name="twitter:description" content="数据结构汇总之 sort 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort001.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/18/sort/"/>
+
+
+
+
+
+  <title>sort | WakingUp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WakingUp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry, stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wakingup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WakingUp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sort</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:18:00+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/sort/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/sort/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>sort</strong> 篇</p>
+<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
+<p>good good study, day day leetcode</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<p>这一篇讲八大排序</p>
+<h3 id="0、八大排序概述"><a href="#0、八大排序概述" class="headerlink" title="0、八大排序概述"></a>0、八大排序概述</h3><p>排序分<strong>内部排序</strong>和<strong>外部排序</strong>。内部排序是数据记录在内存中进行排序，外部排序需要访问外存（数据量很大）<br>一般八大排序指的是内部排序。各种排序及其复杂度如下图所示。</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort001.jpg" alt="sort001"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort002.jpg" alt="sort002"></p>
+<p>以下举Leetcdoe中 <a href="https://leetcode.com/problems/3sum/description/" target="_blank" rel="noopener">15、3sum</a> 这一题为例:blush:<br><br></p>
+<h3 id="1、冒泡排序-Bubble-Sort"><a href="#1、冒泡排序-Bubble-Sort" class="headerlink" title="1、冒泡排序(Bubble Sort)"></a>1、冒泡排序(Bubble Sort)</h3><p>原理：</p>
+<p>待排序n个数中，自上而下对相邻2个数进行比较调整。使较大的往下沉，小的往上冒（交换）。<br>排完一趟后最大的已沉到最底部。对剩下n-1个数同理，直到所有数据完全按顺序排列。<br>冒泡排序中，常常加入变量flag，用以标志在某一趟中是否有数据交换。如果没有数据交换，<br>则说明数据已完全按顺序排列，这时便可退出循环结束整个排序。</p>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort003.jpg" alt="sort003"></p>
+<p>算法：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Bubble_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p,i;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">int</span> flag=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (p=numsSize<span class="number">-1</span>;p&gt;=<span class="number">0</span>;p--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;p;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&gt;nums[i+<span class="number">1</span>]) &#123;</span><br><span class="line">                temp=nums[i+<span class="number">1</span>];</span><br><span class="line">                nums[i+<span class="number">1</span>]=nums[i];</span><br><span class="line">                nums[i]=temp;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="2、快速排序-Quick-Sort"><a href="#2、快速排序-Quick-Sort" class="headerlink" title="2、快速排序(Quick Sort)"></a>2、快速排序(Quick Sort)</h3><p>原理：</p>
+<ul>
+<li>选主元：选择基准元素（一般取第一个或最后一个）</li>
+<li>子集划分：一趟排序将数据分成2个部分，一边所有值皆比主元小，一边所有值皆比主元大</li>
+<li><p>分而治之：对这2部分同理，用同样方法排序直到整个序列有序</p>
+</li>
+<li><p>子集划分后，主元被一次性放到了最终的正确位置上，再也不改变，这也是快速排序为什么效率高的原因</p>
+</li>
+<li>快速排序是通常被认为在同数量级（O(nlog2n)）的排序方法中平均性能最好的。<br>但若初始序列按关键码有序或基本有序时，快排序反而蜕化为冒泡排序。为改进之，<br>通常以“三者取中法”来选取基准记录，即将排序区间的两个端点与中点三个记录关键码居中的调整为支点记录。</li>
+</ul>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort004.jpg" alt="sort004"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort005.jpg" alt="sort005"></p>
+<p>算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QSort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left&gt;=right) <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i=left;</span><br><span class="line">    <span class="keyword">int</span> j=right;</span><br><span class="line">    <span class="keyword">int</span> key=nums[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i&lt;j) &#123;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;j&amp;&amp;nums[j]&gt;key) j--;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            nums[i++]=nums[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i&lt;j&amp;&amp;nums[i]&lt;key) i++;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            nums[j--]=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    nums[i]=key;</span><br><span class="line">    QSort(nums,left,i<span class="number">-1</span>);</span><br><span class="line">    QSort(nums,i+<span class="number">1</span>,right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    QSort(nums,<span class="number">0</span>,numsSize<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="3、直接插入排序-Straight-Insertion-Sort"><a href="#3、直接插入排序-Straight-Insertion-Sort" class="headerlink" title="3、直接插入排序(Straight Insertion Sort)"></a>3、直接插入排序(Straight Insertion Sort)</h3><p>原理：</p>
+<ul>
+<li>插入排序有些类似于打牌，就是在已有数据的基础上，不断比较并插入新的数据</li>
+<li>关键之处在于确立哨兵，每一趟排序选取待插入数据为哨兵</li>
+</ul>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort006.jpg" alt="sort006"></p>
+<p>算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p,i;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (p=<span class="number">1</span>;p&lt;numsSize;p++) &#123;</span><br><span class="line">        temp=nums[p];</span><br><span class="line">        <span class="keyword">for</span> (i=p;i&gt;<span class="number">0</span>&amp;&amp;temp&lt;nums[i<span class="number">-1</span>];i--) &#123;</span><br><span class="line">            nums[i]=nums[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        nums[i]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="4、希尔排序-Shell-Sort"><a href="#4、希尔排序-Shell-Sort" class="headerlink" title="4、希尔排序(Shell Sort)"></a>4、希尔排序(Shell Sort)</h3><p>原理：</p>
+<ul>
+<li>逆序对：对于下标i&lt;j,如果A[i]&gt;A[j],则称（i,j）是一对逆序对</li>
+<li>冒泡排序和选择排序，都是通过每一次交换相邻的两元素，从而消去一个逆序对。<br>但是想要提高算法效率，就要每次消去不止一个逆序对（即每一次交换相隔较远大于2的两个元素）</li>
+<li>希尔排序是1959 年由D.L.Shell 提出来的，整体思想：定义一个具体的增量序列，<br>将原本大序列分割成一个个较小的子序列，分别进行直接插入排序。</li>
+<li>希尔排序一个重要的性质是，”Dk-间隔”有序序列，在执行完”Dk-1”间隔有序排列后，仍然<br>可以保持原来的”Dk-间隔”有序</li>
+<li>希尔排序依赖于增量序列，不同场合下增量序列可能是不一样的，因此希尔排序是不稳定的</li>
+</ul>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort007.jpg" alt="sort007"></p>
+<p>算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取增量序列为Dk = D(k+1)/2</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p,i;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">int</span> D=numsSize/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (D;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (p=<span class="number">1</span>;p&lt;numsSize;p++) &#123;</span><br><span class="line">            temp=nums[p];</span><br><span class="line">            <span class="keyword">for</span> (i=p;i&gt;=D&amp;&amp;temp&lt;nums[i-D];i-=D)</span><br><span class="line">                nums[i]=nums[i-D];</span><br><span class="line">            nums[i]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="5、简单选择排序（Simple-Selection-Sort）"><a href="#5、简单选择排序（Simple-Selection-Sort）" class="headerlink" title="5、简单选择排序（Simple Selection Sort）"></a>5、简单选择排序（Simple Selection Sort）</h3><p>原理：</p>
+<p>在待排序列中，选出最大（或最小值）与第1位置交换；剩下的数中，以此类推，一直到完全按顺序排序为止</p>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort008.jpg" alt="sort008"></p>
+<p>算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找到最小的数，所在的位置</span></span><br><span class="line"><span class="comment">//i从0开始到最后遍历，如果当前位置i不是最小值所在位置，则用temp进行交换</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize,<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j,k;</span><br><span class="line"></span><br><span class="line">    k=x;</span><br><span class="line">    <span class="keyword">for</span> (j=x+<span class="number">1</span>;j&lt;numsSize;j++) &#123;</span><br><span class="line">        k=(nums[k]&lt;nums[j])?k:j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Select_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,key;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;numsSize;i++) &#123;</span><br><span class="line">        key=findMin(nums,numsSize,i);</span><br><span class="line">        <span class="keyword">if</span> (key!=i) &#123;</span><br><span class="line">            temp=nums[i];nums[i]=nums[key];nums[key]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="6、堆排序-Heap-Sort"><a href="#6、堆排序-Heap-Sort" class="headerlink" title="6、堆排序(Heap Sort)"></a>6、堆排序(Heap Sort)</h3><p>原理：</p>
+<ul>
+<li>简单选择排序操作简单，但是findMin函数查找往往花费大量时间，如何提高效率，<br>以快速找到最小元（或最大元）的位置，这就运用到了最小堆（or最大堆）。</li>
+<li>堆排序初始时将n个数序列，看成一个顺序存储的二叉树，并调整顺序使成为一个堆。<br>将堆顶元素输出得到最大最小值并排列，同时不断调整剩余元素为堆，一直到全部排完</li>
+<li><p>主要解决两个问题：1、如何将n个待排元素建立成堆 2、输出堆顶元素后，如何调整剩余元素成为一个完整新堆</p>
+</li>
+<li><p>特别注意: 初始化大顶堆时 是从<strong>最后一个有子节点</strong>开始往上调整最大堆。<br>而堆顶元素(最大数)与堆最后一个数交换后，<strong>需再次调整成大顶堆，此时是从上往下调整的</strong>。</p>
+</li>
+<li><p>不管是初始大顶堆的从下往上调整，还是堆顶堆尾元素交换，每次调整都是从父节点、<br>左孩子节点、右孩子节点三者中选择最大者跟父节点进行交换，交换之后，<br>都可能造成被交换的孩子节点不满足堆的性质，因此每次交换之后要重新对被交换的孩子节点进行调整。</p>
+</li>
+</ul>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort013.jpg" alt="sort013"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort009.jpg" alt="sort009"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort010.jpg" alt="sort010"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort011.jpg" alt="sort011"></p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort012.jpg" alt="sort012"></p>
+<p>算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建堆，并由上到下过滤，调整为最大堆</span></span><br><span class="line"><span class="comment">//最大堆过滤函数和DeleteMax类似，不同的是，PercDown不从0开始而从x=i开始，且只过滤不返回值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PercDown</span><span class="params">(<span class="keyword">int</span>* H,<span class="keyword">int</span> x,<span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> parent,child;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> temp=H[x];  　　#最大堆最后一个元素存储在temp中</span><br><span class="line">    <span class="keyword">for</span> (parent=x;(parent*<span class="number">2</span>+<span class="number">1</span>)&lt;= (len<span class="number">-1</span>);parent=child) &#123;</span><br><span class="line">        child=parent*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (child&lt;len<span class="number">-1</span>&amp;&amp;H[child]&lt;H[child+<span class="number">1</span>])  #找到左右节点中较大的那一个</span><br><span class="line">            child++;</span><br><span class="line">        <span class="keyword">if</span> (temp&gt;H[child]) <span class="keyword">break</span>;              #如果父节点比最大子节点小，则交换，反之退出循环</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            H[parent]=H[child];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    H[parent]=temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//建堆</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=(numsSize<span class="number">-1</span>)/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        PercDown(nums,i,numsSize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//堆排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Heap_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//建立最大堆</span></span><br><span class="line">    BuildHeap(nums,numsSize);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换堆顶和最后一个元素的位置，由上到下开始调整(从0开始)</span></span><br><span class="line">    <span class="comment">//每次交换后，长度要减1，所以i--</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=numsSize<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[<span class="number">0</span>];nums[<span class="number">0</span>]=nums[i];nums[i]=temp;</span><br><span class="line">        PercDown(nums,<span class="number">0</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="7、归并排序-Merge-Sort"><a href="#7、归并排序-Merge-Sort" class="headerlink" title="7、归并排序(Merge Sort)"></a>7、归并排序(Merge Sort)</h3><p>原理：</p>
+<ul>
+<li>应用分治+递归思想，待排序序列分为若干个有序子序列，再将子序列合并为整体有序序列</li>
+<li>归并部分，需要一个临时数组辅助</li>
+</ul>
+<p>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort014.jpg" alt="sort014"></p>
+<p>算法：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义归并函数</span></span><br><span class="line"><span class="comment">//L、LeftEnd、R、RightEnd分别代表左边起点、左边终点、右边起点、右边终点</span></span><br><span class="line"><span class="comment">//A,TmpA分别为数组、临时数组，len为数组长度</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span>* A,<span class="keyword">int</span>* TmpA,<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> LeftEnd=R<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> Tmp=L;</span><br><span class="line">    <span class="keyword">int</span> len=RightEnd-L+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (L&lt;=LeftEnd&amp;&amp;R&lt;=RightEnd) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[L]&lt;A[R]) TmpA[Tmp++]=A[L++];</span><br><span class="line">        <span class="keyword">else</span> TmpA[Tmp++]=A[R++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (L&lt;=LeftEnd) TmpA[Tmp++]=A[L++];</span><br><span class="line">    <span class="keyword">while</span> (R&lt;=RightEnd) TmpA[Tmp++]=A[R++];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最后从结尾，将临时数组TmpA中数据倒入A中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++,RightEnd--) &#123;</span><br><span class="line">        A[RightEnd]=TmpA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义Msort函数（分而治之+递归）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MSort</span><span class="params">(<span class="keyword">int</span>* A,<span class="keyword">int</span>* TmpA,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left&lt;right) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        MSort(A,TmpA,left,mid);</span><br><span class="line">        MSort(A,TmpA,mid+<span class="number">1</span>,right);</span><br><span class="line">        Merge(A,TmpA,left,mid+<span class="number">1</span>,right);</span><br><span class="line">        <span class="comment">//注意这里是mid+1(左边起始点、右边起始点、右边终点)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//统一接口</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(<span class="keyword">int</span>* nums,<span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* numsA=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(numsSize*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (numsA!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">        MSort(nums,numsA,<span class="number">0</span>,numsSize<span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">free</span>(numsA);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+<h3 id="8、基数排序-Radix-Sort"><a href="#8、基数排序-Radix-Sort" class="headerlink" title="8、基数排序(Radix Sort)"></a>8、基数排序(Radix Sort)</h3><p>原理：</p>
+<ul>
+<li><p>桶排序（Bucket Sort）:简单来说就是把数据分组，放在有限数量的桶中，然后对每个桶里的数据再进行排序。当要被排序的阵列内的数值是均匀分配的时候，桶排序使用线性时间（Θ（n））。</p>
+<p>例如要对大小为[1..1000]范围内的n个整数A[1..n]排序</p>
+<p>首先，可以把桶设为大小为10的范围，具体而言，设集合B[1]存储[1..10]的整数，<br>集合B[2]存储(10..20]的整数，……集合B[i]存储(   (i-1)<em>10,   i</em>10]的整数，i=1,2,..100。总共有100个桶。</p>
+<p>然后，对A[1..n]从头到尾扫描一遍，把每个A[i]放入对应的桶B[j]中。再对每个桶里的数字排序，<br>这时可用冒泡，选择，乃至快排等任何排序法。</p>
+<p>最后，依次输出每个桶里面的数字，且每个桶中的数字从小到大输出，这  样就得到所有数字排好序的一个序列了。</p>
+</li>
+<li><p>桶排序能实现接近O（n）的时间复杂度，但是也有相应的缺点：首先是空间复杂度比较高，<br>需要的额外开销大，其次待排序的元素都要在一定的范围内等等。</p>
+</li>
+<li><p>与桶排序类似，基数排序通过“分配”和“收集”过程来实现排序，无须比较关键字，时间复杂度亦可达到线性阶：O(n)</p>
+</li>
+</ul>
+<p>扑克牌中52 张牌，可按花色和面值分成两个字段，其大小关系为：<br>花色： 梅花&lt; 方块&lt; 红心&lt; 黑心<br>面值： 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A</p>
+<ul>
+<li>最高位优先(Most Significant Digit first)法，简称MSD法：先对花色排序并将其分为4组，每个组分别按面值排序，最后将4组连接。</li>
+<li>最低位优先(Least Significant Digit first)法，简称LSD法：先按13个面值分成13 堆，再按花色给出4 个编号组，将2号组中牌取出分别放入对应花色组，再将3 号组中牌取出分别放入对应花色组，……，这样4 个花色组中均按面值有序，然后将4 个花色组依次连接起来即可。</li>
+</ul>
+<p><br><br>图解：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/sort015.jpg" alt="sort015"></p>
+<p>算法<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Bucket_Sort</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//获取数组中的最大数</span></span><br><span class="line">    <span class="keyword">int</span> maxNum = findMaxNum(nums, numsSize);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取最大数的位数</span></span><br><span class="line">    <span class="keyword">int</span> loopTimes = getLoopTimes(maxNum);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//对每一位进行桶分配</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= loopTimes; i++) &#123;</span><br><span class="line">        sort2(nums, numsSize, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取数字的位数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLoopTimes</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> temp = num / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (temp != <span class="number">0</span>) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        temp = temp / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询数组的最大数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxNum</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = INT_MIN;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">        max=(*(nums+i) &gt; max)? *(nums+i):max;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将数字分配到各自的桶中，然后按照桶的顺序输出排序结果</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort2</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span> loop)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//建立一组桶此处的20是预设的根据实际数情况修改</span></span><br><span class="line">    <span class="keyword">int</span> buckets[<span class="number">10</span>][<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    <span class="comment">//求桶的index的除数</span></span><br><span class="line">    <span class="comment">//如798个位桶index=(798/1)%10=8</span></span><br><span class="line">    <span class="comment">//十位桶index=(798/10)%10=9</span></span><br><span class="line">    <span class="comment">//百位桶index=(798/100)%10=7</span></span><br><span class="line">    <span class="comment">//tempNum为上式中的1、10、100</span></span><br><span class="line">    <span class="keyword">int</span> tempNum = (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>, loop - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> row_index = (*(nums + i) / tempNum) % <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">20</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (buckets[row_index][j] == <span class="literal">NULL</span>) &#123;</span><br><span class="line">                buckets[row_index][j] = *(nums+ i);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将桶中的数，倒回到原有数组中</span></span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; <span class="number">20</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(buckets[i][j] != <span class="literal">NULL</span>) &#123;</span><br><span class="line">                *(nums + k) = buckets[i][j];</span><br><span class="line">                buckets[i][j] = <span class="literal">NULL</span>;</span><br><span class="line">                k++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>参考博客：<br>1) <a href="http://blog.csdn.net/hguisu/article/details/7776068" target="_blank" rel="noopener">http://blog.csdn.net/hguisu/article/details/7776068</a><br>2) <a href="https://www.cnblogs.com/0zcl/p/6737944.html" target="_blank" rel="noopener">https://www.cnblogs.com/0zcl/p/6737944.html</a></p>
+<p><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+        
+          <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+        
+          <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+        
+          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
+        
+          <a href="/tags/sort/" rel="tag"><i class="fa fa-tag"></i> sort</a>
+        
+      </div>
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/18/sort/" title="sort">http://lucy78765580.github.io/2018/03/18/sort/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/18/graph/" rel="next" title="graph">
+                <i class="fa fa-chevron-left"></i> graph
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/19/数据结构与哲学家/" rel="prev" title="数据结构与哲学家">
+                数据结构与哲学家 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Wakingup" />
+            
+              <p class="site-author-name" itemprop="name">Wakingup</p>
+              <p class="site-description motion-element" itemprop="description">哎呀又是新的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LUCY78765580" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wei-yan-ying-12/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://woodenrobot.me/" title="木制robot" target="_blank">木制robot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zhangslob.github.io/" title="崔斯特" target="_blank">崔斯特</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0、八大排序概述"><span class="nav-number">1.</span> <span class="nav-text">0、八大排序概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、冒泡排序-Bubble-Sort"><span class="nav-number">2.</span> <span class="nav-text">1、冒泡排序(Bubble Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、快速排序-Quick-Sort"><span class="nav-number">3.</span> <span class="nav-text">2、快速排序(Quick Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、直接插入排序-Straight-Insertion-Sort"><span class="nav-number">4.</span> <span class="nav-text">3、直接插入排序(Straight Insertion Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、希尔排序-Shell-Sort"><span class="nav-number">5.</span> <span class="nav-text">4、希尔排序(Shell Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、简单选择排序（Simple-Selection-Sort）"><span class="nav-number">6.</span> <span class="nav-text">5、简单选择排序（Simple Selection Sort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、堆排序-Heap-Sort"><span class="nav-number">7.</span> <span class="nav-text">6、堆排序(Heap Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、归并排序-Merge-Sort"><span class="nav-number">8.</span> <span class="nav-text">7、归并排序(Merge Sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、基数排序-Radix-Sort"><span class="nav-number">9.</span> <span class="nav-text">8、基数排序(Radix Sort)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy;
+  
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-love"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wakingup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+    </a>
+    
+      v5.1.3
+    
+  </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-hourglass-half">&nbsp;本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">&nbsp;总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wc6BKBST1zj4HwIWULeqKMNh-gzGzoHsz',
+        appKey: 'MtI4XX2ifdphKHslPWCaVQzp',
+        placeholder: '写点什么吧ヾﾉ≧∀≦)o',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

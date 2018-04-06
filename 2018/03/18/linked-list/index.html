@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="LeetCode,数据结构,C,总结,linked list," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WakingUp's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="keywords" content="LeetCode,数据结构,C,总结,linked list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linked list">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/18/linked-list/index.html">
+<meta property="og:site_name" content="WakingUp&#39;s Blog">
+<meta property="og:description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list005.jpg">
+<meta property="og:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list006.jpg">
+<meta property="og:updated_time" content="2018-03-17T17:43:29.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linked list">
+<meta name="twitter:description" content="数据结构汇总之 linked list 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="twitter:image" content="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/18/linked-list/"/>
+
+
+
+
+
+  <title>linked list | WakingUp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WakingUp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry, stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/linked-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wakingup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WakingUp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linked list</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T00:20:11+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/linked-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/linked-list/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">&nbsp;阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>linked list</strong> 篇</p>
+<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
+<p>good good study, day day leetcode</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<p>以下是关于链表的总结。</p>
+<p>原文可参考我github仓库上的文章 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/summary-LinkedList.md" target="_blank" rel="noopener">summary-LinkedList</a><br><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/summery-LinkedList-2.md" target="_blank" rel="noopener">summery-LinkedList-2</a></p>
+<h3 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h3><p>链表相对于顺序表，不需要移动数据元素，只需要修改“链”，所以在某些场合要显得更灵活</p>
+<h5 id="0、结构初始化"><a href="#0、结构初始化" class="headerlink" title="0、结构初始化"></a>0、结构初始化</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list004.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    ElementType val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="1、建立-空链表"><a href="#1、建立-空链表" class="headerlink" title="1、建立(空链表)"></a>1、建立(空链表)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">CreateEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p</span>;</span></span><br><span class="line">    p=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">    p-&gt;next=NUll;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="2、求表长"><a href="#2、求表长" class="headerlink" title="2、求表长"></a>2、求表长</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Length</span><span class="params">(struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (p) &#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="3、查找"><a href="#3、查找" class="headerlink" title="3、查找"></a>3、查找</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按照值查找</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Find</span><span class="params">(ElementType x,struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p&amp;&amp;p-&gt;val!=x)</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按照序号查找</span></span><br><span class="line"><span class="comment">//查找第k个元素,k从1开始</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">FindKth</span><span class="params">(<span class="keyword">int</span> k,struct ListNode* p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p!=<span class="literal">NULL</span>&amp;&amp;i&lt;k) &#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i==k) <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="4、插入（在第i-1节点后面插入）"><a href="#4、插入（在第i-1节点后面插入）" class="headerlink" title="4、插入（在第i-1节点后面插入）"></a>4、插入（在第i-1节点后面插入）</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list005.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入位置分两种情况：在表头/不在表头</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1）先构造一个新节点s</span></span><br><span class="line"><span class="comment">2）找到链表第i-1个节点q</span></span><br><span class="line"><span class="comment">3）x-&gt;next=p-&gt;next;p-&gt;next=s;(不可颠倒)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Insert</span><span class="params">(struct ListNode* p,<span class="keyword">int</span> i,ElementType x)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">q</span>,<span class="title">s</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i==<span class="number">1</span>) &#123;</span><br><span class="line">        s=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">        s-&gt;val=x;</span><br><span class="line">        s-&gt;next=p;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q=FindKth(i<span class="number">-1</span>,p);</span><br><span class="line">    <span class="keyword">if</span> (q==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        s=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">        s-&gt;val=x;</span><br><span class="line">        s-&gt;next=q-&gt;next;</span><br><span class="line">        q-&gt;next=s;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="5、删除（删除链表第i个节点）"><a href="#5、删除（删除链表第i个节点）" class="headerlink" title="5、删除（删除链表第i个节点）"></a>5、删除（删除链表第i个节点）</h5><p>图解如下：</p>
+<p><img src="https://github.com/LUCY78765580/Day-Day-Leetcode/raw/master/screenshorts/linear-list006.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同理删除位置分两种：在表头/非表头</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1)首先找到第i-1个节点q</span></span><br><span class="line"><span class="comment">2)指针s指向待删除节点 s=q-&gt;next;</span></span><br><span class="line"><span class="comment">3)修改指针删除s节点   q-&gt;next=s-&gt;next;</span></span><br><span class="line"><span class="comment">4）释放s节点   free(s);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">struct ListNode* <span class="title">Delete</span><span class="params">(struct ListNode* p,<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">q</span>,<span class="title">s</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (p==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (i==<span class="number">1</span>) &#123;</span><br><span class="line">        s=p;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q=FindKth(i<span class="number">-1</span>,p);</span><br><span class="line">    <span class="keyword">if</span> (q==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (q-&gt;next==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        s=q-&gt;next;</span><br><span class="line">        q-&gt;next=s-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+<h3 id="二、题型归纳"><a href="#二、题型归纳" class="headerlink" title="二、题型归纳"></a>二、题型归纳</h3><h5 id="1、链表反转-翻转"><a href="#1、链表反转-翻转" class="headerlink" title="1、链表反转/翻转"></a>1、链表反转/翻转</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/206_Reverse%20Linked%20List.md" target="_blank" rel="noopener">206 Reverse Linked List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/092_Reverse%20Linked%20List-2.md" target="_blank" rel="noopener">092 Reverse Linked List II</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/061_Rotate%20List.md" target="_blank" rel="noopener">061 Rotate List</a></li>
+</ul>
+<h5 id="2、链表划分-重排"><a href="#2、链表划分-重排" class="headerlink" title="2、链表划分/重排"></a>2、链表划分/重排</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/086_Partition%20List.md" target="_blank" rel="noopener">086 Partition List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/143_Reorder%20List.md" target="_blank" rel="noopener">143 Reorder List</a></li>
+</ul>
+<h5 id="3、链表合并"><a href="#3、链表合并" class="headerlink" title="3、链表合并"></a>3、链表合并</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/021_Merge%20Two%20Sorted%20Lists.md" target="_blank" rel="noopener">021 Merge Two Sorted Lists</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/023_Merge%20K%20Sorted%20Lists.md" target="_blank" rel="noopener">023 Merge K Sorted Lists</a></li>
+</ul>
+<h5 id="4、链表相交"><a href="#4、链表相交" class="headerlink" title="4、链表相交"></a>4、链表相交</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/160_Intersection%20of%20Two%20Linked%20List.md" target="_blank" rel="noopener">160 Intersection of Two Linked Lists</a></li>
+</ul>
+<h4 id="5、环形链表"><a href="#5、环形链表" class="headerlink" title="5、环形链表"></a>5、环形链表</h4><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/141_Linked%20List%20Cycle.md" target="_blank" rel="noopener">141 Linked List Cycle</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/llinked-list/142_Linked%20List%20Cycle-2.md" target="_blank" rel="noopener">142 Linked List Cycle II</a></li>
+</ul>
+<h5 id="6、奇偶链表"><a href="#6、奇偶链表" class="headerlink" title="6、奇偶链表"></a>6、奇偶链表</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/328_Odd%20Even%20Linked%20List.md" target="_blank" rel="noopener">328 Odd Even Linked List</a></li>
+</ul>
+<h5 id="7、回文链表"><a href="#7、回文链表" class="headerlink" title="7、回文链表"></a>7、回文链表</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/234_Palindrome%20Linked%20List.md" target="_blank" rel="noopener">160 Intersection of Two Linked Lists</a></li>
+</ul>
+<h5 id="8、链表去重"><a href="#8、链表去重" class="headerlink" title="8、链表去重"></a>8、链表去重</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/083_Remove%20Duplicates%20from%20Sorted%20List-2.md" target="_blank" rel="noopener">083 Remove Duplicates from Sorted List</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/082_Remove%20Duplicates%20from%20Sorted%20List.md" target="_blank" rel="noopener">082 Remove Duplicates from Sorted List II</a></li>
+</ul>
+<h5 id="9、链表深度拷贝"><a href="#9、链表深度拷贝" class="headerlink" title="9、链表深度拷贝"></a>9、链表深度拷贝</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/Clinked-list/138_Copy%20List%20with%20Random%20Pointer.md" target="_blank" rel="noopener">138 Copy List with Random Pointer</a></li>
+</ul>
+<h5 id="10、链表相加"><a href="#10、链表相加" class="headerlink" title="10、链表相加"></a>10、链表相加</h5><ul>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/002_Add%20Two%20Numbers.md" target="_blank" rel="noopener">002 Add Two Numbers</a></li>
+<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/linked-list/445_Add%20Two%20Numbers-2.md" target="_blank" rel="noopener">445 Add Two Numbers II</a><br><br><br><br></li>
+</ul>
+<h3 id="三、技巧总结"><a href="#三、技巧总结" class="headerlink" title="三、技巧总结"></a>三、技巧总结</h3><p>1、虚拟表头</p>
+<p>2、快慢指针</p>
+<p>3、巧用数学规律</p>
+<p>4、基础操作</p>
+<p><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+        
+          <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+        
+          <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+        
+          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
+        
+          <a href="/tags/linked-list/" rel="tag"><i class="fa fa-tag"></i> linked list</a>
+        
+      </div>
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wakingup
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lucy78765580.github.io/2018/03/18/linked-list/" title="linked list">http://lucy78765580.github.io/2018/03/18/linked-list/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客文章除特别声明外，均采用
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
+    许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/array/" rel="next" title="array">
+                <i class="fa fa-chevron-left"></i> array
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/18/stack/" rel="prev" title="stack">
+                stack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Wakingup" />
+            
+              <p class="site-author-name" itemprop="name">Wakingup</p>
+              <p class="site-description motion-element" itemprop="description">哎呀又是新的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LUCY78765580" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wei-yan-ying-12/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://woodenrobot.me/" title="木制robot" target="_blank">木制robot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zhangslob.github.io/" title="崔斯特" target="_blank">崔斯特</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本操作"><span class="nav-number">1.</span> <span class="nav-text">一、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0、结构初始化"><span class="nav-number">1.0.1.</span> <span class="nav-text">0、结构初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、建立-空链表"><span class="nav-number">1.0.2.</span> <span class="nav-text">1、建立(空链表)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、求表长"><span class="nav-number">1.0.3.</span> <span class="nav-text">2、求表长</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、查找"><span class="nav-number">1.0.4.</span> <span class="nav-text">3、查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、插入（在第i-1节点后面插入）"><span class="nav-number">1.0.5.</span> <span class="nav-text">4、插入（在第i-1节点后面插入）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、删除（删除链表第i个节点）"><span class="nav-number">1.0.6.</span> <span class="nav-text">5、删除（删除链表第i个节点）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题型归纳"><span class="nav-number">2.</span> <span class="nav-text">二、题型归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、链表反转-翻转"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、链表反转/翻转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、链表划分-重排"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、链表划分/重排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、链表合并"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、链表合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、链表相交"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、链表相交</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、环形链表"><span class="nav-number">2.1.</span> <span class="nav-text">5、环形链表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6、奇偶链表"><span class="nav-number">2.1.1.</span> <span class="nav-text">6、奇偶链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、回文链表"><span class="nav-number">2.1.2.</span> <span class="nav-text">7、回文链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、链表去重"><span class="nav-number">2.1.3.</span> <span class="nav-text">8、链表去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、链表深度拷贝"><span class="nav-number">2.1.4.</span> <span class="nav-text">9、链表深度拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10、链表相加"><span class="nav-number">2.1.5.</span> <span class="nav-text">10、链表相加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、技巧总结"><span class="nav-number">3.</span> <span class="nav-text">三、技巧总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy;
+  
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-love"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wakingup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+    </a>
+    
+      v5.1.3
+    
+  </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-hourglass-half">&nbsp;本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">&nbsp;总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wc6BKBST1zj4HwIWULeqKMNh-gzGzoHsz',
+        appKey: 'MtI4XX2ifdphKHslPWCaVQzp',
+        placeholder: '写点什么吧ヾﾉ≧∀≦)o',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
