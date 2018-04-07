@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
 <meta property="og:description" content="记录heroku部署flask项目的踩坑经历，比较详细。 花了好多天，折腾了很久终于成功，还好没有半路放弃。 Flask博客项目地址,部分功能改善中,欢迎star/fork/issue">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-06T15:10:24.920Z">
+<meta property="og:updated_time" content="2018-04-07T03:46:11.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Heroku部署Flask项目经历">
 <meta name="twitter:description" content="记录heroku部署flask项目的踩坑经历，比较详细。 花了好多天，折腾了很久终于成功，还好没有半路放弃。 Flask博客项目地址,部分功能改善中,欢迎star/fork/issue">
@@ -485,7 +485,7 @@ web: gunicorn manage:app
 </code></pre><p>3.3 紧接着 <strong>runtime.txt</strong> 文件</p>
 <p>这个文件指明你在heroku的app上，所用的Python版本。<br>其实heroku默认只支持 <strong>Python-3.6.4</strong> 和 <strong>Python-2.7.14</strong> 两个版本,你也可以添加 runtime.txt，在里面指定具体的Python版本。当然heroku还是会“任性地”就近原则，给你安装上面两个版本之一233…具体可见文档 <a href="https://devcenter.heroku.com/articles/python-support" target="_blank" rel="noopener">Heroku Python Support</a> 和文档 <a href="https://devcenter.heroku.com/articles/python-runtimes" target="_blank" rel="noopener">Specifying a Python Runtime</a></p>
 <pre><code>/* runtime.txt */
-    /* 比如我这里写的2.7.13版本，最后heroku 还是装的2.7.14 */
+/* 比如我这里写的2.7.13版本，最后heroku 还是装的2.7.14 */
 python-2.7.13
 </code></pre><p>3.4 最后就是 <strong>.gitignore</strong> 文件</p>
 <p>把不想要被git追踪的文件放入，例如日志文件、生产环境文件等。特别要注意的，是装有环境变量的<strong>.env</strong>文件</p>
@@ -560,15 +560,15 @@ manager=Manager(app)
 def make_shell_context():
     return dict(app=app,db=db,User=User,Say=Say,Post=Post,Link=Link,Tag=Tag,Comment=Comment)
 
-@app.cli.command()
+@manager.command
 def profile(length, profile_dir):
     &quot;&quot;&quot;Start the application under the code profiler.&quot;&quot;&quot;
     from werkzeug.contrib.profiler import ProfilerMiddleware
     app.wsgi_app = ProfilerMiddleware(app.wsgi_app，restrictions[length],profile_dir=profile_dir)
     app.run()
 
-@app.cli.command()
-def deploy():
+@manager.command
+def init_data():
     &quot;&quot;&quot;Run deployment tasks.&quot;&quot;&quot;
     db.create_all()
     admin_name=os.environ.get(&apos;FLASK_ADMIN_NAME&apos;)
