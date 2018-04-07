@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode,数据结构,C,总结,binary tree," />
+  <meta name="keywords" content="Linux,vim," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="数据结构汇总之 binary tree 篇 原文见 仓库 good good study, day day leetcode">
-<meta name="keywords" content="LeetCode,数据结构,C,总结,binary tree">
+<meta name="description" content="这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以使linux上编程更方便">
+<meta name="keywords" content="Linux,vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="binary tree">
-<meta property="og:url" content="http://lucy78765580.github.io/2018/03/18/binary-tree/index.html">
+<meta property="og:title" content="Linux基础(4) - Vim编辑器">
+<meta property="og:url" content="http://lucy78765580.github.io/2018/03/25/Linux基础之Vim编辑器/index.html">
 <meta property="og:site_name" content="WakingUp&#39;s Blog">
-<meta property="og:description" content="数据结构汇总之 binary tree 篇 原文见 仓库 good good study, day day leetcode">
+<meta property="og:description" content="这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以使linux上编程更方便">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-17T17:44:16.705Z">
+<meta property="og:updated_time" content="2018-04-07T04:01:53.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="binary tree">
-<meta name="twitter:description" content="数据结构汇总之 binary tree 篇 原文见 仓库 good good study, day day leetcode">
+<meta name="twitter:title" content="Linux基础(4) - Vim编辑器">
+<meta name="twitter:description" content="这一篇讲常见的vim命令 几乎所有linux系统都会配置vim编辑器 掌握vim可以使linux上编程更方便">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/18/binary-tree/"/>
+  <link rel="canonical" href="http://lucy78765580.github.io/2018/03/25/Linux基础之Vim编辑器/"/>
 
 
 
 
 
-  <title>binary tree | WakingUp's Blog</title>
+  <title>Linux基础(4) - Vim编辑器 | WakingUp's Blog</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/18/binary-tree/">
+    <link itemprop="mainEntityOfPage" href="http://lucy78765580.github.io/2018/03/25/Linux基础之Vim编辑器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wakingup">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">binary tree</h1>
+          <h1 class="post-title" itemprop="name headline">Linux基础(4) - Vim编辑器</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:03:09+08:00">
-                2018-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T12:24:27+08:00">
+                2018-03-25
               </time>
             
 
@@ -358,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -376,8 +376,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/18/binary-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/binary-tree/" itemprop="commentCount"></span>
+                <a href="/2018/03/25/Linux基础之Vim编辑器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/25/Linux基础之Vim编辑器/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -410,57 +410,670 @@
       
 
       
-        <blockquote class="blockquote-center"><p>数据结构汇总之 <strong>binary tree</strong> 篇</p>
-<p>原文见 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode" target="_blank" rel="noopener">仓库</a></p>
-<p>good good study, day day leetcode</p>
+        <blockquote class="blockquote-center"><p>这一篇讲常见的vim命令</p>
+<p>几乎所有linux系统都会配置vim编辑器</p>
+<p>掌握vim可以使linux上编程更方便</p>
 </blockquote>
 <a id="more"></a>
+<h3 id="1、vim的几种模式"><a href="#1、vim的几种模式" class="headerlink" title="1、vim的几种模式"></a>1、vim的几种模式</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th>进入操作</th>
+<th>左下角显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>正常</strong></td>
+<td>可按<strong>Esc</strong>（或接着: ）进入命令行</td>
+<td>文件名或为空</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>插入</strong></td>
+<td>正常模式下，按 <strong>i,o,a</strong>（或者大写）进入</td>
+<td>– INSERT –</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>可视</strong></td>
+<td>正常模式下，按<strong>v</strong>可以进入</td>
+<td>– VISUAL –</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>视行</strong></td>
+<td>正常模式下，整行整行选中，然后按 <strong>Ctrl+v</strong>可以进入</td>
+<td>– VISUAL  BLOCK –</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>替换</strong></td>
+<td>正常模式下（按Esc），按<strong>R</strong>进入，按Esc退出</td>
+<td>– REPLACE –</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
-<h2 id="二叉树（题型总结）"><a href="#二叉树（题型总结）" class="headerlink" title="二叉树（题型总结）"></a>二叉树（题型总结）</h2><p><br><br>以下是比较常见的题型</p>
-<h5 id="1、二叉树的深度-宽度"><a href="#1、二叉树的深度-宽度" class="headerlink" title="1、二叉树的深度/宽度"></a>1、二叉树的深度/宽度</h5><ul>
-<li>二叉树的最大深度 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/104_Maximum%20Depth%20of%20Binary%20Tree.md" target="_blank" rel="noopener">104 Maximum Depth of Binary Tree</a></li>
-<li>二叉树的最小深度 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/111_Minimum%20Depth%20of%20Binary%20Tree.md" target="_blank" rel="noopener">111 Minimum Depth of Binary Tree</a></li>
-<li>二叉树的最大宽度 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/662_Maximum%20Width%20of%20Binary%20Tree.md" target="_blank" rel="noopener">662 Maximum Width of Binary Tree</a><br><br></li>
+<h3 id="2、启动vim"><a href="#2、启动vim" class="headerlink" title="2、启动vim"></a>2、启动vim</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">vim</td>
+<td>直接启动vim</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>vim file</strong></td>
+<td>启动vim并创建名为filename的文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>vim file1 file2 file3</strong></td>
+<td>启动vim并同时打开多个文件</td>
+</tr>
+<tr>
+<td style="text-align:center">vim -r file</td>
+<td>恢复上次异常退出的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">vim -R file</td>
+<td>只以只读的方式打开文件，但是可以强制保存</td>
+</tr>
+<tr>
+<td style="text-align:center">vim -M file</td>
+<td>只以只读的方式打开文件，但是不可强制保存（完全只读，不能做任何的修改，也不能保存甚至强制保存）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="3、保存与退出"><a href="#3、保存与退出" class="headerlink" title="3、保存与退出"></a>3、保存与退出</h3><p>下面的操作都比较重要，也常用到，含有!的皆有强制之意.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:w（:w +filename)</td>
+<td>保存文件内容，但不退出vim，将内存缓冲区的数据，写入到启动vim时指定文件中。加fliename 表示保存到相应文件（后面皆是如此）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:w!</strong>（:w +filename)</td>
+<td>强制写（覆盖）原有文件，<strong>特别对于源文件访问权限不允许时</strong>（例如原有文件为只读文件）。仅当用户为文件的user，root不受限制。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:wq</strong></td>
+<td>与:w有相同之处,<strong>保存文件内容后</strong>，退出vim</td>
+</tr>
+<tr>
+<td style="text-align:center">:wq!（:w +filename)</td>
+<td>强制保存文件内容后，退出vim</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>ZZ</strong></td>
+<td>功能同:wq，只需进入正常模式（Esc）<strong>后按两个Z（大写）</strong>，<strong>无需:</strong>也无需Enter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:q</strong></td>
+<td><strong>未做任何编辑处理而退出vim</strong>，可使用此命令。如果已经做过编辑，vim不允许用户使用q命令退出并抛出警告：No write since last change (:quit!overrides)</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:q!</strong></td>
+<td><strong>强制退出</strong>编辑器，<strong>放弃编辑处理的结果</strong>。适用于确实不需要保存文件的时候</td>
+</tr>
+<tr>
+<td style="text-align:center">:f filename</td>
+<td>改变编辑的文件名，这时候再保存相当于另存为</td>
+</tr>
+<tr>
+<td style="text-align:center">:save as filename</td>
+<td>另存为</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="4、光标移动"><a href="#4、光标移动" class="headerlink" title="4、光标移动"></a>4、光标移动</h3><p>在insert模式下</p>
+<ul>
+<li>按<strong>空格</strong>键，右移</li>
+<li>按<strong>退格</strong>键，左移</li>
 </ul>
-<h5 id="2、二叉树的节点"><a href="#2、二叉树的节点" class="headerlink" title="2、二叉树的节点"></a>2、二叉树的节点</h5><ul>
-<li>最近公共祖先 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/236_Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree.md" target="_blank" rel="noopener">236 Lowest Common Ancestor of a Binary Tree</a></li>
-<li>完全二叉树节点总个数 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/222_Count%20Complete%20Tree%20Nodes.md" target="_blank" rel="noopener">222 Count Complete Tree Nodes</a><br><br></li>
+<p>vim中分段默认Enter隔开一行,<strong>正常模式</strong>下，hljk分别代表“左右下上”（注意是下上，不是上下）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>h</strong></td>
+<td>左移</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>l</strong></td>
+<td>右移</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>j</strong></td>
+<td><strong>下移</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>k</strong></td>
+<td><strong>上移</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>0</strong></td>
+<td>移到行首</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>$</strong></td>
+<td>移到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>gg</strong></td>
+<td>移到<strong>文件开头</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>G</strong></td>
+<td>移到<strong>文件末尾</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>nG</strong></td>
+<td>移到第n行</td>
+</tr>
+<tr>
+<td style="text-align:center">n%</td>
+<td>移到文件n%的位置</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>H</strong></td>
+<td>移到当前<strong>屏幕最顶</strong>上一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>L</strong></td>
+<td>移到当前<strong>屏幕最底</strong>下一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>M</strong></td>
+<td>移到当前<strong>屏幕最中间</strong>一行</td>
+</tr>
+<tr>
+<td style="text-align:center">（</td>
+<td>移到上句</td>
+</tr>
+<tr>
+<td style="text-align:center">）</td>
+<td>移到下句</td>
+</tr>
+<tr>
+<td style="text-align:center">｛</td>
+<td>移到上段</td>
+</tr>
+<tr>
+<td style="text-align:center">｝</td>
+<td>移到下段</td>
+</tr>
+<tr>
+<td style="text-align:center">fa</td>
+<td>移到<strong>本行下个a</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Fa</td>
+<td>移到<strong>本行上个a</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">e（E）</td>
+<td>移到下个单词（包括标点），光标停留在单词的末尾（若为大写忽略标点）</td>
+</tr>
+<tr>
+<td style="text-align:center">b（B）</td>
+<td>移到上个单词（包括标点），光标停留在单词首字母 （若为大写忽略标点）</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+f（forward）</td>
+<td>下翻一屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+b（backward）</td>
+<td>上翻一屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+d（down）</td>
+<td>下翻半屏</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+ u（up）</td>
+<td>上翻半屏</td>
+</tr>
+</tbody>
+</table>
+<p>对于光标，当然还少不了标记。<br>标记等可以快速移动，通过Ctrl+o（后退）、Ctrl+i（前进），达到类似浏览器的功能</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>m{a-z}</strong></td>
+<td><strong>局部标记</strong>，标记光标所在位置，用于当前文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>m{A-Z}</strong></td>
+<td><strong>全局标记</strong>，标记光标所在位置。退出vim后重启，标记依然有效</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:marks</strong></td>
+<td>显示所有标记</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:marks a b</strong></td>
+<td>删除标记a,b</td>
+</tr>
+<tr>
+<td style="text-align:center">:marks a-c</td>
+<td>删除标记a,b,c</td>
+</tr>
+<tr>
+<td style="text-align:center">:marks a c-f</td>
+<td>删除标记a,c,d,e,f</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:delmarks</strong></td>
+<td>删除缓冲区所有标记</td>
+</tr>
+<tr>
+<td style="text-align:center">:help mark-motion</td>
+<td>查看更多关于mark的知识</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+o</td>
+<td>后退回到上一个标记</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+i</td>
+<td>前进前往下一个标记</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="5、复制命令"><a href="#5、复制命令" class="headerlink" title="5、复制命令"></a>5、复制命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">y</td>
+<td>在<strong>visual模式</strong>下复制<strong>选中的所有内容</strong>（先切换到visual模式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>yy</strong>（或者Y）</td>
+<td>复制<strong>当前整行</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>ygg</strong></td>
+<td>复制光标<strong>以前所有行</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>yG</strong></td>
+<td>复制光标<strong>以后所有行</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">y$</td>
+<td>复制光标字符到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">y0</td>
+<td>复制光标字符到行首</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="6、粘贴命令"><a href="#6、粘贴命令" class="headerlink" title="6、粘贴命令"></a>6、粘贴命令</h3><ul>
+<li>p（小写）    在光标<strong>之后</strong>粘贴</li>
+<li>P（大写）    在光标<strong>之前</strong>粘贴<br><br></li>
 </ul>
-<h5 id="3、二叉树的路径"><a href="#3、二叉树的路径" class="headerlink" title="3、二叉树的路径"></a>3、二叉树的路径</h5><ul>
-<li>二叉树路径 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/257_Binary%20Tree%20Paths.md" target="_blank" rel="noopener">257 Binary Tree Paths</a></li>
-<li>和为指定值的节点路径<ul>
-<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/112_Path%20Sum.md" target="_blank" rel="noopener">112 Path Sum</a></li>
-<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/113_Path%20Sum-2.md" target="_blank" rel="noopener">113 Path Sum II</a></li>
-<li><a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/427_Path%20Sum-3.md" target="_blank" rel="noopener">427 Path Sum III</a></li>
-</ul>
-</li>
-<li>最大路径和 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/124_Binary%20Tree%20Maximum%20Path%20Sum.md" target="_blank" rel="noopener">124 Binary Tree Maximum Path Sum</a></li>
-<li>根到叶节点所有路径整数之和 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/129_Sum%20Root%20to%20Leaf%20Numbers.md" target="_blank" rel="noopener">129 Sum Root to Leaf Numbers</a><br><br></li>
-</ul>
-<h5 id="4、树的镜像-对称-反转-转化"><a href="#4、树的镜像-对称-反转-转化" class="headerlink" title="4、树的镜像/对称/反转/转化"></a>4、树的镜像/对称/反转/转化</h5><ul>
-<li>翻转二叉树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/226_Invert%20Binary%20Tree.md" target="_blank" rel="noopener">226 Invert Binary Tree</a></li>
-<li>二叉树转为有序双链表 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/114_Flatten%20Binary%20Tree%20to%20Linked%20List.md" target="_blank" rel="noopener">114 Flatten Binary Tree to Linked List</a></li>
-<li>排序数组转为二叉搜索树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/108_Convert%20Sorted%20Array%20to%20Binary%20Tree.md" target="_blank" rel="noopener">108 Convert Sorted Array to Binary Search Tree</a></li>
-<li>最大二叉树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/654_Maximum%20Binary%20Tree.md" target="_blank" rel="noopener">654 Maximum Binary Tree</a></li>
-<li>打印二叉树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/655_Printf%20Binary%20Tree.md" target="_blank" rel="noopener">655 Print Binary Tree</a></li>
-<li>树的镜像 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/101_Symmetric%20Tree.md" target="_blank" rel="noopener">101 Symmetric Tree</a></li>
-<li>同一棵树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/100_Same%20Tree.md" target="_blank" rel="noopener">100 Same Tree</a><br><br></li>
-</ul>
-<h5 id="5、-树的验证"><a href="#5、-树的验证" class="headerlink" title="5、 树的验证"></a>5、 树的验证</h5><ul>
-<li>验证二叉查找树(BST) <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/098_Validate%20Binary%20Search%20Tree.md" target="_blank" rel="noopener">98 Validate Binary Search Tree</a></li>
-<li>验证平衡二叉树 (AVL) <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/110_Balanced%20Bianry%20Tree.md" target="_blank" rel="noopener">110  Balanced Binary Tree</a><br><br></li>
-</ul>
-<h5 id="6、二叉树遍历问题"><a href="#6、二叉树遍历问题" class="headerlink" title="6、二叉树遍历问题"></a>6、二叉树遍历问题</h5><ul>
-<li>中序遍历 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/094_Binary%20Tree%20Inorder%20Traversal.md" target="_blank" rel="noopener">094  Binary Tree Inorder Traversal</a></li>
-<li>先序遍历 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/144_Binary%20Tree%20Preorder%20Traversal.md" target="_blank" rel="noopener">144  Binary Tree Preorder Traversal</a></li>
-<li>后序遍历 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/145_Binary%20Tree%20Postorder%20Traversal.md" target="_blank" rel="noopener">145  Binary Tree Postorder Traversal</a></li>
-<li>层序遍历-I <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/102_Binary%20Tree%20Level%20Order%20Traversal.md" target="_blank" rel="noopener">102  Binary Tree Level Order Traversal</a></li>
-<li>层序遍历-II <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/107_Binary%20Tree%20Level%20Order%20Traversal-2.md" target="_blank" rel="noopener">107  Binary Tree Level Order Traversal II</a></li>
-<li>锯齿层序遍历 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/103_Binary%20Tree%20Zigzag%20Level%20Order%20Traversal.md" target="_blank" rel="noopener">103  Binary Tree Zigzag Level Order Traversal</a></li>
-<li>中序遍历和后序遍历构造二叉树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/105_Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal.md" target="_blank" rel="noopener">105 Construct Binary Tree from Preorder and Inorder Traversal</a></li>
-<li>前序遍历和中序遍历构造二叉树 <a href="https://github.com/LUCY78765580/Day-Day-Leetcode/blob/master/C/binary%20tree/106_Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal.md" target="_blank" rel="noopener">106 Construct Binary Tree from Inorder and Postorder Traversal</a><br><br></li>
-</ul>
-<h5 id="没有考不到，只有想不到。。。"><a href="#没有考不到，只有想不到。。。" class="headerlink" title="没有考不到，只有想不到。。。"></a>没有考不到，只有想不到。。。</h5><p><br></p>
+<h3 id="7、插入命令"><a href="#7、插入命令" class="headerlink" title="7、插入命令"></a>7、插入命令</h3><p>对于ia来说，如果是小写ia，则是在<strong>当前位置</strong>的前面/后面插入，对于IA来说，则是在<strong>当前行</strong>的行首/行尾插入；</p>
+<p>对于oO来说，分别是在当前行行后/行前插入一行，注意<strong>O是行后，o是行前</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>i</strong></td>
+<td style="text-align:center">在当前位置的前面，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>a</strong></td>
+<td style="text-align:center">在当前位置的后面，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>I</strong></td>
+<td style="text-align:center">在当前行的行首，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:center">在当前行的行尾，插入</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>o</strong></td>
+<td style="text-align:center">当前行<strong>行后</strong>，插入一行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>O</strong></td>
+<td style="text-align:center">当前行<strong>行前</strong>，插入一行</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="8、删除（剪切）命令"><a href="#8、删除（剪切）命令" class="headerlink" title="8、删除（剪切）命令"></a>8、删除（剪切）命令</h3><p>（与上面复制，同理，多了个x而已）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>d</strong></td>
+<td>删除visual模式下，选中的所有内容（先切换到visual模式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dd</strong></td>
+<td>删除当前整行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dgg</strong></td>
+<td>删除光标以前所有行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>dG</strong></td>
+<td>删除光标以后所有行</td>
+</tr>
+<tr>
+<td style="text-align:center">d$（或者D）</td>
+<td>删除光标字符到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">d0</td>
+<td>删除光标字符到行首</td>
+</tr>
+<tr>
+<td style="text-align:center">dx</td>
+<td>删除当前字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d3x（同时按）</td>
+<td>删除光标向后3个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d[n]h</td>
+<td>删除光标左边  一个或多个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d[n]l</td>
+<td>删除光标右边  一个或多个字符</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>10dd</strong></td>
+<td>删除10行（包括本行）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:1,10d</strong></td>
+<td>删除1-10行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:10,$d</strong></td>
+<td>删除第10行及之后的所有行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:1,$d</strong></td>
+<td>删除所有行（即全部内容）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="9、撤销与恢复"><a href="#9、撤销与恢复" class="headerlink" title="9、撤销与恢复"></a>9、撤销与恢复</h3><p>在正常模式下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>u(或者undo)</strong></td>
+<td>撤销</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:undo 5</strong></td>
+<td>撤销5个改变</td>
+</tr>
+<tr>
+<td style="text-align:center">:undolist</td>
+<td>你的撤销历史</td>
+</tr>
+<tr>
+<td style="text-align:center">U</td>
+<td>撤销当前行中的改动</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+r</td>
+<td>恢复</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:earlier 3s/3m/3h</strong></td>
+<td>回退</td>
+</tr>
+<tr>
+<td style="text-align:center">:later 5s/5m/5h</td>
+<td>前进</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="10、查找命令"><a href="#10、查找命令" class="headerlink" title="10、查找命令"></a>10、查找命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>/text:</strong></td>
+<td>在光标后面 文本中查找</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>?text:</strong></td>
+<td>在光标前面 文本中查找</td>
+</tr>
+<tr>
+<td style="text-align:center">n:</td>
+<td>向前查找下一个（已经查找到第一个）</td>
+</tr>
+<tr>
+<td style="text-align:center">N:</td>
+<td>向后查找下一个（已经查找到第一个）</td>
+</tr>
+<tr>
+<td style="text-align:center">set ignorecase</td>
+<td>忽略大小写的查找</td>
+</tr>
+<tr>
+<td style="text-align:center">set noignorecase</td>
+<td>不忽略大小写查找</td>
+</tr>
+<tr>
+<td style="text-align:center">set hlsearch</td>
+<td>高亮搜索结果，所有结果都显示高亮</td>
+</tr>
+<tr>
+<td style="text-align:center">set nohlsearch</td>
+<td>关闭高亮搜索</td>
+</tr>
+<tr>
+<td style="text-align:center">nohlsearch</td>
+<td>关闭当前高亮显示，再次搜索或者按n（或N）时，再次显示高亮</td>
+</tr>
+<tr>
+<td style="text-align:center">/pattern/+number:</td>
+<td>光标停在pattern行后面第number行上</td>
+</tr>
+<tr>
+<td style="text-align:center">/pattern/-number:</td>
+<td>光标停在pattern行前面第number行上</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="11、窗口命令"><a href="#11、窗口命令" class="headerlink" title="11、窗口命令"></a>11、窗口命令</h3><p>在 vim中输入如下命令：</p>
+<h5 id="多窗口中的文件命令"><a href="#多窗口中的文件命令" class="headerlink" title="多窗口中的文件命令"></a>多窗口中的文件命令</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>:e file</strong>（e和open一样，可替代）</td>
+<td><strong>关闭当前编辑的文件（需先保存）</strong>，打开新文件（<strong>如果文件修改未保存，vim会发出警告</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:center">:e! file</td>
+<td>强制关闭当前编辑文件（放弃保存），打开新文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:e#</strong></td>
+<td><strong>回到刚才编辑的文件</strong>（文件切换，<strong>需先保存</strong>当前文件），实用</td>
+</tr>
+<tr>
+<td style="text-align:center">:e!#</td>
+<td>强制回到刚才编辑的文件（放弃保存）</td>
+</tr>
+<tr>
+<td style="text-align:center">:split file(new file)</td>
+<td>新窗口中打开文件（窗口是横向的）</td>
+</tr>
+<tr>
+<td style="text-align:center">:vsplit file(new file)</td>
+<td>新窗口中打开文件（窗口是纵向的）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:bn</strong></td>
+<td>切换到下一个文件（其实是缓冲区）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:bp</strong></td>
+<td>切换到上一个文件（其实是缓冲区）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="调整窗口位置"><a href="#调整窗口位置" class="headerlink" title="调整窗口位置"></a>调整窗口位置</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Ctrl+w p</strong></td>
+<td>切换到前一个窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+w h(l,j,k)</td>
+<td>（一般Ctrl+w j(k)多一些）切换到左（右，下，上）窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+w H(L,J,K)</td>
+<td>将当前窗口 移动到最左（右，下，上）面</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+w r</td>
+<td>旋转窗口的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+w T</td>
+<td>将当前窗口移动到新的标签页上</td>
+</tr>
+</tbody>
+</table>
+<h5 id="调整窗口大小"><a href="#调整窗口大小" class="headerlink" title="调整窗口大小"></a>调整窗口大小</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:browse e</td>
+<td>打开一个文件浏览器，让你选择要编辑的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">:Sex</td>
+<td>水平分割一个窗口，浏览文件系统</td>
+</tr>
+<tr>
+<td style="text-align:center">:Vex</td>
+<td>垂直分割一个窗口，浏览文件系统</td>
+</tr>
+</tbody>
+</table>
+<h5 id="小窗口的关闭"><a href="#小窗口的关闭" class="headerlink" title="小窗口的关闭"></a>小窗口的关闭</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ZZ（常用）</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td style="text-align:center">:q</td>
+<td>如果是最后一个窗口，将退出vim</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:close</strong></td>
+<td>关闭窗口，<strong>最后一个窗口不能用此命令，防止意外退出vim</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">:only</td>
+<td>只保留当前窗口，关闭其它窗口</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:wall</strong></td>
+<td>对所有修改过的窗口进行保存</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>:qall</strong></td>
+<td>关闭所有窗口并退出</td>
+</tr>
+</tbody>
+</table>
+<p><br><br><br></p>
+<p>参考博客1：<a href="http://blog.csdn.net/scaleqiao/article/details/45153379" target="_blank" rel="noopener">http://blog.csdn.net/scaleqiao/article/details/45153379</a></p>
+<p>参考博客2：<a href="http://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html" target="_blank" rel="noopener">http://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html</a></p>
 
       
     </div>
@@ -471,15 +1084,9 @@
     
       <div class="post-tags">
         
-          <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+          <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
         
-          <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-        
-          <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
-        
-          <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
-        
-          <a href="/tags/binary-tree/" rel="tag"><i class="fa fa-tag"></i> binary tree</a>
+          <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
         
       </div>
     
@@ -508,7 +1115,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://lucy78765580.github.io/2018/03/18/binary-tree/" title="binary tree">http://lucy78765580.github.io/2018/03/18/binary-tree/</a>
+    <a href="http://lucy78765580.github.io/2018/03/25/Linux基础之Vim编辑器/" title="Linux基础(4) - Vim编辑器">http://lucy78765580.github.io/2018/03/25/Linux基础之Vim编辑器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -530,8 +1137,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/18/queue/" rel="next" title="queue">
-                <i class="fa fa-chevron-left"></i> queue
+              <a href="/2018/03/24/Linux基础之文件与目录管理/" rel="next" title="Linux基础(3) - 文件与目录">
+                <i class="fa fa-chevron-left"></i> Linux基础(3) - 文件与目录
               </a>
             
           </div>
@@ -540,8 +1147,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/18/binary-search-tree/" rel="prev" title="binary search tree">
-                binary search tree <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/05/Heroku部署Flask项目经历/" rel="prev" title="Heroku部署Flask项目经历">
+                Heroku部署Flask项目经历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -722,7 +1329,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树（题型总结）"><span class="nav-number">1.</span> <span class="nav-text">二叉树（题型总结）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、二叉树的深度-宽度"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1、二叉树的深度/宽度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、二叉树的节点"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2、二叉树的节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、二叉树的路径"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3、二叉树的路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、树的镜像-对称-反转-转化"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4、树的镜像/对称/反转/转化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-树的验证"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5、 树的验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、二叉树遍历问题"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6、二叉树遍历问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#没有考不到，只有想不到。。。"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">没有考不到，只有想不到。。。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、vim的几种模式"><span class="nav-number">1.</span> <span class="nav-text">1、vim的几种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、启动vim"><span class="nav-number">2.</span> <span class="nav-text">2、启动vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、保存与退出"><span class="nav-number">3.</span> <span class="nav-text">3、保存与退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、光标移动"><span class="nav-number">4.</span> <span class="nav-text">4、光标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、复制命令"><span class="nav-number">5.</span> <span class="nav-text">5、复制命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、粘贴命令"><span class="nav-number">6.</span> <span class="nav-text">6、粘贴命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、插入命令"><span class="nav-number">7.</span> <span class="nav-text">7、插入命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、删除（剪切）命令"><span class="nav-number">8.</span> <span class="nav-text">8、删除（剪切）命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、撤销与恢复"><span class="nav-number">9.</span> <span class="nav-text">9、撤销与恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、查找命令"><span class="nav-number">10.</span> <span class="nav-text">10、查找命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、窗口命令"><span class="nav-number">11.</span> <span class="nav-text">11、窗口命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多窗口中的文件命令"><span class="nav-number">11.0.1.</span> <span class="nav-text">多窗口中的文件命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口位置"><span class="nav-number">11.0.2.</span> <span class="nav-text">调整窗口位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整窗口大小"><span class="nav-number">11.0.3.</span> <span class="nav-text">调整窗口大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小窗口的关闭"><span class="nav-number">11.0.4.</span> <span class="nav-text">小窗口的关闭</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
